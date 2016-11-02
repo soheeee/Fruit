@@ -15,19 +15,17 @@ class Assignment:Item{
     var memo:String
     
     enum category{
-        case Assignment
-        case Project
-        case TeamProject
-        case Presentation
+        case assignment
+        case project
+        case teamProject
+        case presentation
     }
     
     init(id: Int, time: NSCalendar, name: String, subject:String, memo:String) {
-        
-        super.init(id: <#T##Int#>, time: <#T##NSCalendar#>)
-        
-        self.name = name
-        self.subject = subject
-        self.memo = memo
-        
-    }
+		self.name = name
+		self.subject = subject
+		self.memo = memo
+		
+        super.init(id: id, time: time)
+	}
 }

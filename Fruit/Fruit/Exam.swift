@@ -15,19 +15,16 @@ class Exam:Item{
     var location:String
     
     enum category{
-        case Midterm
-        case Final
-        case Quiz
+        case midterm
+        case final
+        case quiz
     }
     
     init(id: Int, time: NSCalendar, subject:String, memo:String, location:String) {
-        
-        super.init(id: <#T##Int#>, time: <#T##NSCalendar#>)
-        
-        self.subject = subject
-        self.memo = memo
-        self.location = location
-        
+		self.subject = subject
+		self.memo = memo
+		self.location = location
+		
+        super.init(id: id, time: time)
     }
-    
 }
