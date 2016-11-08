@@ -14,17 +14,19 @@ class Exam:Item{
     var memo:String
     var location:String
     
-    enum category{
-        case midterm
-        case final
-        case quiz
+    enum category:Int{
+        case midterm = 0
+        case final = 1
+        case quiz = 2
     }
     
-    init(id: Int, time: NSCalendar, subject:String, memo:String, location:String) {
+    var cateArray = ["midterm","final","quiz"]
+    
+    init(id: Int, time: NSCalendar, subject:String, memo:String, location:String, cate: category) {
 		self.subject = subject
 		self.memo = memo
 		self.location = location
 		
-        super.init(id: id, time: time)
+        super.init(id: id, title: cateArray[cate.rawValue], time: time)
     }
 }

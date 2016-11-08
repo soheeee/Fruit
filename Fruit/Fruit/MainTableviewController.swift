@@ -11,7 +11,7 @@ import UIKit
 
 class MainTableViewController: UITableViewController{
     
-    let arrayWorks:[String] = ["work"]
+    let arrayItem:[String] = ["work"]
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

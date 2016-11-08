@@ -12,10 +12,12 @@ class Item{
     
     var id:Int
     var time:NSCalendar
+    var title:String
     
-    init(id:Int, time:NSCalendar){
+    init(id:Int, title:String, time:NSCalendar){
     
         self.id = id
+        self.title = title
         self.time = time
     
     }

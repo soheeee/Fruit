@@ -26,6 +26,6 @@ class Assignment:Item{
 		self.subject = subject
 		self.memo = memo
 		
-        super.init(id: id, time: time)
+        super.init(id: id, title: name, time: time)
 	}
 }
