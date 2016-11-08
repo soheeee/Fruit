@@ -17,6 +17,7 @@
 		8D715F081DC867C5009018AE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715F071DC867C5009018AE /* Item.swift */; };
 		8D715F0A1DC86CFC009018AE /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715F091DC86CFC009018AE /* Assignment.swift */; };
 		8D715F0C1DC87019009018AE /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715F0B1DC87019009018AE /* Exam.swift */; };
+		A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8D715F071DC867C5009018AE /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8D715F091DC86CFC009018AE /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		8D715F0B1DC87019009018AE /* Exam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
+		A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableviewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				8D715F071DC867C5009018AE /* Item.swift */,
 				8D715F091DC86CFC009018AE /* Assignment.swift */,
 				8D715F0B1DC87019009018AE /* Exam.swift */,
+				A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */,
 			);
 			path = Fruit;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				8D715F0C1DC87019009018AE /* Exam.swift in Sources */,
 				8D715F081DC867C5009018AE /* Item.swift in Sources */,
 				8D715EDC1DC8659D009018AE /* ViewController.swift in Sources */,
+				A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
