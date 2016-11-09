@@ -18,15 +18,15 @@ class MainTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayWorks.count+100
+        return arrayItem.count+100
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: nil)
 //        let work : String = arrayWorks[indexPath.row]
         
-        cell.textLabel?.text = arrayWorks[0]
-        cell.detailTextLabel?.text = arrayWorks[0] + " work"
+        cell.textLabel?.text = arrayItem[0]
+        cell.detailTextLabel?.text = arrayItem[0] + " work"
         
         return cell
     }
