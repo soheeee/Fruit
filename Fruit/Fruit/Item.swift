@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Item: NSCoding{
+class Item: NSObject, NSCoding{
     
     var id:Int
     var time:NSDate
@@ -21,7 +21,7 @@ class Item: NSCoding{
     }
     
 	required init?(coder aDecoder: NSCoder) {
-		self.id = aDecoder.decodeObject(forKey: "id") as! Int
+		self.id = aDecoder.decodeInteger(forKey: "id")
 		self.title = aDecoder.decodeObject(forKey: "title") as! String
 		self.time = aDecoder.decodeObject(forKey: "time") as! NSDate
 	}
