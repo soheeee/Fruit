@@ -11,22 +11,23 @@ import UIKit
 
 class MainTableViewController: UITableViewController{
     
-    let arrayItem:[String] = ["work"]
+    let arrayItem:[Item] = itemList.items
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayItem.count+100
+        return arrayItem.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: nil)
-//        let work : String = arrayWorks[indexPath.row]
+		
+		let item : Item = arrayItem[indexPath.row]
         
-        cell.textLabel?.text = arrayItem[0]
-        cell.detailTextLabel?.text = arrayItem[0] + " work"
+        cell.textLabel?.text = item.title
+        cell.detailTextLabel?.text = item.time.description
         
         return cell
     }
