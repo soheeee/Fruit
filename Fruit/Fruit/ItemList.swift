@@ -44,4 +44,10 @@ class ItemList {
 		let dummyExam = Exam(id: 1, time: NSDate(), subject: "dummySubject", memo: "dummyMemo", location: "dummyLocation", cate: Exam.category.quiz)
 		return [dummyAssignment, dummyExam]
 	}
+	
+	func createDummy() {
+		let dummyItem = Item(id: -1, title: "dummy", time: NSDate())
+		
+		items += [dummyItem]
+	}
 }

@@ -11,8 +11,8 @@ import UIKit
 
 class MainTableViewController: UITableViewController{
     
-    let arrayItem:[Item] = itemList.items
-    
+    var arrayItem:[Item] = itemList.items
+	
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -31,5 +31,14 @@ class MainTableViewController: UITableViewController{
         
         return cell
     }
-    
+	
+	@IBAction func CreateItem(_ sender: Any) {
+		itemList.createDummy()
+		refreshTable()
+	}
+	
+	func refreshTable() {
+		arrayItem = itemList.items
+		tableView.reloadData()
+	}
 }
