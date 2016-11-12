@@ -41,4 +41,15 @@ class MainTableViewController: UITableViewController{
 		arrayItem = itemList.items
 		tableView.reloadData()
 	}
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			deleteItem(row: indexPath.row)
+		}
+	}
+	
+	func deleteItem(row: Int) {
+		itemList.deleteItem(at: row)
+		refreshTable()
+	}
 }

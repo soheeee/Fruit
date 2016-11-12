@@ -49,5 +49,13 @@ class ItemList {
 		let dummyItem = Item(id: -1, title: "dummy", time: NSDate())
 		
 		items += [dummyItem]
+		
+		saveItems()
+	}
+	
+	func deleteItem(at:Int) {
+		items.remove(at: at)
+		
+		saveItems()
 	}
 }
