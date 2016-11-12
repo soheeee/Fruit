@@ -21,7 +21,7 @@ class Assignment:Item{
         case presentation
     }
     
-    init(id: Int, time: NSCalendar, name: String, subject:String, memo:String) {
+    init(id: Int, time: NSDate, name: String, subject:String, memo:String) {
 		self.name = name
 		self.subject = subject
 		self.memo = memo

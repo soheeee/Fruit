@@ -40,8 +40,8 @@ class ItemList {
 	}
 	
 	func tutorialData() -> [Item] {
-		let dummyAssignment = Assignment(id: 0, time: NSCalendar.current as NSCalendar, name: "TestAssignment", subject: "TestSubject", memo: "TestMemo")
-		let dummyExam = Exam(id: 1, time: NSCalendar.current as NSCalendar, subject: "dummySubject", memo: "dummyMemo", location: "dummyLocation", cate: Exam.category.quiz)
+		let dummyAssignment = Assignment(id: 0, time: NSDate(), name: "TestAssignment", subject: "TestSubject", memo: "TestMemo")
+		let dummyExam = Exam(id: 1, time: NSDate(), subject: "dummySubject", memo: "dummyMemo", location: "dummyLocation", cate: Exam.category.quiz)
 		return [dummyAssignment, dummyExam]
 	}
 }

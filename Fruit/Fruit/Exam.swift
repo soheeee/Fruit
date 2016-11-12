@@ -22,7 +22,7 @@ class Exam:Item{
     
     var cateArray = ["midterm","final","quiz"]
     
-    init(id: Int, time: NSCalendar, subject:String, memo:String, location:String, cate: category) {
+    init(id: Int, time: NSDate, subject:String, memo:String, location:String, cate: category) {
 		self.subject = subject
 		self.memo = memo
 		self.location = location

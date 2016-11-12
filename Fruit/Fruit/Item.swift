@@ -11,10 +11,10 @@ import Foundation
 class Item: NSCoding{
     
     var id:Int
-    var time:NSCalendar
+    var time:NSDate
     var title:String
     
-    init(id:Int, title:String, time:NSCalendar){
+    init(id:Int, title:String, time:NSDate){
         self.id = id
         self.title = title
         self.time = time
@@ -23,7 +23,7 @@ class Item: NSCoding{
 	required init?(coder aDecoder: NSCoder) {
 		self.id = aDecoder.decodeObject(forKey: "id") as! Int
 		self.title = aDecoder.decodeObject(forKey: "title") as! String
-		self.time = aDecoder.decodeObject(forKey: "time") as! NSCalendar
+		self.time = aDecoder.decodeObject(forKey: "time") as! NSDate
 	}
 	
 	func encode(with aCoder: NSCoder) {
