@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C1C2F1DD78ED80021516D /* ItemList.swift */; };
 		8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715ED91DC8659D009018AE /* AppDelegate.swift */; };
 		8D715EDC1DC8659D009018AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715EDB1DC8659D009018AE /* ViewController.swift */; };
 		8D715EDF1DC8659D009018AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D715EDD1DC8659D009018AE /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C1C1C2F1DD78ED80021516D /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		8D715ED61DC8659D009018AE /* Fruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D715ED91DC8659D009018AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D715EDB1DC8659D009018AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				8D715EE51DC8659D009018AE /* Info.plist */,
 				8D715F071DC867C5009018AE /* Item.swift */,
 				8D715F091DC86CFC009018AE /* Assignment.swift */,
+				3C1C1C2F1DD78ED80021516D /* ItemList.swift */,
 				8D715F0B1DC87019009018AE /* Exam.swift */,
 				A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */,
 			);
@@ -274,6 +277,7 @@
 				8D715F0A1DC86CFC009018AE /* Assignment.swift in Sources */,
 				8D715F0C1DC87019009018AE /* Exam.swift in Sources */,
 				8D715F081DC867C5009018AE /* Item.swift in Sources */,
+				3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */,
 				8D715EDC1DC8659D009018AE /* ViewController.swift in Sources */,
 				A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
