@@ -28,4 +28,20 @@ class Assignment:Item{
 		
         super.init(id: id, title: name, time: time)
 	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		self.name = aDecoder.decodeObject(forKey: "name") as! String
+		self.subject = aDecoder.decodeObject(forKey: "subject") as! String
+		self.memo = aDecoder.decodeObject(forKey: "memo") as! String
+		
+		super.init(coder: aDecoder)
+	}
+	
+	override func encode(with aCoder: NSCoder) {
+		aCoder.encode(self.name, forKey:"name")
+		aCoder.encode(self.subject, forKey:"subject")
+		aCoder.encode(self.memo, forKey:"memo")
+		
+		super.encode(with: aCoder)
+	}
 }

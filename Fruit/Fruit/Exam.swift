@@ -29,4 +29,20 @@ class Exam:Item{
 		
         super.init(id: id, title: cateArray[cate.rawValue], time: time)
     }
+	
+	required init?(coder aDecoder: NSCoder) {
+		self.subject = aDecoder.decodeObject(forKey: "subject") as! String
+		self.memo = aDecoder.decodeObject(forKey: "memo") as! String
+		self.location = aDecoder.decodeObject(forKey: "location") as! String
+		
+		super.init(coder: aDecoder)
+	}
+	
+	override func encode(with aCoder: NSCoder) {
+		aCoder.encode(self.subject, forKey:"subject")
+		aCoder.encode(self.memo, forKey:"memo")
+		aCoder.encode(self.location, forKey:"location")
+		
+		super.encode(with: aCoder)
+	}
 }
