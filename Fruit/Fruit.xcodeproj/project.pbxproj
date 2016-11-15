@@ -18,6 +18,12 @@
 		8D715F081DC867C5009018AE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715F071DC867C5009018AE /* Item.swift */; };
 		8D715F0A1DC86CFC009018AE /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715F091DC86CFC009018AE /* Assignment.swift */; };
 		8D715F0C1DC87019009018AE /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715F0B1DC87019009018AE /* Exam.swift */; };
+		8DD66B6B1DDB328100712B9F /* KCFABManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B651DDB328100712B9F /* KCFABManager.swift */; };
+		8DD66B6C1DDB328100712B9F /* KCFABViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B661DDB328100712B9F /* KCFABViewController.swift */; };
+		8DD66B6D1DDB328100712B9F /* KCFABWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B671DDB328100712B9F /* KCFABWindow.swift */; };
+		8DD66B6E1DDB328100712B9F /* KCFloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B681DDB328100712B9F /* KCFloatingActionButton.swift */; };
+		8DD66B6F1DDB328100712B9F /* KCFloatingActionButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B691DDB328100712B9F /* KCFloatingActionButtonDelegate.swift */; };
+		8DD66B701DDB328100712B9F /* KCFloatingActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */; };
 		A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +62,12 @@
 		8D715F071DC867C5009018AE /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8D715F091DC86CFC009018AE /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		8D715F0B1DC87019009018AE /* Exam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
+		8DD66B651DDB328100712B9F /* KCFABManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFABManager.swift; sourceTree = "<group>"; };
+		8DD66B661DDB328100712B9F /* KCFABViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFABViewController.swift; sourceTree = "<group>"; };
+		8DD66B671DDB328100712B9F /* KCFABWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFABWindow.swift; sourceTree = "<group>"; };
+		8DD66B681DDB328100712B9F /* KCFloatingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButton.swift; sourceTree = "<group>"; };
+		8DD66B691DDB328100712B9F /* KCFloatingActionButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonDelegate.swift; sourceTree = "<group>"; };
+		8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonItem.swift; sourceTree = "<group>"; };
 		A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableviewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +103,7 @@
 				8D715EED1DC8659D009018AE /* FruitTests */,
 				8D715EF81DC8659D009018AE /* FruitUITests */,
 				8D715ED71DC8659D009018AE /* Products */,
+				8DD66B5E1DDB24BB00712B9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +120,7 @@
 		8D715ED81DC8659D009018AE /* Fruit */ = {
 			isa = PBXGroup;
 			children = (
+				8DD66B711DDB357800712B9F /* KCFAB */,
 				8D715ED91DC8659D009018AE /* AppDelegate.swift */,
 				8D715EDB1DC8659D009018AE /* ViewController.swift */,
 				8D715EDD1DC8659D009018AE /* Main.storyboard */,
@@ -138,6 +152,26 @@
 				8D715EFB1DC8659D009018AE /* Info.plist */,
 			);
 			path = FruitUITests;
+			sourceTree = "<group>";
+		};
+		8DD66B5E1DDB24BB00712B9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8DD66B711DDB357800712B9F /* KCFAB */ = {
+			isa = PBXGroup;
+			children = (
+				8DD66B651DDB328100712B9F /* KCFABManager.swift */,
+				8DD66B661DDB328100712B9F /* KCFABViewController.swift */,
+				8DD66B671DDB328100712B9F /* KCFABWindow.swift */,
+				8DD66B681DDB328100712B9F /* KCFloatingActionButton.swift */,
+				8DD66B691DDB328100712B9F /* KCFloatingActionButtonDelegate.swift */,
+				8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */,
+			);
+			name = KCFAB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,11 +310,17 @@
 			files = (
 				8D715F0A1DC86CFC009018AE /* Assignment.swift in Sources */,
 				8D715F0C1DC87019009018AE /* Exam.swift in Sources */,
+				8DD66B6C1DDB328100712B9F /* KCFABViewController.swift in Sources */,
+				8DD66B6D1DDB328100712B9F /* KCFABWindow.swift in Sources */,
 				8D715F081DC867C5009018AE /* Item.swift in Sources */,
 				3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */,
 				8D715EDC1DC8659D009018AE /* ViewController.swift in Sources */,
 				A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
+				8DD66B6B1DDB328100712B9F /* KCFABManager.swift in Sources */,
+				8DD66B6F1DDB328100712B9F /* KCFloatingActionButtonDelegate.swift in Sources */,
+				8DD66B701DDB328100712B9F /* KCFloatingActionButtonItem.swift in Sources */,
+				8DD66B6E1DDB328100712B9F /* KCFloatingActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
