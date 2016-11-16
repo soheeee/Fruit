@@ -25,6 +25,7 @@
 		8DD66B6F1DDB328100712B9F /* KCFloatingActionButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B691DDB328100712B9F /* KCFloatingActionButtonDelegate.swift */; };
 		8DD66B701DDB328100712B9F /* KCFloatingActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */; };
 		A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */; };
+		A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A006701DDC335F007E131D /* MainNaviController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		8DD66B691DDB328100712B9F /* KCFloatingActionButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonDelegate.swift; sourceTree = "<group>"; };
 		8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonItem.swift; sourceTree = "<group>"; };
 		A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableviewController.swift; sourceTree = "<group>"; };
+		A1A006701DDC335F007E131D /* MainNaviController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNaviController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				3C1C1C2F1DD78ED80021516D /* ItemList.swift */,
 				8D715F0B1DC87019009018AE /* Exam.swift */,
 				A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */,
+				A1A006701DDC335F007E131D /* MainNaviController.swift */,
 			);
 			path = Fruit;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */,
 				8D715EDC1DC8659D009018AE /* ViewController.swift in Sources */,
 				A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */,
+				A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
 				8DD66B6B1DDB328100712B9F /* KCFABManager.swift in Sources */,
 				8DD66B6F1DDB328100712B9F /* KCFloatingActionButtonDelegate.swift in Sources */,

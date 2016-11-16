@@ -13,6 +13,10 @@ class MainTableViewController: UITableViewController{
     
     var arrayItem:[Item] = itemList.items
 	
+    override func viewDidLoad() {
+//        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -220, 0);
+//        self.tableView.contentInset.top = 220
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -21,6 +25,7 @@ class MainTableViewController: UITableViewController{
         return arrayItem.count
     }
     
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: nil)
         
@@ -53,24 +58,4 @@ class MainTableViewController: UITableViewController{
 		refreshTable()
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		CreateFloatingButton()
-	}
-	
-	func CreateFloatingButton() {
-		let fab = KCFloatingActionButton()
-		fab.addItem("과제추가", icon:UIImage(named:"assignment")!, handler: {item in
-			let alert = UIAlertController(title: "과제추가", message: "과제를 추가한다.", preferredStyle: .alert)
-			alert.addAction(UIAlertAction(title: "네 알겠습니다", style: .default, handler: nil))
-			self.present(alert, animated: true, completion: nil)
-			fab.close()
-		})
-		fab.addItem("시험추가", icon:UIImage(named:"exam")!, handler: {item in
-			let alert = UIAlertController(title: "시험추가", message: "시험을 추가한다.", preferredStyle: .alert)
-			alert.addAction(UIAlertAction(title: "네 알겠습니다", style: .default, handler: nil))
-			self.present(alert, animated: true, completion: nil)
-			fab.close()
-		})
-		self.view.addSubview(fab)
-	}
 }
