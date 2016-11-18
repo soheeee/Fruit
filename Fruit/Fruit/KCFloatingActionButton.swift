@@ -565,14 +565,16 @@ open class KCFloatingActionButton: UIView {
         if superview == nil {
             frame = CGRect(
                 x: (UIScreen.main.bounds.size.width - size) - paddingX,
-                y: (UIScreen.main.bounds.size.height - size - keyboardSize) - paddingY,
+                //y: (UIScreen.main.bounds.size.height - size - keyboardSize) - paddingY,
+				y: paddingY + UIApplication.shared.statusBarFrame.height, // EDITED
                 width: size,
                 height: size
             )
         } else {
             frame = CGRect(
                 x: (superview!.bounds.size.width-size) - paddingX,
-                y: (superview!.bounds.size.height-size-keyboardSize) - paddingY,
+                //y: (superview!.bounds.size.height-size-keyboardSize) - paddingY,
+				y: paddingY + UIApplication.shared.statusBarFrame.height, // EDITED
                 width: size,
                 height: size
             )
@@ -732,7 +734,8 @@ extension KCFloatingActionButton {
             let big = size > item.size ? size : item.size
             let small = size <= item.size ? size : item.size
             item.frame.origin.x = big/2-small/2
-            item.frame.origin.y = -itemHeight
+            //item.frame.origin.y = -itemHeight
+			item.frame.origin.y = itemHeight // EDITED
             item.layer.transform = CATransform3DMakeScale(0.4, 0.4, 1)
             UIView.animate(withDuration: 0.3, delay: delay,
                                        usingSpringWithDamping: 0.55,
