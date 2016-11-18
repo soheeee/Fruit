@@ -70,7 +70,7 @@ open class KCFloatingActionButton: UIView {
     /**
         Button color.
     */
-    @IBInspectable open var buttonColor: UIColor = UIColor.gray
+    @IBInspectable open var buttonColor: UIColor = UIColor.clear
     /**
         Button image.
     */
@@ -83,7 +83,7 @@ open class KCFloatingActionButton: UIView {
     /**
         Plus icon color inside button.
     */
-    @IBInspectable open var plusColor: UIColor = UIColor(white: 0.2, alpha: 1)
+    @IBInspectable open var plusColor: UIColor = UIColor(white: 1, alpha: 0.9)
 
     /**
         Background overlaying color.
@@ -400,6 +400,21 @@ open class KCFloatingActionButton: UIView {
         item.title = title
         item.icon = icon
         item.handler = handler
+        addItem(item: item)
+        return item
+    }
+    
+    /**
+     Add item with title, icon, handler and color.
+     */
+    @discardableResult
+    open func addItem(_ title: String, icon: UIImage?, color: UIColor, handler: @escaping ((KCFloatingActionButtonItem) -> Void)) -> KCFloatingActionButtonItem {
+        let item = KCFloatingActionButtonItem()
+        itemDefaultSet(item)
+        item.title = title
+        item.icon = icon
+        item.handler = handler
+        item.buttonColor = color
         addItem(item: item)
         return item
     }

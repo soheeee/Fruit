@@ -61,13 +61,13 @@ class MainNaviController : UINavigationController {
         
         let fab = KCFloatingActionButton()
         
-        fab.addItem("과제추가", icon:UIImage(named:"assignment")!, handler: {item in
+        fab.addItem("과제추가", icon:UIImage(named:"assignment")!, color: UIColor(red: CGFloat(250)/255, green: CGFloat(190)/255, blue: CGFloat(170)/255, alpha: 1.0),handler: {item in
             let alert = UIAlertController(title: "과제추가", message: "과제를 추가한다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "네 알겠습니다", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             fab.close()
         })
-        fab.addItem("시험추가", icon:UIImage(named:"exam")!, handler: {item in
+        fab.addItem("시험추가", icon:UIImage(named:"exam")!, color: UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0),handler: {item in
             let alert = UIAlertController(title: "시험추가", message: "시험을 추가한다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "네 알겠습니다", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
