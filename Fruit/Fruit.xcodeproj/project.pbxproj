@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C1C2F1DD78ED80021516D /* ItemList.swift */; };
 		8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715ED91DC8659D009018AE /* AppDelegate.swift */; };
-		8D715EDC1DC8659D009018AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715EDB1DC8659D009018AE /* ViewController.swift */; };
 		8D715EDF1DC8659D009018AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D715EDD1DC8659D009018AE /* Main.storyboard */; };
 		8D715EE11DC8659D009018AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D715EE01DC8659D009018AE /* Assets.xcassets */; };
 		8D715EE41DC8659D009018AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D715EE21DC8659D009018AE /* LaunchScreen.storyboard */; };
@@ -49,7 +48,6 @@
 		3C1C1C2F1DD78ED80021516D /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		8D715ED61DC8659D009018AE /* Fruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D715ED91DC8659D009018AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8D715EDB1DC8659D009018AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8D715EDE1DC8659D009018AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D715EE01DC8659D009018AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D715EE31DC8659D009018AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 			children = (
 				8DD66B711DDB357800712B9F /* KCFAB */,
 				8D715ED91DC8659D009018AE /* AppDelegate.swift */,
-				8D715EDB1DC8659D009018AE /* ViewController.swift */,
 				8D715EDD1DC8659D009018AE /* Main.storyboard */,
 				8D715EE01DC8659D009018AE /* Assets.xcassets */,
 				8D715EE21DC8659D009018AE /* LaunchScreen.storyboard */,
@@ -317,7 +314,6 @@
 				8DD66B6D1DDB328100712B9F /* KCFABWindow.swift in Sources */,
 				8D715F081DC867C5009018AE /* Item.swift in Sources */,
 				3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */,
-				8D715EDC1DC8659D009018AE /* ViewController.swift in Sources */,
 				A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */,
 				A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
@@ -468,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Fruit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sohee.Fruit;
@@ -480,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Fruit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sohee.Fruit;

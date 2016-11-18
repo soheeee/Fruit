@@ -9,25 +9,32 @@
 import UIKit
 
 
-class MainTableViewController: UITableViewController{
+class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     var arrayItem:[Item] = itemList.items
-	
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
-//        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -220, 0);
-//        self.tableView.contentInset.top = 220
+        //        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -220, 0);
+        //        self.tableView.contentInset.top = 220
+        
     }
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayItem.count
     }
     
-   
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: nil)
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         
         let item : Item = arrayItem[indexPath.row]
         
@@ -36,26 +43,26 @@ class MainTableViewController: UITableViewController{
         
         return cell
     }
-	
-	@IBAction func CreateItem(_ sender: Any) {
-		itemList.createDummy()
-		refreshTable()
-	}
-	
-	func refreshTable() {
-		arrayItem = itemList.items
-		tableView.reloadData()
-	}
-	
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-		if editingStyle == .delete {
-			deleteItem(row: indexPath.row)
-		}
-	}
-	
-	func deleteItem(row: Int) {
-		itemList.deleteItem(at: row)
-		refreshTable()
-	}
-	
+    
+    @IBAction func CreateItem(_ sender: Any) {
+        itemList.createDummy()
+        refreshTable()
+    }
+    
+    func refreshTable() {
+        arrayItem = itemList.items
+        tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteItem(row: indexPath.row)
+        }
+    }
+    
+    func deleteItem(row: Int) {
+        itemList.deleteItem(at: row)
+        refreshTable()
+    }
+    
 }
