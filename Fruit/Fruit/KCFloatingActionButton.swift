@@ -88,7 +88,7 @@ open class KCFloatingActionButton: UIView {
     /**
         Background overlaying color.
     */
-    @IBInspectable open var overlayColor: UIColor = UIColor.black.withAlphaComponent(0.3)
+    @IBInspectable open var overlayColor: UIColor = UIColor(red: CGFloat(33)/255, green: CGFloat(33)/255, blue: CGFloat(33)/255, alpha: 1.0).withAlphaComponent(0.8)
 
     /**
         The space between the item and item.
