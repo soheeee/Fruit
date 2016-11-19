@@ -336,10 +336,4 @@
         <image name="cancel" width="64" height="64"/>
         <image name="checked" width="64" height="64"/>
     </resources>
-<<<<<<< HEAD
-=======
-    <inferredMetricsTieBreakers>
-        <segue reference="k1n-iD-48N"/>
-    </inferredMetricsTieBreakers>
->>>>>>> 46cfc87b2f960e97c786affaea9819ee8d37b40d
 </document>
