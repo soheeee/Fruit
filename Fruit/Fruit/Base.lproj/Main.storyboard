@@ -421,6 +421,9 @@
                                 <rect key="frame" x="329" y="172" width="15" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="add"/>
+                                <connections>
+                                    <action selector="addSubjectPressed:" destination="n3j-qv-jhq" eventType="touchUpInside" id="zFX-nm-vhd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBY-jG-BbW">
                                 <rect key="frame" x="329" y="114" width="15" height="15"/>
