@@ -12,9 +12,9 @@ class Item: NSObject, NSCoding{
     
     var id:Int
     var time:NSDate
-    var title:String = "def"
-    var subFull:String = "def"
-    var subShort:String = "def"
+    var title:String
+    var subFull:String
+    var subShort:String
     
     init(id:Int, title:String, time:NSDate, subFull: String, subShort: String){
         self.id = id
