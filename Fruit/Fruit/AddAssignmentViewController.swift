@@ -10,6 +10,8 @@ import UIKit
 
 class AddAssignmentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    var assignment = Assignment()
+    
     @IBOutlet var name : UITextField! = UITextField()
     @IBOutlet var memo : UITextField! = UITextField()
     @IBOutlet var category : UITextField! = UITextField()
@@ -51,12 +53,18 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     @IBAction func chooseCategory(_ sender: Any){
         
-        
     }
     
     @IBAction func addAssignment(_ sender: Any) {
         
+        assignment.name = name.text!
+        assignment.memo = memo.text!
         
+        if(assignment.name != nil && assignment.memo != nil){
+            
+            self.dismiss(animated: false, completion: nil)
+            
+        }
         
     }
   

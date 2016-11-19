@@ -20,6 +20,12 @@ class Assignment:Item{
         case presentation
     }
     
+    init(){
+        
+        super.init(id: -1, title: "Title", time: NSDate(), subFull: "Fullname", subShort: "Shortname")
+        
+    }
+    
     init(id: Int, time: NSDate, name: String, subFull:String, subShort:String, memo:String) {
 		self.name = name
 		self.memo = memo
