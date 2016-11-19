@@ -8,18 +8,54 @@
 
 import UIKit
 
-class AddExamViewController: UIViewController {
+class AddExamViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+   
+    @IBOutlet weak var testCategory: UITextField!
+
+    var selectRow = 0
+    var Array = ["중간고사", "기말고사", "퀴즈", "기타"]
+    var picker = UIPickerView()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setBackgroundColor()
+        picker.delegate = self
+        picker.dataSource = self
+        picker.backgroundColor = UIColor.white
+        testCategory.inputView = picker
     }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
+        return Array[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Array.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectRow = row
+        testCategory.text = Array[row]
+        testCategory.resignFirstResponder()
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     
     @IBAction func viewClose(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
-    
+   
+
     
     @IBAction func addSubjectPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "과목 추가", message: "과목명과 줄임말을 입력해주세요", preferredStyle: .alert)
@@ -59,10 +95,7 @@ class AddExamViewController: UIViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+ 
     
 
     /*
