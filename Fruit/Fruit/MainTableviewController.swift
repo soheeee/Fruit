@@ -13,14 +13,25 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     var arrayItem:[Item] = itemList.items
     
+    @IBOutlet weak var upperView: UIView!
     
     @IBOutlet weak var tableView: UITableView!
     
+    func setUpperViewLayer() {        
+        let gradient = CAGradientLayer()
+        gradient.frame = upperView.frame
+        
+        let blushTwo:CGColor = UIColor(red:0.96, green:0.57, blue:0.57, alpha:1.0).cgColor
+        let palePeach:CGColor = UIColor(red:1.0, green:0.90, blue:192.0/255.0, alpha:1.0).cgColor
+        gradient.colors = [blushTwo, palePeach]
+        
+        upperView.layer.insertSublayer(gradient, at: 0)
+    }
     
     override func viewDidLoad() {
         //        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -220, 0);
         //        self.tableView.contentInset.top = 220
-        
+        self.setUpperViewLayer()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
