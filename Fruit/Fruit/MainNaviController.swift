@@ -11,16 +11,14 @@ import Foundation
 
 class MainNaviController : UINavigationController {
     
-    var navBar: UINavigationBar = UINavigationBar()
+    var upperView: UIView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavBarToTheView()
+        self.setUpperViewLayer()
         // Do any additional setup after loading the view.
         self.title = "test test"
         CreateFloatingButton()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,23 +36,19 @@ class MainNaviController : UINavigationController {
         return outputImage!
     }
     
-    func setNavBarToTheView() {
-        
-        
+    func setUpperViewLayer() {
         let SCREEN_SIZE = UIScreen.main.bounds.size
-        self.navBar.frame = CGRect(x: 0, y: 0, width: SCREEN_SIZE.width, height: SCREEN_SIZE.height/3)
+        self.upperView.frame = CGRect(x: 0, y: 0, width: SCREEN_SIZE.width, height: 220)
         
         let gradient = CAGradientLayer()
-        let defaultNavigationBarFrame = navBar.frame
-        gradient.frame = defaultNavigationBarFrame
-        //        gradient.colors = [UIColor.white.cgColor, UIColor.black.cgColor]
+        gradient.frame = upperView.frame
+        
         let blushTwo:CGColor = UIColor(red:0.96, green:0.57, blue:0.57, alpha:1.0).cgColor
         let palePeach:CGColor = UIColor(red:1.0, green:0.90, blue:192.0/255.0, alpha:1.0).cgColor
-        
         gradient.colors = [blushTwo, palePeach]
-        UINavigationBar.appearance().setBackgroundImage(self.image(fromLayer: gradient), for: .default)
-        //self.navBar.backgroundColor = (blushTwo)
-        self.view.addSubview(navBar)
+        
+        upperView.layer.insertSublayer(gradient, at: 0)
+        self.view.addSubview(upperView)
     }
     
     func CreateFloatingButton() {
