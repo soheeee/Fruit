@@ -14,8 +14,16 @@ class AddAssignmentViewController: UIViewController {
         super.viewDidLoad()
 
         setBackgroundColor()
+        
 
     }
+    
+  
+  
+    @IBAction func viewClose(_ sender: UIButton) {
+         self.dismiss(animated: false, completion: nil)
+    }
+    
     
     func setBackgroundColor(){
         

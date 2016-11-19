@@ -16,6 +16,11 @@ class AddExamViewController: UIViewController {
         setBackgroundColor()
     }
     
+    @IBAction func viewClose(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    
     func setBackgroundColor(){
         
         let gradient = CAGradientLayer()

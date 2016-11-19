@@ -98,7 +98,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="cancel"/>
                                 <connections>
-                                    <segue destination="4n2-86-byB" kind="presentation" id="k1n-iD-48N"/>
+                                    <action selector="viewClose:" destination="ui7-Vl-KOD" eventType="touchUpInside" id="Q8n-6u-m1k"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="과제 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDD-JM-sb0">
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLd-fx-bBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="-684"/>
+            <point key="canvasLocation" x="320.80000000000001" y="-684.10794602698661"/>
         </scene>
         <!--Main Navi Controller-->
         <scene sceneID="aGG-Jg-crs">
@@ -156,7 +156,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="cancel"/>
                                 <connections>
-                                    <segue destination="4n2-86-byB" kind="presentation" id="ay8-lT-8g4"/>
+                                    <action selector="viewClose:" destination="n3j-qv-jhq" eventType="touchUpInside" id="EZe-hv-7vt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="시험 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8j-xT-4FH">
@@ -179,7 +179,4 @@
         <image name="cancel" width="64" height="64"/>
         <image name="checked" width="64" height="64"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ay8-lT-8g4"/>
-    </inferredMetricsTieBreakers>
 </document>
