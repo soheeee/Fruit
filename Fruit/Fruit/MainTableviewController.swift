@@ -22,9 +22,9 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var todayDate: UITextView!
     
     func setUpperText(){
-        todayAssignment.textContainerInset = UIEdgeInsets.zero
-        todayLeftCount.textContainerInset = UIEdgeInsets.zero
-        todayDate.textContainerInset = UIEdgeInsets.zero
+        todayAssignment.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
+        todayLeftCount.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
+        todayDate.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
         let current = Date()
         let calendar = Calendar(identifier: .gregorian)
         let weekDay = calendar.component(.weekday, from: current)
