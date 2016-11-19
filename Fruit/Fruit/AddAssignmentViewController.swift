@@ -8,22 +8,61 @@
 
 import UIKit
 
-class AddAssignmentViewController: UIViewController {
+class AddAssignmentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    @IBOutlet var name : UITextField! = UITextField()
+    @IBOutlet var memo : UITextField! = UITextField()
+    @IBOutlet var category : UITextField! = UITextField()
+    
+    var selectRow = 0
+    var Array = ["과제", "프로젝트", "팀플", "발표"]
+    var picker = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setBackgroundColor()
         
-
+        picker.delegate = self
+        picker.dataSource = self
+        picker.backgroundColor = UIColor.white
+        category.inputView = picker
+        
     }
     
-  
+    /** Category Picker **/
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
+        return Array[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Array.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectRow = row
+        category.text = Array[row]
+        category.resignFirstResponder()
+    }
+    
+    @IBAction func chooseCategory(_ sender: Any){
+        
+        
+    }
+    
+    @IBAction func addAssignment(_ sender: Any) {
+        
+        
+        
+    }
   
     @IBAction func viewClose(_ sender: UIButton) {
          self.dismiss(animated: false, completion: nil)
     }
-    
     
     func setBackgroundColor(){
         
