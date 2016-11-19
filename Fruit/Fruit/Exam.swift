@@ -10,7 +10,6 @@ import Foundation
 
 class Exam:Item{
     
-    var subject:String
     var memo:String
     var location:String
     
@@ -22,16 +21,14 @@ class Exam:Item{
     
     var cateArray = ["midterm","final","quiz"]
     
-    init(id: Int, time: NSDate, subject:String, memo:String, location:String, cate: category) {
-		self.subject = subject
+    init(id: Int, time: NSDate, subFull:String, subShort:String, memo:String, location:String, cate: category) {
 		self.memo = memo
 		self.location = location
 		
-        super.init(id: id, title: cateArray[cate.rawValue], time: time)
+        super.init(id: id, title: cateArray[cate.rawValue], time: time, subFull: subFull, subShort:subShort)
     }
 	
 	required init?(coder aDecoder: NSCoder) {
-		self.subject = aDecoder.decodeObject(forKey: "subject") as! String
 		self.memo = aDecoder.decodeObject(forKey: "memo") as! String
 		self.location = aDecoder.decodeObject(forKey: "location") as! String
 		
@@ -39,7 +36,6 @@ class Exam:Item{
 	}
 	
 	override func encode(with aCoder: NSCoder) {
-		aCoder.encode(self.subject, forKey:"subject")
 		aCoder.encode(self.memo, forKey:"memo")
 		aCoder.encode(self.location, forKey:"location")
 		
