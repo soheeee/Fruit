@@ -108,7 +108,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         print("testup")
         
         let first = tableView.indexPathsForVisibleRows?.first?.row
-        if first == arrayItem.count - 4 { return }
+        if first! >= arrayItem.count - 4 { return }
         
         let next = first!+1
         let nextIndex = IndexPath(item: next, section: 0)
