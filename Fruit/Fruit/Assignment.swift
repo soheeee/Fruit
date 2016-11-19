@@ -10,8 +10,8 @@ import Foundation
 
 class Assignment:Item{
     
-    var name:String
-    var memo:String
+    var name:String = "def"
+    var memo:String = "def"
     
     enum category{
         case assignment

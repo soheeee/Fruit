@@ -10,8 +10,8 @@ import Foundation
 
 class Exam:Item{
     
-    var memo:String
-    var location:String
+    var memo:String = "def"
+    var location:String = "def"
     
     enum category:Int{
         case midterm = 0
