@@ -125,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				8DD66B711DDB357800712B9F /* KCFAB */,
+				8D715EE01DC8659D009018AE /* Assets.xcassets */,
 				8D715ED91DC8659D009018AE /* AppDelegate.swift */,
 				8D715EE21DC8659D009018AE /* LaunchScreen.storyboard */,
 				8D715EDD1DC8659D009018AE /* Main.storyboard */,
@@ -169,7 +170,6 @@
 		8DD66B711DDB357800712B9F /* KCFAB */ = {
 			isa = PBXGroup;
 			children = (
-				8D715EE01DC8659D009018AE /* Assets.xcassets */,
 				8DD66B651DDB328100712B9F /* KCFABManager.swift */,
 				8DD66B661DDB328100712B9F /* KCFABViewController.swift */,
 				8DD66B671DDB328100712B9F /* KCFABWindow.swift */,
