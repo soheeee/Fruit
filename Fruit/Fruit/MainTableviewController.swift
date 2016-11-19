@@ -25,6 +25,13 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         todayAssignment.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
         todayLeftCount.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
         todayDate.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
+        
+        todayLeftCount.layer.cornerRadius = todayLeftCount.frame.size.height/2
+        todayLeftCount.clipsToBounds = false
+        todayLeftCount.layer.shadowOpacity = 1
+        todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
+        todayLeftCount.layer.shadowColor = UIColor(red: 238/255, green: 65/255, blue: 86/255, alpha: 0.5).cgColor
+        
         let current = Date()
         let calendar = Calendar(identifier: .gregorian)
         let weekDay = calendar.component(.weekday, from: current)
