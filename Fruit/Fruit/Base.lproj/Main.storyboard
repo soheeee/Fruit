@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="오늘의 과제" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t5I-4T-kRq" userLabel="TodayAssignment">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="오늘의 과제" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5I-4T-kRq" userLabel="TodayAssignment">
                                         <rect key="frame" x="0.0" y="61" width="375" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -68,7 +68,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="N개 남았습니다" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WYQ-NI-0u8" userLabel="TodayLeftCount">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="N개 남았습니다" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYQ-NI-0u8" userLabel="TodayLeftCount">
                                         <rect key="frame" x="0.0" y="91" width="375" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -76,7 +76,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="0000년 00월 00일 0요일" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="C79-qq-uxi" userLabel="TodayDate">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="0000년 00월 00일 0요일" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C79-qq-uxi" userLabel="TodayDate">
                                         <rect key="frame" x="0.0" y="138" width="375" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
