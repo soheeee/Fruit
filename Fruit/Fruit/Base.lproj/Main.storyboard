@@ -59,7 +59,33 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egM-Zw-mFp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="오늘의 과제" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t5I-4T-kRq" userLabel="TodayAssignment">
+                                        <rect key="frame" x="0.0" y="61" width="375" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="N개 남았습니다" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WYQ-NI-0u8" userLabel="TodayLeftCount">
+                                        <rect key="frame" x="0.0" y="91" width="375" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="0000년 00월 00일 0요일" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="C79-qq-uxi" userLabel="TodayDate">
+                                        <rect key="frame" x="0.0" y="138" width="375" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,12 +101,15 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="tableView" destination="17E-7z-Is3" id="abU-pH-3sx"/>
+                        <outlet property="todayAssignment" destination="t5I-4T-kRq" id="DgU-wP-XlA"/>
+                        <outlet property="todayDate" destination="C79-qq-uxi" id="TfQ-Nn-EPA"/>
+                        <outlet property="todayLeftCount" destination="WYQ-NI-0u8" id="m1E-SF-BK8"/>
                         <outlet property="upperView" destination="egM-Zw-mFp" id="Cvz-vh-KHI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wmp-Xm-OcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-682" y="9"/>
+            <point key="canvasLocation" x="-682.39999999999998" y="8.5457271364317844"/>
         </scene>
         <!--Add Assignment View Controller-->
         <scene sceneID="oJQ-pM-gWJ">

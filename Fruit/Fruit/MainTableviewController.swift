@@ -17,6 +17,55 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var todayAssignment: UITextView!
+    @IBOutlet weak var todayLeftCount: UITextView!
+    @IBOutlet weak var todayDate: UITextView!
+    
+    func setUpperText(){
+        todayAssignment.textContainerInset = UIEdgeInsets.zero
+        todayLeftCount.textContainerInset = UIEdgeInsets.zero
+        todayDate.textContainerInset = UIEdgeInsets.zero
+        let current = Date()
+        let calendar = Calendar(identifier: .gregorian)
+        let weekDay = calendar.component(.weekday, from: current)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일"
+        
+        let dateString = formatter.string(from: current) + getKoreanWeekday(day: weekDay)
+        todayDate.text = dateString
+    }
+    
+    func getKoreanWeekday(day:Int)->String{
+        var koreanWeekDay:String
+        switch day {
+        case 1:
+            koreanWeekDay = "일"
+            break
+        case 2:
+            koreanWeekDay = "월"
+            break
+        case 3:
+            koreanWeekDay = "화"
+            break
+        case 4:
+            koreanWeekDay = "수"
+            break
+        case 5:
+            koreanWeekDay = "목"
+            break
+        case 6:
+            koreanWeekDay = "금"
+            break
+        case 7:
+            koreanWeekDay = "토"
+            break
+        default:
+            koreanWeekDay = "?"
+        }
+        return " " + koreanWeekDay + "요일"
+    }
+    
     func setUpperViewLayer() {        
         let gradient = CAGradientLayer()
         gradient.frame = upperView.frame
@@ -32,6 +81,8 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         //        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -220, 0);
         //        self.tableView.contentInset.top = 220
         self.setUpperViewLayer()
+        self.setUpperText()
+        self.refreshTable()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,6 +113,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func refreshTable() {
         arrayItem = itemList.items
+        todayLeftCount.text = String(arrayItem.count) + "개 남았습니다"
         tableView.reloadData()
     }
     
