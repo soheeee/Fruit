@@ -59,9 +59,9 @@ class MainNaviController : UINavigationController {
     
     func CreateFloatingButton() {
         
-        let fab = KCFloatingActionButton(image: UIImage(named: "error")!)
+        let fab = KCFloatingActionButton(image: UIImage(named: "main_add")!)
         
-        fab.addItem("과제추가", icon:UIImage(named:"assignment")!, color: UIColor(red: CGFloat(250)/255, green: CGFloat(190)/255, blue: CGFloat(170)/255, alpha: 1.0),handler: {item in
+        fab.addItem("과제추가", icon:UIImage(named:"book")!, color: UIColor(red: CGFloat(250)/255, green: CGFloat(190)/255, blue: CGFloat(170)/255, alpha: 1.0),handler: {item in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "AddAssignment") as! AddAssignmentViewController
             self.present(vc, animated: true, completion: nil)
