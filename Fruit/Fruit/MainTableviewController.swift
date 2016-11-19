@@ -11,6 +11,7 @@ import UIKit
 
 class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
+    var startLocation:CGPoint!
     var arrayItem:[Item] = itemList.items
     
     @IBOutlet weak var upperView: UIView!
@@ -20,6 +21,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var todayAssignment: UITextView!
     @IBOutlet weak var todayLeftCount: UITextView!
     @IBOutlet weak var todayDate: UITextView!
+    
     
     func setUpperText(){
         todayAssignment.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
@@ -85,46 +87,44 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     override func viewDidLoad() {
-        //        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -220, 0);
-        //        self.tableView.contentInset.top = 220
         self.setUpperViewLayer()
         self.setUpperText()
         self.refreshTable()
         
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedUp))
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedDown))
-        
-        swipeUp.direction = UISwipeGestureRecognizerDirection.up
-        swipeDown.direction = UISwipeGestureRecognizerDirection.down
-        
         self.tableView.isScrollEnabled = false;
         
-        self.tableView.addGestureRecognizer(swipeUp)
-        self.tableView.addGestureRecognizer(swipeDown)
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(self.panedView))
+        self.view.addGestureRecognizer(pan)
+        
     }
     
-    
-    func swipedUp(sender: UISwipeGestureRecognizer){
-        print("testup")
-        
-        let first = tableView.indexPathsForVisibleRows?.first?.row
-        if first! >= arrayItem.count - 4 { return }
-        
-        let next = first!+1
-        let nextIndex = IndexPath(item: next, section: 0)
-        
-        tableView.scrollToRow(at: nextIndex, at: .top, animated: true)
-    }
-    func swipedDown(sender: UISwipeGestureRecognizer){
-        print("test down")
-        
-        let first = tableView.indexPathsForVisibleRows?.first?.row
-        if first == 0 { return }
-        
-        let prev = first! - 1
-        let prevIndex = IndexPath(item: prev, section: 0)
-        
-        tableView.scrollToRow(at: prevIndex, at: .top, animated: true)
+    func panedView(sender: UIPanGestureRecognizer){
+        if sender.state == UIGestureRecognizerState.began {
+            startLocation = sender.location(in: self.view)
+        } else if sender.state == UIGestureRecognizerState.ended {
+            // TODO: Check Velocity
+            
+            let stopLocation = sender.location(in: self.view)
+            let dy = startLocation.y - stopLocation.y
+            print("swipe distance : ", dy)
+            
+            let first:Int = (tableView.indexPathsForVisibleRows?.first?.row)!
+            
+            var move:Int = Int(dy/100) + first
+            
+            if move < 0 {
+                move = 0
+            } else if move > arrayItem.count - 1 {
+                move = arrayItem.count - 1
+            }
+            
+            let moveIndex = IndexPath(item: move, section: 0)
+            
+            tableView.scrollToRow(at: moveIndex, at: .top, animated: true)
+        } else if sender.state == UIGestureRecognizerState.changed{
+            
+            // TODO: Follow scroll
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
