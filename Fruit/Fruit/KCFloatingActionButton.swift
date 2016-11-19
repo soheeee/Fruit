@@ -187,6 +187,16 @@ open class KCFloatingActionButton: UIView {
         backgroundColor = UIColor.clear
         setObserver()
     }
+    
+    /**
+     Initialize with custom image.
+     */
+    public init(image: UIImage) {
+        super.init(frame: CGRect(x: 0, y: 0, width: size, height: size))
+        self.buttonImage = image
+        backgroundColor = UIColor.clear
+        setObserver()
+    }
 
     /**
         Initialize with custom size.
@@ -405,7 +415,7 @@ open class KCFloatingActionButton: UIView {
     }
     
     /**
-     Add item with title, icon, handler and color.
+     Add item with title, icon, handler,and color.
      */
     @discardableResult
     open func addItem(_ title: String, icon: UIImage?, color: UIColor, handler: @escaping ((KCFloatingActionButtonItem) -> Void)) -> KCFloatingActionButtonItem {
@@ -516,6 +526,8 @@ open class KCFloatingActionButton: UIView {
         buttonImageView.removeFromSuperview()
         buttonImageView = UIImageView(image: buttonImage)
 		buttonImageView.tintColor = plusColor
+        buttonImageView.frame.size.width = 22
+        buttonImageView.frame.size.height = 22
         buttonImageView.frame = CGRect(
             x: circleLayer.frame.origin.x + (size / 2 - buttonImageView.frame.size.width / 2),
             y: circleLayer.frame.origin.y + (size / 2 - buttonImageView.frame.size.height / 2),
@@ -574,6 +586,7 @@ open class KCFloatingActionButton: UIView {
         item.circleShadowColor = itemShadowColor
         item.titleShadowColor = itemShadowColor
         item.size = itemSize
+
     }
 
     fileprivate func setRightBottomFrame(_ keyboardSize: CGFloat = 0) {
@@ -748,9 +761,9 @@ extension KCFloatingActionButton {
             item.layer.transform = CATransform3DIdentity
             let big = size > item.size ? size : item.size
             let small = size <= item.size ? size : item.size
-            item.frame.origin.x = big/2-small/2
+            item.frame.origin.x = big/2-small/2 - 6
             //item.frame.origin.y = -itemHeight
-			item.frame.origin.y = itemHeight // EDITED
+			item.frame.origin.y = itemHeight - 14 // EDITED
             item.layer.transform = CATransform3DMakeScale(0.4, 0.4, 1)
             UIView.animate(withDuration: 0.3, delay: delay,
                                        usingSpringWithDamping: 0.55,
@@ -761,6 +774,7 @@ extension KCFloatingActionButton {
                 }, completion: nil)
 
             delay += animationSpeed
+
         }
     }
 

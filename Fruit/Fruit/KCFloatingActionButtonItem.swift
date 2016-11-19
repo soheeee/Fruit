@@ -106,7 +106,7 @@ open class KCFloatingActionButtonItem: UIView {
     open var iconImageView: UIImageView {
         get {
             if _iconImageView == nil {
-                _iconImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+                _iconImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
                 _iconImageView?.center = CGPoint(x: size/2, y: size/2) + imageOffset
                 _iconImageView?.contentMode = UIViewContentMode.scaleAspectFill
                 addSubview(_iconImageView!)
@@ -176,7 +176,7 @@ open class KCFloatingActionButtonItem: UIView {
     fileprivate func createTintLayer() {
         //        tintLayer.frame = CGRectMake(frame.size.width - size, 0, size, size)
         let castParent : KCFloatingActionButton = superview as! KCFloatingActionButton
-        tintLayer.frame = CGRect(x: castParent.itemSize/2 - (size/2), y: 0, width: size, height: size)
+        tintLayer.frame = CGRect(x: castParent.itemSize/2 - (size/2) - 14, y: 0, width: size, height: size)
         tintLayer.backgroundColor = UIColor.white.withAlphaComponent(0.2).cgColor
         tintLayer.cornerRadius = size/2
         layer.addSublayer(tintLayer)
