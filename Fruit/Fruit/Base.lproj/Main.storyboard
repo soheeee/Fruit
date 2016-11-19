@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="17E-7z-Is3">
-                                <rect key="frame" x="0.0" y="222.5" width="375" height="444.5"/>
+                                <rect key="frame" x="0.0" y="220" width="375" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="dVb-Ke-isA" detailTextLabel="7C3-8E-Jlc" style="IBUITableViewCellStyleSubtitle" id="iQc-qq-ZsX">
@@ -91,7 +90,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mrC-Bd-bCQ" firstAttribute="top" secondItem="17E-7z-Is3" secondAttribute="bottom" id="NT6-sw-vPd"/>
-                            <constraint firstItem="17E-7z-Is3" firstAttribute="height" secondItem="jPc-kp-317" secondAttribute="height" multiplier="2/3" id="P4f-xr-IdQ"/>
+                            <constraint firstItem="17E-7z-Is3" firstAttribute="height" secondItem="jPc-kp-317" secondAttribute="height" constant="-220" id="P4f-xr-IdQ"/>
                             <constraint firstItem="17E-7z-Is3" firstAttribute="leading" secondItem="jPc-kp-317" secondAttribute="leading" id="R6F-i2-pUY"/>
                             <constraint firstAttribute="trailing" secondItem="17E-7z-Is3" secondAttribute="trailing" id="sA8-Be-azY"/>
                         </constraints>
