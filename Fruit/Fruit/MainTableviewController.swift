@@ -90,6 +90,41 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.setUpperViewLayer()
         self.setUpperText()
         self.refreshTable()
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedUp))
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.swipedDown))
+        
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        
+        self.tableView.isScrollEnabled = false;
+        
+        self.tableView.addGestureRecognizer(swipeUp)
+        self.tableView.addGestureRecognizer(swipeDown)
+    }
+    
+    
+    func swipedUp(sender: UISwipeGestureRecognizer){
+        print("testup")
+        
+        let first = tableView.indexPathsForVisibleRows?.first?.row
+        if first == arrayItem.count - 4 { return }
+        
+        let next = first!+1
+        let nextIndex = IndexPath(item: next, section: 0)
+        
+        tableView.scrollToRow(at: nextIndex, at: .top, animated: true)
+    }
+    func swipedDown(sender: UISwipeGestureRecognizer){
+        print("test down")
+        
+        let first = tableView.indexPathsForVisibleRows?.first?.row
+        if first == 0 { return }
+        
+        let prev = first! - 1
+        let prevIndex = IndexPath(item: prev, section: 0)
+        
+        tableView.scrollToRow(at: prevIndex, at: .top, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
