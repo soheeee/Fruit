@@ -211,9 +211,9 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         // Today
         let today = formatter.string(from: Date())
         if today == dateString {
-            cell.today.isOpaque = false
+            cell.today.alpha = 1
         } else {
-            cell.today.isOpaque = true
+            cell.today.alpha = 0
         }
         
         return cell
