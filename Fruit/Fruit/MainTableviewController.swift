@@ -19,25 +19,28 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var todayAssignment: UITextView!
-    @IBOutlet weak var todayLeftCount: UITextView!
-    @IBOutlet weak var todayDate: UITextView!
+//    @IBOutlet weak var todayAssignment: UITextView!
+//    @IBOutlet weak var todayLeftCount: UITextView!
+//    @IBOutlet weak var todayDate: UITextView!
     
+    @IBOutlet weak var todayDate: UILabel!
+    @IBOutlet weak var todayLeftCount: UILabel!
     @IBAction func CreateDummy(_ sender: Any) {
         itemList.createDummy()
         refreshTable()
     }
     
     func setUpperText(){
-        todayAssignment.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
-        todayLeftCount.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
-        todayDate.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
+//        todayAssignment.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
+//        todayLeftCount.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
+//        todayDate.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
         
         todayLeftCount.layer.cornerRadius = todayLeftCount.frame.size.height/2
         todayLeftCount.clipsToBounds = false
         todayLeftCount.layer.shadowOpacity = 1
         todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
         todayLeftCount.layer.shadowColor = UIColor(red: 238/255, green: 65/255, blue: 86/255, alpha: 0.5).cgColor
+    
         
         let current = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -48,6 +51,10 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         let dateString = formatter.string(from: current) + getKoreanWeekday(day: weekDay)
         todayDate.text = dateString
+        
+        let attributedString = NSMutableAttributedString(string: todayDate.text!)
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-0.6), range: NSRange(location: 0, length: attributedString.length))
+        todayDate.attributedText = attributedString
     }
     
     func getKoreanWeekday(day:Int)->String{
