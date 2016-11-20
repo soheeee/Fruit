@@ -180,28 +180,24 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as! MainTableViewCell
         let item : Item = arrayItem[indexPath.row]
         
-        if indexPath.row % 2 == 0 {
-            // Right
-            cell.title.textAlignment = .left
-            cell.title.frame = CGRect(x: 231, y: 32.5, width: cell.title.frame.width, height: cell.title.frame.height)
-            cell.time.textAlignment = .left
-            cell.time.frame = CGRect(x: 231, y: 55.5, width: cell.title.frame.width, height: cell.title.frame.height)
-        } else {
-            // Left
-            cell.title.textAlignment = .right
-            cell.title.frame = CGRect(x: 20, y: 32.5, width: cell.title.frame.width, height: cell.title.frame.height)
-            cell.time.textAlignment = .right
-            cell.time.frame = CGRect(x: 20, y: 55.5, width: cell.title.frame.width, height: cell.title.frame.height)
-        }
-        
-        // Title
-        cell.title.text = item.title
-        
         // Time
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mma"
         let timeString = formatter.string(from: item.time as Date)
-        cell.time.text = item.subShort + " - " + timeString
+        
+        if indexPath.row % 2 == 0 {
+            // Right
+            cell.title.text = ""
+            cell.time.text = ""
+            cell.rightTitle.text = item.title
+            cell.rightTime.text = item.subShort + " - " + timeString
+        } else {
+            // Left
+            cell.title.text = item.title
+            cell.time.text = item.subShort + " - " + timeString
+            cell.rightTitle.text = ""
+            cell.rightTime.text = ""
+        }        
         
         // Date
         formatter.dateFormat = "MM/dd"

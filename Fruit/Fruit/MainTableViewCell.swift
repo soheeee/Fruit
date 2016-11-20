@@ -15,5 +15,7 @@ class MainTableViewCell : UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var today: UILabel!
+    @IBOutlet weak var rightTitle: UILabel!
+    @IBOutlet weak var rightTime: UILabel!
     
 }
