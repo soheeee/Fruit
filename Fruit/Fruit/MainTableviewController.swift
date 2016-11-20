@@ -12,6 +12,7 @@ import UIKit
 class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     var startLocation:CGPoint!
+    var lastLocation:CGPoint!
     var arrayItem:[Item] = itemList.items
     
     @IBOutlet weak var upperView: UIView!
@@ -103,7 +104,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             startLocation = sender.location(in: self.view)
         } else if sender.state == UIGestureRecognizerState.ended {
             // TODO: Check Velocity
-            
+            lastLocation = nil
             let stopLocation = sender.location(in: self.view)
             let dy = startLocation.y - stopLocation.y
             print("swipe distance : ", dy)
@@ -122,8 +123,14 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             
             tableView.scrollToRow(at: moveIndex, at: .top, animated: true)
         } else if sender.state == UIGestureRecognizerState.changed{
-            
-            // TODO: Follow scroll
+            // Follow scroll
+            if lastLocation == nil {
+                lastLocation = startLocation
+            }
+            let currentLocation = sender.location(in: self.view)
+            let dy = currentLocation.y - lastLocation.y
+            tableView.contentOffset = CGPoint(x: 0, y: tableView.contentOffset.y - dy)
+            lastLocation = currentLocation
         }
     }
     
