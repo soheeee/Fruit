@@ -23,6 +23,10 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var todayLeftCount: UITextView!
     @IBOutlet weak var todayDate: UITextView!
     
+    @IBAction func CreateDummy(_ sender: Any) {
+        itemList.createDummy()
+        refreshTable()
+    }
     
     func setUpperText(){
         todayAssignment.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
