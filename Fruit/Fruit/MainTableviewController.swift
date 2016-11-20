@@ -123,6 +123,9 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func panedView(sender: UIPanGestureRecognizer){
+        if arrayItem.count == 0 {
+            return
+        }
         if sender.state == UIGestureRecognizerState.began {
             startLocation = sender.location(in: self.view)
         } else if sender.state == UIGestureRecognizerState.ended {
