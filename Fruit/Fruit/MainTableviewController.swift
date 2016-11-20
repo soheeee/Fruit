@@ -128,14 +128,18 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         } else if sender.state == UIGestureRecognizerState.ended {
             // Check Velocity            
             let vel = -sender.velocity(in: self.view).y
-            
-            var first:Int = (tableView.indexPathsForVisibleRows?.first?.row)!
+            var first:Int = 0
             let cellHeight = tableView.rowHeight
             
-            if tableView.contentOffset.y.truncatingRemainder(dividingBy: cellHeight) > cellHeight/2 {
-                first += 1
+            // Get the first visible cell's index
+            if tableView.visibleCells.count != 0 {
+                first = (tableView.indexPathsForVisibleRows?.first?.row)!
+                if tableView.contentOffset.y.truncatingRemainder(dividingBy: cellHeight) > cellHeight/2 {
+                    first += 1
+                }
             }
             
+            // Calculate how many rows to move.
             var move = Int(vel/cellHeight)/2+first
             if move < 0 {
                 move = 0
@@ -143,8 +147,8 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
                 move = arrayItem.count - 1
             }
             
+            // Let the table scroll
             let moveIndex = IndexPath(item: move, section: 0)
-            
             tableView.scrollToRow(at: moveIndex, at: .top, animated: true)
             lastLocation = nil
         } else if sender.state == UIGestureRecognizerState.changed{
