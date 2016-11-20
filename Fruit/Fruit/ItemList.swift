@@ -46,7 +46,7 @@ class ItemList {
 	}
 	
 	func createDummy() {
-        let dummyItem = Item(id: -1, title: "dummy", time: NSDate(), subFull:"dummysub", subShort:"DS")
+        let dummyItem = Item(id: -1, title: "dummy" + String(items.count), time: NSDate(), subFull:"dummysub", subShort:"DS")
 		
 		items += [dummyItem]
 		
