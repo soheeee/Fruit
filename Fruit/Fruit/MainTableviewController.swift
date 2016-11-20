@@ -129,9 +129,14 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             // Check Velocity            
             let vel = -sender.velocity(in: self.view).y
             
-            let first:Int = (tableView.indexPathsForVisibleRows?.first?.row)!
+            var first:Int = (tableView.indexPathsForVisibleRows?.first?.row)!
+            let cellHeight = tableView.rowHeight
             
-            var move = Int(vel/tableView.rowHeight)/2+first
+            if tableView.contentOffset.y.truncatingRemainder(dividingBy: cellHeight) > cellHeight/2 {
+                first += 1
+            }
+            
+            var move = Int(vel/cellHeight)/2+first
             if move < 0 {
                 move = 0
             } else if move > arrayItem.count - 1 {
