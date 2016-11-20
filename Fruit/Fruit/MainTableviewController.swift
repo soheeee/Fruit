@@ -108,10 +108,9 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             startLocation = sender.location(in: self.view)
         } else if sender.state == UIGestureRecognizerState.ended {
             // TODO: Check Velocity
-            lastLocation = nil
             let stopLocation = sender.location(in: self.view)
-            let dy = startLocation.y - stopLocation.y
-            print("swipe distance : ", dy)
+            let dy = lastLocation.y - stopLocation.y
+            print("swipe distance : ", startLocation.y - stopLocation.y)
             
             let first:Int = (tableView.indexPathsForVisibleRows?.first?.row)!
             
@@ -126,6 +125,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             let moveIndex = IndexPath(item: move, section: 0)
             
             tableView.scrollToRow(at: moveIndex, at: .top, animated: true)
+            lastLocation = nil
         } else if sender.state == UIGestureRecognizerState.changed{
             // Follow scroll
             if lastLocation == nil {
