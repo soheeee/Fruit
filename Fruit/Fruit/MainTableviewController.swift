@@ -191,6 +191,13 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let dateString = formatter.string(from: item.time as Date)
         cell.date.text = dateString
         
+        let today = formatter.string(from: Date())
+        if today == dateString {
+            cell.today.isOpaque = false
+        } else {
+            cell.today.isOpaque = true
+        }
+        
         return cell
     }
     
