@@ -91,13 +91,25 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         upperView.layer.insertSublayer(gradient, at: 0)
     }
     
+    func deleteCell(sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.began {
+            let touchPoint = sender.location(in: self.tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                print(indexPath.row)
+                deleteItem(row: indexPath.row)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         self.setUpperViewLayer()
         self.setUpperText()
         self.refreshTable()
         
-        self.tableView.isScrollEnabled = false;
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteCell))
+        self.view.addGestureRecognizer(longPressRecognizer)
         
+        self.tableView.isScrollEnabled = false
         let pan = UIPanGestureRecognizer(target: self, action: #selector(self.panedView))
         self.view.addGestureRecognizer(pan)
         
@@ -180,5 +192,4 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         itemList.deleteItem(at: row)
         refreshTable()
     }
-    
 }
