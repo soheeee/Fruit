@@ -126,15 +126,12 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         if sender.state == UIGestureRecognizerState.began {
             startLocation = sender.location(in: self.view)
         } else if sender.state == UIGestureRecognizerState.ended {
-            // TODO: Check Velocity
-            let stopLocation = sender.location(in: self.view)
-            let dy = lastLocation.y - stopLocation.y
-            print("swipe distance : ", startLocation.y - stopLocation.y)
+            // Check Velocity            
+            let vel = -sender.velocity(in: self.view).y
             
             let first:Int = (tableView.indexPathsForVisibleRows?.first?.row)!
             
-            var move:Int = Int(dy/100) + first
-            
+            var move = Int(vel/tableView.rowHeight)/2+first
             if move < 0 {
                 move = 0
             } else if move > arrayItem.count - 1 {
