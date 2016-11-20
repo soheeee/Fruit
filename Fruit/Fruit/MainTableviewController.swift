@@ -180,14 +180,15 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as! MainTableViewCell
         let item : Item = arrayItem[indexPath.row]
         
-        cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = item.time.description
+        cell.title.text = item.title
         
         let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mma"
+        let timeString = formatter.string(from: item.time as Date)
+        cell.time.text = item.subShort + " - " + timeString
+                
         formatter.dateFormat = "MM/dd"
-        
         let dateString = formatter.string(from: item.time as Date)
-        
         cell.date.text = dateString
         
         return cell
