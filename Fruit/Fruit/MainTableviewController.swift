@@ -177,14 +177,24 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as! MainTableViewCell
         let item : Item = arrayItem[indexPath.row]
         
         cell.textLabel?.text = item.title
         cell.detailTextLabel?.text = item.time.description
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd"
+        
+        let dateString = formatter.string(from: item.time as Date)
+        
+        cell.date.text = dateString
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.height/4
     }
     
     @IBAction func CreateItem(_ sender: Any) {
@@ -196,12 +206,6 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         arrayItem = itemList.items
         todayLeftCount.text = String(arrayItem.count) + "개 남았습니다"
         tableView.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            deleteItem(row: indexPath.row)
-        }
     }
     
     func deleteItem(row: Int) {

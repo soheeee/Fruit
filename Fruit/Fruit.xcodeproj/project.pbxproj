@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C1C2F1DD78ED80021516D /* ItemList.swift */; };
+		3CA83D8F1DE1E3AC009E9975 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */; };
 		8D22BFA21DE00F1000AB4D0B /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */; };
 		8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */; };
 		8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715ED91DC8659D009018AE /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		3C1C1C2F1DD78ED80021516D /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
+		3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExamViewController.swift; sourceTree = "<group>"; };
 		8D715ED61DC8659D009018AE /* Fruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 				8D715EE21DC8659D009018AE /* LaunchScreen.storyboard */,
 				8D715EDD1DC8659D009018AE /* Main.storyboard */,
 				A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */,
+				3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */,
 				A1A006701DDC335F007E131D /* MainNaviController.swift */,
 				8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */,
 				8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */,
@@ -324,6 +327,7 @@
 				A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */,
 				A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
+				3CA83D8F1DE1E3AC009E9975 /* MainTableViewCell.swift in Sources */,
 				8DD66B6B1DDB328100712B9F /* KCFABManager.swift in Sources */,
 				8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */,
 				8DD66B6F1DDB328100712B9F /* KCFloatingActionButtonDelegate.swift in Sources */,
