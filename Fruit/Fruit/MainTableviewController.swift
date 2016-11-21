@@ -227,7 +227,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func refreshTable() {
-        arrayItem = itemList.items
+        arrayItem = itemList.getItemsFromNow()
         todayLeftCount.text = String(arrayItem.count) + "개 남았습니다"
         tableView.reloadData()
     }
