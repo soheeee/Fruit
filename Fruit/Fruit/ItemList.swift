@@ -53,9 +53,15 @@ class ItemList {
 		saveItems()
 	}
 	
-	func deleteItem(at:Int) {
-		items.remove(at: at)
+    func deleteItem(item: Item) {
+        items = items.filter({$0 != item})
 		
 		saveItems()
 	}
+    
+    func getItemsFromNow() -> [Item] {
+        let today = Date()
+        
+        return items.filter({$0.time as Date > today})
+    }
 }

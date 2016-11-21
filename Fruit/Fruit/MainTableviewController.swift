@@ -238,7 +238,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
-        alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(at: row)
+        alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(item: self.arrayItem[row])
             self.refreshTable()})
         
         self.present(alert, animated: true, completion: nil)
