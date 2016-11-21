@@ -23,6 +23,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
 //    @IBOutlet weak var todayLeftCount: UITextView!
 //    @IBOutlet weak var todayDate: UITextView!
     
+    @IBOutlet weak var line: UIView!
     @IBOutlet weak var todayDate: UILabel!
     @IBOutlet weak var todayLeftCount: UILabel!
     @IBAction func CreateDummy(_ sender: Any) {
@@ -40,6 +41,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         todayLeftCount.layer.shadowOpacity = 1
         todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
         todayLeftCount.layer.shadowColor = UIColor(red: 238/255, green: 65/255, blue: 86/255, alpha: 0.5).cgColor
+        line.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
     
         
         let current = Date()
