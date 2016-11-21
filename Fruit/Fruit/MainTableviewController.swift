@@ -231,7 +231,19 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func deleteItem(row: Int) {
-        itemList.deleteItem(at: row)
-        refreshTable()
+        let alert = UIAlertController(title: "항목 삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
+        
+        alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        
+        alert.addAction(UIAlertAction(title: "취소", style: .default))
+        alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(at: row)
+            self.refreshTable()})
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        // Necessary to apply tint on iOS 9
+        alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        
+        
     }
 }
