@@ -11,7 +11,6 @@ import UIKit
 class AddExamViewController: UIViewController {
    
     @IBOutlet weak var type: UITextField!
-
     @IBOutlet weak var subject: UITextView!
     var selectRow = 0
     var Array = ["중간고사", "기말고사", "퀴즈", "기타"]
