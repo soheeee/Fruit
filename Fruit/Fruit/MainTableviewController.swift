@@ -40,7 +40,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         todayLeftCount.clipsToBounds = false
         todayLeftCount.layer.shadowOpacity = 1
         todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
-        todayLeftCount.layer.shadowColor = redPink.cgColor
+        todayLeftCount.layer.shadowColor = UIColor(red: CGFloat(238)/255, green: CGFloat(65)/255, blue: CGFloat(86)/255, alpha: 0.5).cgColor
         line.backgroundColor = white
     
         
