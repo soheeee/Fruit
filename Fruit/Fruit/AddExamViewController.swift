@@ -62,8 +62,6 @@ class AddExamViewController: UIViewController {
         
         alert.addTextField { (textField) in
             textField.placeholder = "전체 과목명"
-            textField.preservesSuperviewLayoutMargins = false
-            textField.textInputView.layoutMargins = UIEdgeInsets(top:20,left:0,bottom:0,right:0)
         }
         alert.addTextField { (textField) in
             textField.placeholder = "최대 3글자 이내"

@@ -72,9 +72,9 @@ class AddAssignmentViewController: UIViewController{
     func setBackgroundColor(){
         
         let gradient = CAGradientLayer()
-        let blushTwo:CGColor = UIColor(red:0.96, green:0.57, blue:0.57, alpha:1.0).cgColor
-        let palePeach:CGColor = UIColor(red:1.0, green:0.90, blue:192.0/255.0, alpha:1.0).cgColor
-        gradient.colors = [blushTwo, palePeach]
+        let CGblushTwo:CGColor = blushTwo.cgColor
+        let CGpalePeach:CGColor = palePeach.cgColor
+        gradient.colors = [CGblushTwo, CGpalePeach]
         gradient.frame = view.bounds
         
         self.view.layer.insertSublayer(gradient, at: 0)
@@ -87,14 +87,12 @@ class AddAssignmentViewController: UIViewController{
         
         alert.addTextField { (textField) in
             textField.placeholder = "전체 과목명"
-            textField.preservesSuperviewLayoutMargins = false
-            textField.textInputView.layoutMargins = UIEdgeInsets(top:20,left:0,bottom:0,right:0)
         }
         alert.addTextField { (textField) in
             textField.placeholder = "최대 3글자 이내"
         }
         
-        alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        alert.view.tintColor = blushTwo
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
@@ -106,7 +104,7 @@ class AddAssignmentViewController: UIViewController{
         self.present(alert, animated: true, completion: nil)
         
         // Necessary to apply tint on iOS 9
-        alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        alert.view.tintColor = blushTwo
         
     }
 
