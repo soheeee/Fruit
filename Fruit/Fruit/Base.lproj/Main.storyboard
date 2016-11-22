@@ -412,6 +412,7 @@
                         <outlet property="category" destination="942-ss-nxC" id="hks-Aw-ZO8"/>
                         <outlet property="memo" destination="2Lx-Ad-Zgs" id="De1-XN-2WA"/>
                         <outlet property="name" destination="LcM-2q-LSa" id="r7v-pP-SaQ"/>
+                        <outlet property="subject" destination="UwP-Od-PRu" id="zfn-bW-otz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLd-fx-bBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -617,6 +618,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="subject" destination="HV4-hC-uWa" id="6PR-tg-Hwa"/>
                         <outlet property="testCategory" destination="Iej-RZ-2mh" id="MXn-tn-dlp"/>
                     </connections>
                 </viewController>

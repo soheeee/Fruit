@@ -12,6 +12,7 @@ class AddExamViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
    
     @IBOutlet weak var testCategory: UITextField!
 
+    @IBOutlet weak var subject: UITextView!
     var selectRow = 0
     var Array = ["중간고사", "기말고사", "퀴즈", "기타"]
     var picker = UIPickerView()
@@ -73,11 +74,13 @@ class AddExamViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField?.text)")
+//            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            self.subject.text = alert?.textFields![1].text
+//            print("Text field: \(textField?.text)")
         }))
         
         self.present(alert, animated: true, completion: nil)
+//        subject.text = alert.textFields?[1].text
         
         // Necessary to apply tint on iOS 9
         alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)

@@ -16,6 +16,7 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet var memo : UITextField! = UITextField()
     @IBOutlet var category : UITextField! = UITextField()
     
+    @IBOutlet weak var subject: UITextView!
     var selectRow = 0
     var Array = ["과제", "프로젝트", "팀플", "발표"]
     var picker = UIPickerView()
@@ -101,8 +102,9 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField?.text)")
+//            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+//            print("Text field: \(textField?.text)")]
+            self.subject.text = alert?.textFields![1].text
         }))
         
         self.present(alert, animated: true, completion: nil)
