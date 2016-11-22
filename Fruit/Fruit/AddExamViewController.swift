@@ -8,42 +8,17 @@
 
 import UIKit
 
-class AddExamViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddExamViewController: UIViewController {
    
-    @IBOutlet weak var testCategory: UITextField!
+    @IBOutlet weak var type: UITextField!
 
     var selectRow = 0
     var Array = ["중간고사", "기말고사", "퀴즈", "기타"]
-    var picker = UIPickerView()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundColor()
-        picker.delegate = self
-        picker.dataSource = self
-        picker.backgroundColor = UIColor.white
-        testCategory.inputView = picker
     }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
-        return Array[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Array.count
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectRow = row
-        testCategory.text = Array[row]
-        testCategory.resignFirstResponder()
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,9 +30,35 @@ class AddExamViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.dismiss(animated: false, completion: nil)
     }
    
+    @IBAction func chooseExamType(_ sender: Any) {
+        
+        let typePicker = ActionSheetMultipleStringPicker(title: "시험종류", rows: [
+            Array
+            ], initialSelection: [0], doneBlock: {
+                picker, values, indexes in
+                
+                print("values = \(values)")
+                print("indexes = \(indexes)")
+                print("picker = \(picker)")
+                
+                let str = values?.description
+                let index = Int(String((str?[(str?.index((str?.startIndex)!, offsetBy: 1))!])!))
+                
+                self.type.text = self.Array[index!]
+                
+                return
+        }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
+        
+        typePicker?.setTextColor(UIColor(red: CGFloat(100)/255, green: CGFloat(98)/255, blue: CGFloat(98)/255, alpha: 1.0))
+        typePicker?.pickerBackgroundColor = UIColor.white
+        typePicker?.toolbarBackgroundColor = UIColor.white
+        typePicker?.toolbarButtonsColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        typePicker?.show()
+        
+    }
 
-    
-    @IBAction func addSubjectPressed(_ sender: UIButton) {
+    @IBAction func addSubject(_ sender: Any) {
+        
         let alert = UIAlertController(title: "과목 추가", message: "과목명과 줄임말을 입력해주세요", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
@@ -81,6 +82,7 @@ class AddExamViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         // Necessary to apply tint on iOS 9
         alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        
     }
     
     func setBackgroundColor(){

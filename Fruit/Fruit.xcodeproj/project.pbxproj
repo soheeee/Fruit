@@ -20,12 +20,22 @@
 		8D715F081DC867C5009018AE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715F071DC867C5009018AE /* Item.swift */; };
 		8D715F0A1DC86CFC009018AE /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715F091DC86CFC009018AE /* Assignment.swift */; };
 		8D715F0C1DC87019009018AE /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715F0B1DC87019009018AE /* Exam.swift */; };
+		8DB548D01DE2D09700E92D5C /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB548BD1DE2D09700E92D5C /* AbstractActionSheetPicker.m */; };
+		8DB548D11DE2D09700E92D5C /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB548BF1DE2D09700E92D5C /* ActionSheetCustomPicker.m */; };
+		8DB548D21DE2D09700E92D5C /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB548C21DE2D09700E92D5C /* ActionSheetDatePicker.m */; };
+		8DB548D31DE2D09700E92D5C /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB548C41DE2D09700E92D5C /* ActionSheetDistancePicker.m */; };
+		8DB548D41DE2D09700E92D5C /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB548C61DE2D09700E92D5C /* ActionSheetLocalePicker.m */; };
+		8DB548D51DE2D09700E92D5C /* ActionSheetMultipleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB548C81DE2D09700E92D5C /* ActionSheetMultipleStringPicker.m */; };
+		8DB548D61DE2D09700E92D5C /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB548CB1DE2D09700E92D5C /* ActionSheetStringPicker.m */; };
+		8DB548D71DE2D09700E92D5C /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB548CD1DE2D09700E92D5C /* DistancePickerView.m */; };
+		8DB548D81DE2D09700E92D5C /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB548CF1DE2D09700E92D5C /* SWActionSheet.m */; };
 		8DD66B6B1DDB328100712B9F /* KCFABManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B651DDB328100712B9F /* KCFABManager.swift */; };
 		8DD66B6C1DDB328100712B9F /* KCFABViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B661DDB328100712B9F /* KCFABViewController.swift */; };
 		8DD66B6D1DDB328100712B9F /* KCFABWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B671DDB328100712B9F /* KCFABWindow.swift */; };
 		8DD66B6E1DDB328100712B9F /* KCFloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B681DDB328100712B9F /* KCFloatingActionButton.swift */; };
 		8DD66B6F1DDB328100712B9F /* KCFloatingActionButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B691DDB328100712B9F /* KCFloatingActionButtonDelegate.swift */; };
 		8DD66B701DDB328100712B9F /* KCFloatingActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */; };
+		8DFD92551DE2B32400C1D375 /* CoreActionSheetPicker in Resources */ = {isa = PBXBuildFile; fileRef = 8DFD92541DE2B32400C1D375 /* CoreActionSheetPicker */; };
 		A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */; };
 		A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A006701DDC335F007E131D /* MainNaviController.swift */; };
 /* End PBXBuildFile section */
@@ -67,12 +77,34 @@
 		8D715F071DC867C5009018AE /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8D715F091DC86CFC009018AE /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		8D715F0B1DC87019009018AE /* Exam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
+		8DB548BC1DE2D09700E92D5C /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		8DB548BD1DE2D09700E92D5C /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		8DB548BE1DE2D09700E92D5C /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		8DB548BF1DE2D09700E92D5C /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		8DB548C01DE2D09700E92D5C /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		8DB548C11DE2D09700E92D5C /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		8DB548C21DE2D09700E92D5C /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		8DB548C31DE2D09700E92D5C /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		8DB548C41DE2D09700E92D5C /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		8DB548C51DE2D09700E92D5C /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		8DB548C61DE2D09700E92D5C /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		8DB548C71DE2D09700E92D5C /* ActionSheetMultipleStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetMultipleStringPicker.h; sourceTree = "<group>"; };
+		8DB548C81DE2D09700E92D5C /* ActionSheetMultipleStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetMultipleStringPicker.m; sourceTree = "<group>"; };
+		8DB548C91DE2D09700E92D5C /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
+		8DB548CA1DE2D09700E92D5C /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		8DB548CB1DE2D09700E92D5C /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		8DB548CC1DE2D09700E92D5C /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		8DB548CD1DE2D09700E92D5C /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		8DB548CE1DE2D09700E92D5C /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		8DB548CF1DE2D09700E92D5C /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
 		8DD66B651DDB328100712B9F /* KCFABManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFABManager.swift; sourceTree = "<group>"; };
 		8DD66B661DDB328100712B9F /* KCFABViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFABViewController.swift; sourceTree = "<group>"; };
 		8DD66B671DDB328100712B9F /* KCFABWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFABWindow.swift; sourceTree = "<group>"; };
 		8DD66B681DDB328100712B9F /* KCFloatingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButton.swift; sourceTree = "<group>"; };
 		8DD66B691DDB328100712B9F /* KCFloatingActionButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonDelegate.swift; sourceTree = "<group>"; };
 		8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonItem.swift; sourceTree = "<group>"; };
+		8DFD92541DE2B32400C1D375 /* CoreActionSheetPicker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreActionSheetPicker; sourceTree = "<group>"; };
+		8DFD925C1DE2B6D100C1D375 /* Fruit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fruit-Bridging-Header.h"; sourceTree = "<group>"; };
 		A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableviewController.swift; sourceTree = "<group>"; };
 		A1A006701DDC335F007E131D /* MainNaviController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNaviController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +158,7 @@
 		8D715ED81DC8659D009018AE /* Fruit */ = {
 			isa = PBXGroup;
 			children = (
+				8DB548D91DE2D09F00E92D5C /* Pickers */,
 				8DD66B711DDB357800712B9F /* KCFAB */,
 				8D715EE01DC8659D009018AE /* Assets.xcassets */,
 				8D715ED91DC8659D009018AE /* AppDelegate.swift */,
@@ -141,6 +174,7 @@
 				8D715F091DC86CFC009018AE /* Assignment.swift */,
 				8D715F0B1DC87019009018AE /* Exam.swift */,
 				8D715EE51DC8659D009018AE /* Info.plist */,
+				8DFD925C1DE2B6D100C1D375 /* Fruit-Bridging-Header.h */,
 			);
 			path = Fruit;
 			sourceTree = "<group>";
@@ -163,9 +197,37 @@
 			path = FruitUITests;
 			sourceTree = "<group>";
 		};
+		8DB548D91DE2D09F00E92D5C /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				8DB548BC1DE2D09700E92D5C /* AbstractActionSheetPicker.h */,
+				8DB548BD1DE2D09700E92D5C /* AbstractActionSheetPicker.m */,
+				8DB548BE1DE2D09700E92D5C /* ActionSheetCustomPicker.h */,
+				8DB548BF1DE2D09700E92D5C /* ActionSheetCustomPicker.m */,
+				8DB548C01DE2D09700E92D5C /* ActionSheetCustomPickerDelegate.h */,
+				8DB548C11DE2D09700E92D5C /* ActionSheetDatePicker.h */,
+				8DB548C21DE2D09700E92D5C /* ActionSheetDatePicker.m */,
+				8DB548C31DE2D09700E92D5C /* ActionSheetDistancePicker.h */,
+				8DB548C41DE2D09700E92D5C /* ActionSheetDistancePicker.m */,
+				8DB548C51DE2D09700E92D5C /* ActionSheetLocalePicker.h */,
+				8DB548C61DE2D09700E92D5C /* ActionSheetLocalePicker.m */,
+				8DB548C71DE2D09700E92D5C /* ActionSheetMultipleStringPicker.h */,
+				8DB548C81DE2D09700E92D5C /* ActionSheetMultipleStringPicker.m */,
+				8DB548C91DE2D09700E92D5C /* ActionSheetPicker.h */,
+				8DB548CA1DE2D09700E92D5C /* ActionSheetStringPicker.h */,
+				8DB548CB1DE2D09700E92D5C /* ActionSheetStringPicker.m */,
+				8DB548CC1DE2D09700E92D5C /* DistancePickerView.h */,
+				8DB548CD1DE2D09700E92D5C /* DistancePickerView.m */,
+				8DB548CE1DE2D09700E92D5C /* SWActionSheet.h */,
+				8DB548CF1DE2D09700E92D5C /* SWActionSheet.m */,
+			);
+			name = Pickers;
+			sourceTree = "<group>";
+		};
 		8DD66B5E1DDB24BB00712B9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DFD92541DE2B32400C1D375 /* CoreActionSheetPicker */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -294,6 +356,7 @@
 				8D715EE41DC8659D009018AE /* LaunchScreen.storyboard in Resources */,
 				8D715EE11DC8659D009018AE /* Assets.xcassets in Resources */,
 				8D715EDF1DC8659D009018AE /* Main.storyboard in Resources */,
+				8DFD92551DE2B32400C1D375 /* CoreActionSheetPicker in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,18 +384,27 @@
 				8D715F0A1DC86CFC009018AE /* Assignment.swift in Sources */,
 				8D715F0C1DC87019009018AE /* Exam.swift in Sources */,
 				8DD66B6C1DDB328100712B9F /* KCFABViewController.swift in Sources */,
+				8DB548D71DE2D09700E92D5C /* DistancePickerView.m in Sources */,
 				8DD66B6D1DDB328100712B9F /* KCFABWindow.swift in Sources */,
+				8DB548D81DE2D09700E92D5C /* SWActionSheet.m in Sources */,
 				8D715F081DC867C5009018AE /* Item.swift in Sources */,
+				8DB548D01DE2D09700E92D5C /* AbstractActionSheetPicker.m in Sources */,
 				8D22BFA21DE00F1000AB4D0B /* AddAssignmentViewController.swift in Sources */,
 				3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */,
+				8DB548D21DE2D09700E92D5C /* ActionSheetDatePicker.m in Sources */,
+				8DB548D11DE2D09700E92D5C /* ActionSheetCustomPicker.m in Sources */,
 				A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */,
 				A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */,
+				8DB548D41DE2D09700E92D5C /* ActionSheetLocalePicker.m in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
 				3CA83D8F1DE1E3AC009E9975 /* MainTableViewCell.swift in Sources */,
 				8DD66B6B1DDB328100712B9F /* KCFABManager.swift in Sources */,
+				8DB548D51DE2D09700E92D5C /* ActionSheetMultipleStringPicker.m in Sources */,
 				8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */,
 				8DD66B6F1DDB328100712B9F /* KCFloatingActionButtonDelegate.swift in Sources */,
+				8DB548D61DE2D09700E92D5C /* ActionSheetStringPicker.m in Sources */,
 				8DD66B701DDB328100712B9F /* KCFloatingActionButtonItem.swift in Sources */,
+				8DB548D31DE2D09700E92D5C /* ActionSheetDistancePicker.m in Sources */,
 				8DD66B6E1DDB328100712B9F /* KCFloatingActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: youarenothere-@hotmail.com (S4S9DKY2SU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
@@ -484,6 +557,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sohee.Fruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fruit/Fruit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -493,6 +568,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: youarenothere-@hotmail.com (S4S9DKY2SU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
@@ -500,6 +576,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sohee.Fruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fruit/Fruit-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -8,50 +8,47 @@
 
 import UIKit
 
-class AddAssignmentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddAssignmentViewController: UIViewController{
     
     var assignment = Assignment()
+    var Array = ["과제", "프로젝트", "팀플", "발표"]
     
     @IBOutlet var name : UITextField! = UITextField()
     @IBOutlet var memo : UITextField! = UITextField()
     @IBOutlet var category : UITextField! = UITextField()
     
     var selectRow = 0
-    var Array = ["과제", "프로젝트", "팀플", "발표"]
-    var picker = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundColor()
         
-        picker.delegate = self
-        picker.dataSource = self
-        picker.backgroundColor = UIColor.white
-        category.inputView = picker
-        
-    }
-    
-    /** Category Picker **/
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
-        return Array[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Array.count
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectRow = row
-        category.text = Array[row]
-        category.resignFirstResponder()
     }
     
     @IBAction func chooseCategory(_ sender: Any){
+        
+        let categoryPicker = ActionSheetMultipleStringPicker(title: "카테고리", rows: [
+            Array
+            ], initialSelection: [0], doneBlock: {
+                picker, values, indexes in
+                
+                print("values = \(values)")
+                print("indexes = \(indexes)")
+                print("picker = \(picker)")
+                
+                let str = values?.description
+                let index = Int(String((str?[(str?.index((str?.startIndex)!, offsetBy: 1))!])!))
+                
+                self.category.text = self.Array[index!]
+                
+                return
+        }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
+        
+        categoryPicker?.setTextColor(UIColor(red: CGFloat(100)/255, green: CGFloat(98)/255, blue: CGFloat(98)/255, alpha: 1.0))
+        categoryPicker?.pickerBackgroundColor = UIColor.white
+        categoryPicker?.toolbarBackgroundColor = UIColor.white
+        categoryPicker?.toolbarButtonsColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        categoryPicker?.show()
         
     }
     
