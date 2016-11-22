@@ -13,7 +13,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     var startLocation:CGPoint!
     var lastLocation:CGPoint!
-    var arrayItem:[Item] = itemList.items
+    var arrayItem:[Item] = itemList.items.sorted(by: {$0.time.compare($1.time as Date) == ComparisonResult.orderedDescending})
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -232,6 +232,10 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func refreshTable() {
         arrayItem = itemList.getItemsFromNow()
+        arrayItem.sorted(by: {$0.time.compare($1.time as Date) == ComparisonResult.orderedDescending})
+        for i in 0 ... arrayItem.count-1{
+            print( (arrayItem[i].time).description + "\n")
+        }
         todayLeftCount.text = String(arrayItem.count) + "개 남았습니다"
         tableView.reloadData()
     }
