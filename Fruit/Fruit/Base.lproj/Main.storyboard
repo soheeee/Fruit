@@ -621,7 +621,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-<<<<<<< HEAD
                         <outlet property="type" destination="Iej-RZ-2mh" id="uhS-2w-0FR"/>
 =======
                         <outlet property="subject" destination="HV4-hC-uWa" id="6PR-tg-Hwa"/>
