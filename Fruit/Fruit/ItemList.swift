@@ -40,22 +40,30 @@ class ItemList {
 	}
 	
 	func tutorialData() -> [Item] {
-        let dummyAssignment = Assignment(id: 0, time: NSDate(), name: "TestAssignment", subFull: "TestSubject",subShort:"TS", memo: "TestMemo")
-        let dummyExam = Exam(id: 1, time: NSDate(), subFull: "dummySubject",subShort:"DS" ,  memo: "dummyMemo", location: "dummyLocation", cate: Exam.category.quiz)
+        // TODO: Change date to special day
+        let dummyAssignment = Assignment(id: 0, time: NSDate(timeIntervalSinceNow: 999999), name: "TestAssignment", subFull: "TestSubject",subShort:"TS", memo: "TestMemo")
+        let dummyExam = Exam(id: 1, time: NSDate(timeIntervalSinceNow: 999999), subFull: "dummySubject",subShort:"DS" ,  memo: "dummyMemo", location: "dummyLocation", cate: Exam.category.quiz)
 		return [dummyAssignment, dummyExam]
 	}
 	
 	func createDummy() {
-        let dummyItem = Item(id: -1, title: "dummy" + String(items.count), time: NSDate(), subFull:"dummysub", subShort:"DS")
+        // It creates an item which ends 9999secs later
+        let dummyItem = Item(id: -1, title: "dummy" + String(items.count), time: NSDate(timeIntervalSinceNow: 9999), subFull:"dummysub", subShort:"DS")
 		
 		items += [dummyItem]
 		
 		saveItems()
 	}
 	
-	func deleteItem(at:Int) {
-		items.remove(at: at)
+    func deleteItem(item: Item) {
+        items = items.filter({$0 != item})
 		
 		saveItems()
 	}
+    
+    func getItemsFromNow() -> [Item] {
+        let today = Date()
+        
+        return items.filter({$0.time as Date > today})
+    }
 }

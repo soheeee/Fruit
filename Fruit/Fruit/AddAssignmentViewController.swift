@@ -17,6 +17,7 @@ class AddAssignmentViewController: UIViewController{
     @IBOutlet var memo : UITextField! = UITextField()
     @IBOutlet var category : UITextField! = UITextField()
     
+    @IBOutlet weak var subject: UITextView!
     var selectRow = 0
     
     override func viewDidLoad() {
@@ -98,8 +99,9 @@ class AddAssignmentViewController: UIViewController{
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField?.text)")
+//            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+//            print("Text field: \(textField?.text)")]
+            self.subject.text = alert?.textFields![1].text
         }))
         
         self.present(alert, animated: true, completion: nil)

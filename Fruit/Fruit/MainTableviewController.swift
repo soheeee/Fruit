@@ -16,13 +16,14 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     var arrayItem:[Item] = itemList.items
     
     @IBOutlet weak var upperView: UIView!
-    
     @IBOutlet weak var tableView: UITableView!
     
 //    @IBOutlet weak var todayAssignment: UITextView!
 //    @IBOutlet weak var todayLeftCount: UITextView!
 //    @IBOutlet weak var todayDate: UITextView!
     
+    @IBOutlet weak var todayTitle: UILabel!
+    @IBOutlet weak var line: UIView!
     @IBOutlet weak var todayDate: UILabel!
     @IBOutlet weak var todayLeftCount: UILabel!
     @IBAction func CreateDummy(_ sender: Any) {
@@ -40,6 +41,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         todayLeftCount.layer.shadowOpacity = 1
         todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
         todayLeftCount.layer.shadowColor = UIColor(red: 238/255, green: 65/255, blue: 86/255, alpha: 0.5).cgColor
+        line.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
     
         
         let current = Date()
@@ -52,9 +54,13 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let dateString = formatter.string(from: current) + getKoreanWeekday(day: weekDay)
         todayDate.text = dateString
         
-        let attributedString = NSMutableAttributedString(string: todayDate.text!)
+        var attributedString = NSMutableAttributedString(string: todayDate.text!)
         attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-0.6), range: NSRange(location: 0, length: attributedString.length))
         todayDate.attributedText = attributedString
+        
+        attributedString = NSMutableAttributedString(string: todayTitle.text!)
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-0.6), range: NSRange(location: 0, length: attributedString.length))
+        todayTitle.attributedText = attributedString
     }
     
     func getKoreanWeekday(day:Int)->String{
@@ -225,7 +231,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func refreshTable() {
-        arrayItem = itemList.items
+        arrayItem = itemList.getItemsFromNow()
         todayLeftCount.text = String(arrayItem.count) + "개 남았습니다"
         tableView.reloadData()
     }
@@ -236,7 +242,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
-        alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(at: row)
+        alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(item: self.arrayItem[row])
             self.refreshTable()})
         
         self.present(alert, animated: true, completion: nil)
