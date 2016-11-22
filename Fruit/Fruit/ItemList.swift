@@ -12,7 +12,7 @@ let itemList = ItemList()
 
 class ItemList {
 	var items : [Item] = [] // TODO: It would be better to change type to List.
-	let fileName = "ItemList.list"
+	let fileName = "/ItemList.list"
 	
 	var filePath:String {
 		get {
