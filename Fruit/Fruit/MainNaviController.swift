@@ -15,7 +15,6 @@ class MainNaviController : UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         CreateFloatingButton()
         
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -40,14 +39,14 @@ class MainNaviController : UINavigationController {
         
         let fab = KCFloatingActionButton(image: UIImage(named: "main_add")!)
         
-        fab.addItem("과제추가", icon:UIImage(named:"book")!, color: UIColor(red: CGFloat(250)/255, green: CGFloat(190)/255, blue: CGFloat(170)/255, alpha: 1.0),handler: {item in
+        fab.addItem("과제추가", icon:UIImage(named:"book")!, color: paleSalmon, handler: {item in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "AddAssignment") as! AddAssignmentViewController
             self.present(vc, animated: true, completion: nil)
             fab.close()
         })
         
-        fab.addItem("시험추가", icon:UIImage(named:"exam")!, color: UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0),  handler: {item in
+        fab.addItem("시험추가", icon:UIImage(named:"exam")!, color: blushTwo, handler: {item in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "AddExam") as! AddExamViewController
             self.present(vc, animated: true, completion: nil)

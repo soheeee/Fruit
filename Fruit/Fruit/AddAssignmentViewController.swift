@@ -16,11 +16,10 @@ class AddAssignmentViewController: UIViewController{
     @IBOutlet var name : UITextField! = UITextField()
     @IBOutlet var memo : UITextField! = UITextField()
     @IBOutlet var category : UITextField! = UITextField()
-    
     @IBOutlet weak var subject: UITextView!
-    var selectRow = 0
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setBackgroundColor()
         
@@ -45,10 +44,10 @@ class AddAssignmentViewController: UIViewController{
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
         
-        categoryPicker?.setTextColor(UIColor(red: CGFloat(100)/255, green: CGFloat(98)/255, blue: CGFloat(98)/255, alpha: 1.0))
+        categoryPicker?.setTextColor(brownishGrey)
         categoryPicker?.pickerBackgroundColor = UIColor.white
         categoryPicker?.toolbarBackgroundColor = UIColor.white
-        categoryPicker?.toolbarButtonsColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        categoryPicker?.toolbarButtonsColor = blushTwo
         categoryPicker?.show()
         
     }
