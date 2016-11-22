@@ -40,8 +40,8 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         todayLeftCount.clipsToBounds = false
         todayLeftCount.layer.shadowOpacity = 1
         todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
-        todayLeftCount.layer.shadowColor = UIColor(red: 238/255, green: 65/255, blue: 86/255, alpha: 0.5).cgColor
-        line.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+        todayLeftCount.layer.shadowColor = redPink.cgColor
+        line.backgroundColor = white
     
         
         let current = Date()
@@ -97,9 +97,9 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let gradient = CAGradientLayer()
         gradient.frame = upperView.frame
         
-        let blushTwo:CGColor = UIColor(red:0.96, green:0.57, blue:0.57, alpha:1.0).cgColor
-        let palePeach:CGColor = UIColor(red:1.0, green:0.90, blue:192.0/255.0, alpha:1.0).cgColor
-        gradient.colors = [blushTwo, palePeach]
+        let CGblushTwo:CGColor = blushTwo.cgColor
+        let CGpalePeach:CGColor = palePeach.cgColor
+        gradient.colors = [CGblushTwo, CGpalePeach]
         
         upperView.layer.insertSublayer(gradient, at: 0)
     }
@@ -239,7 +239,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     func deleteItem(row: Int) {
         let alert = UIAlertController(title: "항목 삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
         
-        alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        alert.view.tintColor = blushTwo
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(item: self.arrayItem[row])
@@ -248,7 +248,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.present(alert, animated: true, completion: nil)
         
         // Necessary to apply tint on iOS 9
-        alert.view.tintColor = UIColor(red: CGFloat(245)/255, green: CGFloat(147)/255, blue: CGFloat(147)/255, alpha: 1.0)
+        alert.view.tintColor = blushTwo
         
         
     }
