@@ -56,7 +56,6 @@ class AddExamViewController: UIViewController {
         typePicker?.show()
         
     }
-
     @IBAction func addSubject(_ sender: Any) {
         
         let alert = UIAlertController(title: "과목 추가", message: "과목명과 줄임말을 입력해주세요", preferredStyle: .alert)
