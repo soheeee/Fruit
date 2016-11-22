@@ -203,6 +203,7 @@
                         <outlet property="tableView" destination="17E-7z-Is3" id="abU-pH-3sx"/>
                         <outlet property="todayDate" destination="A8i-vh-nMq" id="hKO-Fs-7Sw"/>
                         <outlet property="todayLeftCount" destination="bVu-QS-NBD" id="Ckg-nT-54P"/>
+                        <outlet property="todayTitle" destination="4Cn-AC-CXh" id="Ijq-rk-Qlq"/>
                         <outlet property="upperView" destination="egM-Zw-mFp" id="Cvz-vh-KHI"/>
                     </connections>
                 </viewController>

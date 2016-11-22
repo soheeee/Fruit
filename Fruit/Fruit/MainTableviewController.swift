@@ -16,13 +16,13 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     var arrayItem:[Item] = itemList.items
     
     @IBOutlet weak var upperView: UIView!
-    
     @IBOutlet weak var tableView: UITableView!
     
 //    @IBOutlet weak var todayAssignment: UITextView!
 //    @IBOutlet weak var todayLeftCount: UITextView!
 //    @IBOutlet weak var todayDate: UITextView!
     
+    @IBOutlet weak var todayTitle: UILabel!
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var todayDate: UILabel!
     @IBOutlet weak var todayLeftCount: UILabel!
@@ -54,9 +54,13 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let dateString = formatter.string(from: current) + getKoreanWeekday(day: weekDay)
         todayDate.text = dateString
         
-        let attributedString = NSMutableAttributedString(string: todayDate.text!)
+        var attributedString = NSMutableAttributedString(string: todayDate.text!)
         attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-0.6), range: NSRange(location: 0, length: attributedString.length))
         todayDate.attributedText = attributedString
+        
+        attributedString = NSMutableAttributedString(string: todayTitle.text!)
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-0.6), range: NSRange(location: 0, length: attributedString.length))
+        todayTitle.attributedText = attributedString
     }
     
     func getKoreanWeekday(day:Int)->String{
