@@ -196,6 +196,8 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             cell.title.text = ""
             cell.time.text = ""
             cell.rightTitle.text = item.title
+            //let itemname: String = item.title
+            //cell.rightTitle.text = limitedTitleLength(title: itemname, start:0, end: itemname.characters.count)
             cell.rightTime.text = item.subShort + " - " + timeString
         } else {
             // Left
@@ -254,6 +256,15 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         // Necessary to apply tint on iOS 9
         alert.view.tintColor = blushTwo
         
+    }
+    
+    //limiting title length
+    func limitedTitleLength(title: String, start: Int, end: Int) -> String{
         
+        let start = title.index(title.startIndex, offsetBy: start)
+        let end = title.index(title.endIndex, offsetBy: -5)
+        let range = start..<end
+        
+        return title.substring(with: range)
     }
 }
