@@ -98,7 +98,7 @@ open class KCFloatingActionButton: UIView {
     /**
         Child item's default size.
     */
-    @IBInspectable open var itemSize: CGFloat = 42 {
+    @IBInspectable open var itemSize: CGFloat = 55 {
         didSet {
             self.items.forEach { item in
                 item.size = self.itemSize
@@ -761,9 +761,9 @@ extension KCFloatingActionButton {
             item.layer.transform = CATransform3DIdentity
             let big = size > item.size ? size : item.size
             let small = size <= item.size ? size : item.size
-            item.frame.origin.x = big/2-small/2 - 6
+            item.frame.origin.x = big/2-small/2 - 26
             //item.frame.origin.y = -itemHeight
-			item.frame.origin.y = itemHeight - 14 // EDITED
+			item.frame.origin.y = itemHeight - 24 // EDITED
             item.layer.transform = CATransform3DMakeScale(0.4, 0.4, 1)
             UIView.animate(withDuration: 0.3, delay: delay,
                                        usingSpringWithDamping: 0.55,
