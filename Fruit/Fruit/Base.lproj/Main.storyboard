@@ -688,10 +688,6 @@
                     </view>
                     <connections>
 <<<<<<< HEAD
-                        <outlet property="date" destination="Hiw-bB-aS3" id="v23-g1-KYe"/>
-                        <outlet property="memo" destination="58m-xS-jn9" id="UF7-fk-rgR"/>
-                        <outlet property="subject" destination="HV4-hC-uWa" id="EAX-lJ-bxA"/>
-                        <outlet property="time" destination="TH5-gB-cwQ" id="gWv-C8-NfB"/>
 =======
                         <outlet property="date" destination="Hiw-bB-aS3" id="QNl-T3-ZBb"/>
                         <outlet property="memo" destination="58m-xS-jn9" id="ARd-gF-L9V"/>
