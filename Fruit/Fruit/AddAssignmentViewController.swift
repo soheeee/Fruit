@@ -8,21 +8,54 @@
 
 import UIKit
 
-class AddAssignmentViewController: UIViewController{
+extension UIToolbar {
+    func ToolbarPiker(mySelect: Selector) -> UIToolbar {
+        
+        let toolBar = UIToolbar()
+        
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = blushTwo
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done ", style: UIBarButtonItemStyle.done, target: self, action: mySelect)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        
+        toolBar.setItems([spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        return toolBar
+    }
+}
+
+class AddAssignmentViewController: UIViewController {
     
     var assignment = Assignment()
     var Array = ["과제", "프로젝트", "팀플", "발표"]
     
     @IBOutlet var name : UITextField! = UITextField()
     @IBOutlet var memo : UITextField! = UITextField()
+    @IBOutlet var date: UITextField!
+    @IBOutlet var time: UITextField!
     @IBOutlet var category : UITextField! = UITextField()
     @IBOutlet weak var subject: UITextView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
+        name.inputAccessoryView = toolBar
+        date.inputAccessoryView  = toolBar
+        time.inputAccessoryView = toolBar
+        memo.inputAccessoryView = toolBar
+        
         setBackgroundColor()
         
+    }
+    
+    
+    func dismissPicker() {
+        view.endEditing(true)
     }
     
     @IBAction func chooseCategory(_ sender: Any){
@@ -58,12 +91,11 @@ class AddAssignmentViewController: UIViewController{
         assignment.memo = memo.text!
         
         if(assignment.name != nil && assignment.memo != nil){
-            
             self.dismiss(animated: false, completion: nil)
-            
         }
-        
     }
+    
+
   
     @IBAction func viewClose(_ sender: UIButton) {
          self.dismiss(animated: false, completion: nil)
@@ -80,6 +112,8 @@ class AddAssignmentViewController: UIViewController{
         self.view.layer.insertSublayer(gradient, at: 0)
         
     }
+    
+    
     
     @IBAction func addSubjectPressed(sender: UIButton){
         
@@ -123,5 +157,4 @@ class AddAssignmentViewController: UIViewController{
         // Pass the selected object to the new view controller.
     }
     */
-
-}
+    }

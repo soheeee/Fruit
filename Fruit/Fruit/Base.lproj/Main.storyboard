@@ -448,9 +448,11 @@
                     </view>
                     <connections>
                         <outlet property="category" destination="942-ss-nxC" id="hks-Aw-ZO8"/>
+                        <outlet property="date" destination="PMa-zk-zJw" id="oUE-nC-rQr"/>
                         <outlet property="memo" destination="2Lx-Ad-Zgs" id="De1-XN-2WA"/>
                         <outlet property="name" destination="LcM-2q-LSa" id="r7v-pP-SaQ"/>
                         <outlet property="subject" destination="UwP-Od-PRu" id="zfn-bW-otz"/>
+                        <outlet property="time" destination="dm4-fv-JiU" id="onw-YB-fSS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLd-fx-bBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -682,7 +684,10 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="date" destination="Hiw-bB-aS3" id="v23-g1-KYe"/>
+                        <outlet property="memo" destination="58m-xS-jn9" id="UF7-fk-rgR"/>
                         <outlet property="subject" destination="HV4-hC-uWa" id="EAX-lJ-bxA"/>
+                        <outlet property="time" destination="TH5-gB-cwQ" id="gWv-C8-NfB"/>
                         <outlet property="type" destination="Iej-RZ-2mh" id="uhS-2w-0FR"/>
                     </connections>
                 </viewController>

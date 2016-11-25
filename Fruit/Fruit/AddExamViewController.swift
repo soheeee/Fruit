@@ -8,16 +8,50 @@
 
 import UIKit
 
+//extension UIToolbar {
+//    func ToolbarPiker(mySelect: Selector) -> UIToolbar {
+//        
+//        let toolBar = UIToolbar()
+//        
+//        toolBar.barStyle = UIBarStyle.default
+//        toolBar.isTranslucent = true
+//        toolBar.tintColor = blushTwo
+//        toolBar.sizeToFit()
+//        
+//        let doneButton = UIBarButtonItem(title: "Done ", style: UIBarButtonItemStyle.done, target: self, action: mySelect)
+//        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+//        
+//        toolBar.setItems([spaceButton, doneButton], animated: false)
+//        toolBar.isUserInteractionEnabled = true
+//        
+//        return toolBar
+//    }
+//}
+
 class AddExamViewController: UIViewController {
    
     @IBOutlet weak var type: UITextField!
     @IBOutlet weak var subject: UITextView!
+    @IBOutlet weak var date: UITextField!
+    @IBOutlet weak var time: UITextField!
+    @IBOutlet weak var memo: UITextField!
+    
+    
     var selectRow = 0
     var Array = ["중간고사", "기말고사", "퀴즈", "기타"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
+        date.inputAccessoryView = toolBar
+        time.inputAccessoryView = toolBar
+        memo.inputAccessoryView = toolBar
+        
         setBackgroundColor()
+    }
+    
+    func dismissPicker() {
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
