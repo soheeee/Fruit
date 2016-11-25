@@ -42,7 +42,7 @@ class ItemList {
 	func tutorialData() -> [Item] {
         // TODO: Change date to special day
         let dummyAssignment = Assignment(id: 0, time: NSDate(timeIntervalSinceNow: 999999), name: "TestAssignment", subFull: "TestSubject",subShort:"TS", memo: "TestMemo")
-        let dummyExam = Exam(id: 1, time: NSDate(timeIntervalSinceNow: 999999), subFull: "dummySubject",subShort:"DS" ,  memo: "dummyMemo", location: "dummyLocation", cate: Exam.category.quiz)
+        let dummyExam = Exam(id: 1, time: NSDate(timeIntervalSinceNow: 999999), subFull: "dummySubject",subShort:"DS" ,  memo: "dummyMemo", location: "dummyLocation", type: Exam.type.quiz)
 		return [dummyAssignment, dummyExam]
 	}
 	

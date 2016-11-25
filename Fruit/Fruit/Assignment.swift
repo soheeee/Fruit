@@ -12,12 +12,13 @@ class Assignment:Item{
     
     var name:String = "def"
     var memo:String = "def"
+    var type:type = Assignment.type(rawValue: 0)!
     
-    enum category{
-        case assignment
-        case project
-        case teamProject
-        case presentation
+    enum type:Int{
+        case assignment = 0
+        case project = 1
+        case teamProject = 2
+        case presentation = 3
     }
     
     init(){

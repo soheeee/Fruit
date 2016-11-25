@@ -30,13 +30,17 @@ import UIKit
 
 class AddExamViewController: UIViewController {
    
+    var exam = Exam()
     @IBOutlet weak var type: UITextField!
     @IBOutlet weak var subject: UITextView!
     @IBOutlet weak var date: UITextField!
     @IBOutlet weak var time: UITextField!
     @IBOutlet weak var memo: UITextField!
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> dd4fb545d5a1531b29d4489bc9c9f914188341fd
     var selectRow = 0
     var Array = ["중간고사", "기말고사", "퀴즈", "기타"]
 
@@ -59,11 +63,22 @@ class AddExamViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func viewClose(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
    
+    @IBAction func addExam(_ sender: Any) {
+        
+        exam.memo = memo.text!
+        
+        if(exam.memo != nil){
+            
+            self.dismiss(animated: false, completion: nil)
+            
+        }
+        
+        
+    }
     @IBAction func chooseExamType(_ sender: Any) {
         
         let typePicker = ActionSheetMultipleStringPicker(title: "시험종류", rows: [
@@ -129,9 +144,6 @@ class AddExamViewController: UIViewController {
         self.view.layer.insertSublayer(gradient, at: 0)
         
     }
-
- 
-    
 
     /*
     // MARK: - Navigation
