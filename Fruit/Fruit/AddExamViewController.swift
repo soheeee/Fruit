@@ -37,10 +37,7 @@ class AddExamViewController: UIViewController {
     @IBOutlet weak var time: UITextField!
     @IBOutlet weak var memo: UITextField!
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> dd4fb545d5a1531b29d4489bc9c9f914188341fd
+
     var selectRow = 0
     var Array = ["중간고사", "기말고사", "퀴즈", "기타"]
 
