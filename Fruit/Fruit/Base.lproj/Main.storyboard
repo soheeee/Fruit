@@ -687,13 +687,10 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-<<<<<<< HEAD
-=======
                         <outlet property="date" destination="Hiw-bB-aS3" id="QNl-T3-ZBb"/>
                         <outlet property="memo" destination="58m-xS-jn9" id="ARd-gF-L9V"/>
                         <outlet property="subject" destination="HV4-hC-uWa" id="EAX-lJ-bxA"/>
                         <outlet property="time" destination="TH5-gB-cwQ" id="wEp-mO-etO"/>
->>>>>>> dd4fb545d5a1531b29d4489bc9c9f914188341fd
                         <outlet property="type" destination="Iej-RZ-2mh" id="uhS-2w-0FR"/>
                     </connections>
                 </viewController>
