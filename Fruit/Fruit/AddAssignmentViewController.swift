@@ -35,7 +35,7 @@ class AddAssignmentViewController: UIViewController {
     
     @IBOutlet var name : UITextField! = UITextField()
     @IBOutlet var memo : UITextField! = UITextField()
-    @IBOutlet var date: UITextField!
+    @IBOutlet weak var date: UIButton!
     @IBOutlet var time: UITextField!
     @IBOutlet var category : UITextField! = UITextField()
     @IBOutlet weak var subject: UITextView!
@@ -45,7 +45,6 @@ class AddAssignmentViewController: UIViewController {
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
         name.inputAccessoryView = toolBar
-        date.inputAccessoryView  = toolBar
         time.inputAccessoryView = toolBar
         memo.inputAccessoryView = toolBar
         
@@ -64,11 +63,7 @@ class AddAssignmentViewController: UIViewController {
             Array
             ], initialSelection: [0], doneBlock: {
                 picker, values, indexes in
-                
-                print("values = \(values)")
-                print("indexes = \(indexes)")
-                print("picker = \(picker)")
-                
+        
                 let str = values?.description
                 let index = Int(String((str?[(str?.index((str?.startIndex)!, offsetBy: 1))!])!))
                 
@@ -94,9 +89,7 @@ class AddAssignmentViewController: UIViewController {
             self.dismiss(animated: false, completion: nil)
         }
     }
-    
 
-  
     @IBAction func viewClose(_ sender: UIButton) {
          self.dismiss(animated: false, completion: nil)
     }
@@ -113,8 +106,6 @@ class AddAssignmentViewController: UIViewController {
         
     }
     
-    
-    
     @IBAction func addSubjectPressed(sender: UIButton){
         
         let alert = UIAlertController(title: "과목 추가", message: "과목명과 줄임말을 입력해주세요", preferredStyle: .alert)
@@ -130,9 +121,7 @@ class AddAssignmentViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
-//            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-//            print("Text field: \(textField?.text)")]
-            self.subject.text = alert?.textFields![1].text
+            self.subject.text = alert?.textFields![0].text
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -141,12 +130,29 @@ class AddAssignmentViewController: UIViewController {
         alert.view.tintColor = blushTwo
         
     }
+    
+    @IBAction func chooseDate(_ sender: UIButton) {
+        
+        let datePicker = ActionSheetDatePicker(title: "마감날짜", datePickerMode: UIDatePickerMode.date
+            , selectedDate: Date.distantFuture, doneBlock: {picker, values, indexes in print("values = \(values)")
+                print("indexes = \(indexes)")
+                print("picker = \(picker)")
+                
+                self.date.setTitle(values.debugDescription, for: UIControlState.normal)
+                return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
+        
+        datePicker?.setTextColor(brownishGrey)
+        datePicker?.pickerBackgroundColor = UIColor.white
+        datePicker?.toolbarBackgroundColor = UIColor.white
+        datePicker?.toolbarButtonsColor = blushTwo
+        datePicker?.show()
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

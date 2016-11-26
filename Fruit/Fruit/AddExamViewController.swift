@@ -33,7 +33,7 @@ class AddExamViewController: UIViewController {
     var exam = Exam()
     @IBOutlet weak var type: UITextField!
     @IBOutlet weak var subject: UITextView!
-    @IBOutlet weak var date: UITextField!
+    @IBOutlet weak var date: UIButton!
     @IBOutlet weak var time: UITextField!
     @IBOutlet weak var memo: UITextField!
     
@@ -44,7 +44,6 @@ class AddExamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
-        date.inputAccessoryView = toolBar
         time.inputAccessoryView = toolBar
         memo.inputAccessoryView = toolBar
         
@@ -102,6 +101,7 @@ class AddExamViewController: UIViewController {
         typePicker?.show()
         
     }
+    
     @IBAction func addSubject(_ sender: Any) {
         
         let alert = UIAlertController(title: "과목 추가", message: "과목명과 줄임말을 입력해주세요", preferredStyle: .alert)
@@ -117,9 +117,7 @@ class AddExamViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
-//            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            self.subject.text = alert?.textFields![1].text
-//            print("Text field: \(textField?.text)")
+            self.subject.text = alert?.textFields![0].text
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -129,6 +127,25 @@ class AddExamViewController: UIViewController {
         alert.view.tintColor = blushTwo
         
     }
+    
+    @IBAction func chooseDate(_ sender: UIButton) {
+        
+        let datePicker = ActionSheetDatePicker(title: "날짜", datePickerMode: UIDatePickerMode.date
+            , selectedDate: Date.distantFuture, doneBlock: {picker, values, indexes in print("values = \(values)")
+                print("indexes = \(indexes)")
+                print("picker = \(picker)")
+                
+                self.date.setTitle(values.debugDescription, for: UIControlState.normal)
+                return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
+        
+        datePicker?.setTextColor(brownishGrey)
+        datePicker?.pickerBackgroundColor = UIColor.white
+        datePicker?.toolbarBackgroundColor = UIColor.white
+        datePicker?.toolbarButtonsColor = blushTwo
+        datePicker?.show()
+        
+    }
+
     
     func setBackgroundColor(){
         
