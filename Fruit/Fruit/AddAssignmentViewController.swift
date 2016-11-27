@@ -120,9 +120,6 @@ class AddAssignmentViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
         
-        // Necessary to apply tint on iOS 9
-        alert.view.tintColor = blushTwo
-        
     }
     
     @IBAction func chooseDate(_ sender: UIButton) {

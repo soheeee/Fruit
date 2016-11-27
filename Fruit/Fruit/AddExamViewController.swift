@@ -64,12 +64,23 @@ class AddExamViewController: UIViewController {
    
     @IBAction func addExam(_ sender: Any) {
         
+        exam.subFull = subject.text!
         exam.memo = memo.text!
         
-        if(exam.memo != nil){
+        if(exam.memo != ""){
             
             self.dismiss(animated: false, completion: nil)
             
+        }else{
+            /*
+            let alert = UIAlertController(title: "입력 오류", message: "빈칸을 모두 입력해주세요", preferredStyle: .alert)
+            
+            alert.view.tintColor = blushTwo
+            
+            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            
+            self.present(alert, animated: true, completion: nil)
+            */
         }
         
     }
@@ -110,9 +121,6 @@ class AddExamViewController: UIViewController {
         }))
         
         self.present(alert, animated: true, completion: nil)
-        
-        // Necessary to apply tint on iOS 9
-        alert.view.tintColor = blushTwo
         
     }
     
