@@ -36,7 +36,7 @@ class AddAssignmentViewController: UIViewController {
     @IBOutlet var name : UITextField! = UITextField()
     @IBOutlet var memo : UITextField! = UITextField()
     @IBOutlet weak var date: UIButton!
-    @IBOutlet var time: UITextField!
+    @IBOutlet weak var time: UIButton!
     @IBOutlet var category : UITextField! = UITextField()
     @IBOutlet weak var subject: UITextView!
     
@@ -45,13 +45,11 @@ class AddAssignmentViewController: UIViewController {
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
         name.inputAccessoryView = toolBar
-        time.inputAccessoryView = toolBar
         memo.inputAccessoryView = toolBar
         
         setBackgroundColor()
         
     }
-    
     
     func dismissPicker() {
         view.endEditing(true)
@@ -110,12 +108,8 @@ class AddAssignmentViewController: UIViewController {
         
         let alert = UIAlertController(title: "과목 추가", message: "과목명과 줄임말을 입력해주세요", preferredStyle: .alert)
         
-        alert.addTextField { (textField) in
-            textField.placeholder = "전체 과목명"
-        }
-        alert.addTextField { (textField) in
-            textField.placeholder = "최대 3글자 이내"
-        }
+        alert.addTextField { (textField) in textField.placeholder = "전체 과목명" }
+        alert.addTextField { (textField) in textField.placeholder = "최대 3글자 이내" }
         
         alert.view.tintColor = blushTwo
         
@@ -134,11 +128,13 @@ class AddAssignmentViewController: UIViewController {
     @IBAction func chooseDate(_ sender: UIButton) {
         
         let datePicker = ActionSheetDatePicker(title: "마감날짜", datePickerMode: UIDatePickerMode.date
-            , selectedDate: Date.distantFuture, doneBlock: {picker, values, indexes in print("values = \(values)")
-                print("indexes = \(indexes)")
-                print("picker = \(picker)")
+            , selectedDate: Date.init(), doneBlock: {picker, values, indexes in
                 
-                self.date.setTitle(values.debugDescription, for: UIControlState.normal)
+                let str = values.debugDescription.characters
+                let range = str.index(str.startIndex, offsetBy: 9)..<str.index(str.endIndex, offsetBy: -15)
+                let dateStr = values.debugDescription[range]
+                
+                self.date.setTitle(dateStr, for: UIControlState.normal)
                 return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
         
         datePicker?.setTextColor(brownishGrey)
@@ -146,6 +142,28 @@ class AddAssignmentViewController: UIViewController {
         datePicker?.toolbarBackgroundColor = UIColor.white
         datePicker?.toolbarButtonsColor = blushTwo
         datePicker?.show()
+        
+    }
+    
+    @IBAction func chooseTime(_ sender: UIButton) {
+        
+        let timePicker = ActionSheetDatePicker(title: "마감시간", datePickerMode: UIDatePickerMode.time
+            , selectedDate: Date.init(), doneBlock: {picker, values, indexes in print("values = \(values)")
+                print("indexes = \(indexes)")
+                print("picker = \(picker)")
+                
+                let str = values.debugDescription.characters
+                let range = str.index(str.startIndex, offsetBy: 9)..<str.index(str.endIndex, offsetBy: -6)
+                let dateStr = values.debugDescription[range]
+                
+                self.time.setTitle(dateStr, for: UIControlState.normal)
+                return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
+        
+        timePicker?.setTextColor(brownishGrey)
+        timePicker?.pickerBackgroundColor = UIColor.white
+        timePicker?.toolbarBackgroundColor = UIColor.white
+        timePicker?.toolbarButtonsColor = blushTwo
+        timePicker?.show()
         
     }
 

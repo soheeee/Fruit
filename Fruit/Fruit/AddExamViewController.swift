@@ -34,7 +34,7 @@ class AddExamViewController: UIViewController {
     @IBOutlet weak var type: UITextField!
     @IBOutlet weak var subject: UITextView!
     @IBOutlet weak var date: UIButton!
-    @IBOutlet weak var time: UITextField!
+    @IBOutlet weak var time: UIButton!
     @IBOutlet weak var memo: UITextField!
     
 
@@ -44,7 +44,6 @@ class AddExamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
-        time.inputAccessoryView = toolBar
         memo.inputAccessoryView = toolBar
         
         setBackgroundColor()
@@ -73,18 +72,12 @@ class AddExamViewController: UIViewController {
             
         }
         
-        
     }
+    
     @IBAction func chooseExamType(_ sender: Any) {
         
-        let typePicker = ActionSheetMultipleStringPicker(title: "시험종류", rows: [
-            Array
-            ], initialSelection: [0], doneBlock: {
+        let typePicker = ActionSheetMultipleStringPicker(title: "시험종류", rows: [Array], initialSelection: [0], doneBlock: {
                 picker, values, indexes in
-                
-                print("values = \(values)")
-                print("indexes = \(indexes)")
-                print("picker = \(picker)")
                 
                 let str = values?.description
                 let index = Int(String((str?[(str?.index((str?.startIndex)!, offsetBy: 1))!])!))
@@ -106,12 +99,8 @@ class AddExamViewController: UIViewController {
         
         let alert = UIAlertController(title: "과목 추가", message: "과목명과 줄임말을 입력해주세요", preferredStyle: .alert)
         
-        alert.addTextField { (textField) in
-            textField.placeholder = "전체 과목명"
-        }
-        alert.addTextField { (textField) in
-            textField.placeholder = "최대 3글자 이내"
-        }
+        alert.addTextField { (textField) in textField.placeholder = "전체 과목명" }
+        alert.addTextField { (textField) in textField.placeholder = "최대 3글자 이내" }
         
         alert.view.tintColor = blushTwo
         
@@ -121,7 +110,6 @@ class AddExamViewController: UIViewController {
         }))
         
         self.present(alert, animated: true, completion: nil)
-//        subject.text = alert.textFields?[1].text
         
         // Necessary to apply tint on iOS 9
         alert.view.tintColor = blushTwo
@@ -131,11 +119,13 @@ class AddExamViewController: UIViewController {
     @IBAction func chooseDate(_ sender: UIButton) {
         
         let datePicker = ActionSheetDatePicker(title: "날짜", datePickerMode: UIDatePickerMode.date
-            , selectedDate: Date.distantFuture, doneBlock: {picker, values, indexes in print("values = \(values)")
-                print("indexes = \(indexes)")
-                print("picker = \(picker)")
+            , selectedDate: Date.init(), doneBlock: {picker, values, indexes in
                 
-                self.date.setTitle(values.debugDescription, for: UIControlState.normal)
+                let str = values.debugDescription.characters
+                let range = str.index(str.startIndex, offsetBy: 9)..<str.index(str.endIndex, offsetBy: -15)
+                let dateStr = values.debugDescription[range]
+                
+                self.date.setTitle(dateStr, for: UIControlState.normal)
                 return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
         
         datePicker?.setTextColor(brownishGrey)
@@ -146,6 +136,28 @@ class AddExamViewController: UIViewController {
         
     }
 
+    @IBAction func chooseTime(_ sender: UIButton) {
+        
+        let timePicker = ActionSheetDatePicker(title: "시간", datePickerMode: UIDatePickerMode.time
+            , selectedDate: Date.init(), doneBlock: {picker, values, indexes in print("values = \(values)")
+                print("indexes = \(indexes)")
+                print("picker = \(picker)")
+                
+                let str = values.debugDescription.characters
+                let range = str.index(str.startIndex, offsetBy: 9)..<str.index(str.endIndex, offsetBy: -6)
+                let dateStr = values.debugDescription[range]
+                
+                self.time.setTitle(dateStr, for: UIControlState.normal)
+                
+                return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
+        
+        timePicker?.setTextColor(brownishGrey)
+        timePicker?.pickerBackgroundColor = UIColor.white
+        timePicker?.toolbarBackgroundColor = UIColor.white
+        timePicker?.toolbarButtonsColor = blushTwo
+        timePicker?.show()
+        
+    }
     
     func setBackgroundColor(){
         
