@@ -235,10 +235,24 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     func refreshTable() {
         arrayItem = itemList.getItemsFromNow()
         arrayItem.sorted(by: {$0.time.compare($1.time as Date) == ComparisonResult.orderedDescending})
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd"
+        
+        let today = formatter.string(from:Date())
+        var dateString:String
+        var assignmentDue:Int = 0
+        
         for i in 0 ... arrayItem.count-1{
-            print( (arrayItem[i].time).description + "\n")
+            
+            dateString = formatter.string(from: arrayItem[i].time as Date)
+            
+            if(today == dateString){
+                assignmentDue += 1
+            }
+            
         }
-        todayLeftCount.text = String(arrayItem.count) + "개 남았습니다"
+        todayLeftCount.text = String(assignmentDue) + "개 남았습니다"
         tableView.reloadData()
     }
     

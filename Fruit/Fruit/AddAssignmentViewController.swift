@@ -124,16 +124,23 @@ class AddAssignmentViewController: UIViewController {
     
     @IBAction func chooseDate(_ sender: UIButton) {
         
+      
         let datePicker = ActionSheetDatePicker(title: "마감날짜", datePickerMode: UIDatePickerMode.date
             , selectedDate: Date.init(), doneBlock: {picker, values, indexes in
                 
                 let str = values.debugDescription.characters
-                let range = str.index(str.startIndex, offsetBy: 9)..<str.index(str.endIndex, offsetBy: -15)
+                let range = str.index(str.startIndex, offsetBy: 9)..<str.index(str.endIndex, offsetBy: -16)
                 let dateStr = values.debugDescription[range]
                 
-                self.date.setTitle(dateStr, for: UIControlState.normal)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateObj = dateFormatter.date(from: dateStr)
+                
+                dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+                
+                self.date.setTitle(dateFormatter.string(from: dateObj!), for: UIControlState.normal)
                 return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
-        
+ 
         datePicker?.setTextColor(brownishGrey)
         datePicker?.pickerBackgroundColor = UIColor.white
         datePicker?.toolbarBackgroundColor = UIColor.white
@@ -145,15 +152,20 @@ class AddAssignmentViewController: UIViewController {
     @IBAction func chooseTime(_ sender: UIButton) {
         
         let timePicker = ActionSheetDatePicker(title: "마감시간", datePickerMode: UIDatePickerMode.time
-            , selectedDate: Date.init(), doneBlock: {picker, values, indexes in print("values = \(values)")
-                print("indexes = \(indexes)")
-                print("picker = \(picker)")
+            , selectedDate: Date.init(), doneBlock: {picker, values, indexes in
                 
                 let str = values.debugDescription.characters
                 let range = str.index(str.startIndex, offsetBy: 9)..<str.index(str.endIndex, offsetBy: -6)
                 let dateStr = values.debugDescription[range]
                 
-                self.time.setTitle(dateStr, for: UIControlState.normal)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                var dateObj = dateFormatter.date(from: dateStr)
+                dateObj = dateObj?.addingTimeInterval(9*60*60)
+                
+                dateFormatter.dateFormat = "h:mm a"
+                
+                self.time.setTitle(dateFormatter.string(from: dateObj!), for: UIControlState.normal)
                 return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
         
         timePicker?.setTextColor(brownishGrey)
