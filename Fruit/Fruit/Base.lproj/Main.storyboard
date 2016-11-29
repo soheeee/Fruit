@@ -59,15 +59,19 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="triangle_1x" translatesAutoresizingMaskIntoConstraints="NO" id="OEc-OJ-81o">
+                                <rect key="frame" x="178" y="219" width="20" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tOU-gd-FvZ">
                                 <rect key="frame" x="185" y="264" width="3" height="370"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="circle1_1x" translatesAutoresizingMaskIntoConstraints="NO" id="YDw-GG-VMd">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="circle1_1x" translatesAutoresizingMaskIntoConstraints="NO" id="YDw-GG-VMd">
                                 <rect key="frame" x="0.0" y="220" width="375" height="112"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="circle2_1x" translatesAutoresizingMaskIntoConstraints="NO" id="uRj-iA-MUV">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="circle2_1x" translatesAutoresizingMaskIntoConstraints="NO" id="uRj-iA-MUV">
                                 <rect key="frame" x="0.0" y="332" width="375" height="112"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="circle3_1x" translatesAutoresizingMaskIntoConstraints="NO" id="68V-qZ-wx2">
@@ -77,7 +81,7 @@
                                 <rect key="frame" x="0.0" y="556" width="375" height="112"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="17E-7z-Is3">
-                                <rect key="frame" x="0.0" y="220" width="375" height="447"/>
+                                <rect key="frame" x="0.0" y="234" width="375" height="433"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="iQc-qq-ZsX" customClass="MainTableViewCell" customModule="Fruit" customModuleProvider="target">
@@ -127,7 +131,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Today!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFB-Mi-Bhi">
                                                     <rect key="frame" x="162" y="9" width="50" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.93333333333333335" green="0.25490196078431371" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -180,7 +184,7 @@
                             <constraint firstItem="uRj-iA-MUV" firstAttribute="height" secondItem="YDw-GG-VMd" secondAttribute="height" id="7A6-cH-jP0"/>
                             <constraint firstItem="YDw-GG-VMd" firstAttribute="height" secondItem="17E-7z-Is3" secondAttribute="height" multiplier="0.25" id="GIZ-yI-aNT"/>
                             <constraint firstItem="mrC-Bd-bCQ" firstAttribute="top" secondItem="17E-7z-Is3" secondAttribute="bottom" id="NT6-sw-vPd"/>
-                            <constraint firstItem="17E-7z-Is3" firstAttribute="height" secondItem="jPc-kp-317" secondAttribute="height" constant="-220" id="P4f-xr-IdQ"/>
+                            <constraint firstItem="17E-7z-Is3" firstAttribute="height" secondItem="jPc-kp-317" secondAttribute="height" constant="-234" id="P4f-xr-IdQ"/>
                             <constraint firstItem="68V-qZ-wx2" firstAttribute="width" secondItem="uRj-iA-MUV" secondAttribute="width" id="Pas-qw-SUI"/>
                             <constraint firstItem="17E-7z-Is3" firstAttribute="leading" secondItem="jPc-kp-317" secondAttribute="leading" id="R6F-i2-pUY"/>
                             <constraint firstItem="YDw-GG-VMd" firstAttribute="width" secondItem="17E-7z-Is3" secondAttribute="width" id="Y5K-v9-9hM"/>
@@ -722,5 +726,6 @@
         <image name="circle2_1x" width="57" height="57"/>
         <image name="circle3_1x" width="57" height="57"/>
         <image name="circle4_1x" width="57" height="57"/>
+        <image name="triangle_1x" width="20" height="15"/>
     </resources>
 </document>
