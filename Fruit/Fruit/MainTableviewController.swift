@@ -28,6 +28,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var todayLeftCount: UILabel!
     @IBAction func CreateDummy(_ sender: Any) {
         itemList.createDummy()
+
         refreshTable()
     }
     
@@ -234,7 +235,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func refreshTable() {
         arrayItem = itemList.getItemsFromNow()
-        arrayItem.sorted(by: {$0.time.compare($1.time as Date) == ComparisonResult.orderedDescending})
+        arrayItem = arrayItem.sorted(by: {$0.time.compare($1.time as Date) == ComparisonResult.orderedAscending})
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd"
