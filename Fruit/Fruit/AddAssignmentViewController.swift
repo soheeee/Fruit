@@ -161,7 +161,7 @@ class AddAssignmentViewController: UIViewController {
                 let dateStr = values.debugDescription[range]
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 var dateObj = dateFormatter.date(from: dateStr)
                 dateObj = dateObj?.addingTimeInterval(9*60*60)
                 

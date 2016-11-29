@@ -141,14 +141,19 @@ class AddExamViewController: UIViewController {
                 
                 let str = values.debugDescription.characters
                 let range = str.index(str.startIndex, offsetBy: 9)..<str.index(str.endIndex, offsetBy: -6)
+        
                 let dateStr = values.debugDescription[range]
                 
+                
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 var dateObj = dateFormatter.date(from: dateStr)
+               
                 dateObj = dateObj?.addingTimeInterval(9*60*60)
+              
                 
                 dateFormatter.dateFormat = "h:mm a"
+               
                 
                 self.time.setTitle(dateFormatter.string(from: dateObj!), for: UIControlState.normal)
                 
