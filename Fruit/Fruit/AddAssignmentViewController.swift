@@ -38,8 +38,9 @@ class AddAssignmentViewController: UIViewController {
     @IBOutlet weak var date: UIButton!
     @IBOutlet weak var time: UIButton!
     @IBOutlet var category : UITextField! = UITextField()
-    @IBOutlet weak var subject: UITextView!
+//    @IBOutlet weak var subject: UITextView!
     
+    @IBOutlet weak var subject: UITextField!
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -116,6 +117,7 @@ class AddAssignmentViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
             self.subject.text = alert?.textFields![0].text
+//            self.subject.text = alert?.textFields![0].te
         }))
         
         self.present(alert, animated: true, completion: nil)

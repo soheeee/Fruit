@@ -8,35 +8,17 @@
 
 import UIKit
 
-//extension UIToolbar {
-//    func ToolbarPiker(mySelect: Selector) -> UIToolbar {
-//        
-//        let toolBar = UIToolbar()
-//        
-//        toolBar.barStyle = UIBarStyle.default
-//        toolBar.isTranslucent = true
-//        toolBar.tintColor = blushTwo
-//        toolBar.sizeToFit()
-//        
-//        let doneButton = UIBarButtonItem(title: "Done ", style: UIBarButtonItemStyle.done, target: self, action: mySelect)
-//        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-//        
-//        toolBar.setItems([spaceButton, doneButton], animated: false)
-//        toolBar.isUserInteractionEnabled = true
-//        
-//        return toolBar
-//    }
-//}
+
 
 class AddExamViewController: UIViewController {
    
     var exam = Exam()
     @IBOutlet weak var type: UITextField!
-    @IBOutlet weak var subject: UITextView!
+//    @IBOutlet weak var subject: UITextView!
     @IBOutlet weak var date: UIButton!
     @IBOutlet weak var time: UIButton!
     @IBOutlet weak var memo: UITextField!
-    
+    @IBOutlet weak var subject: UITextField!
 
     var selectRow = 0
     var Array = ["중간고사", "기말고사", "퀴즈", "기타"]

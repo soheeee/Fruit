@@ -149,7 +149,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             }
             
             // Calculate how many rows to move.
-            var move = Int(vel/cellHeight)/2+first
+            var move = Int(vel/cellHeight)/7+first
             if move < 0 {
                 move = 0
             } else if move > arrayItem.count - 1 {
