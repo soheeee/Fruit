@@ -18,9 +18,10 @@ class Exam:Item{
         case midterm = 0
         case final = 1
         case quiz = 2
+        case etc = 3
     }
     
-    var typeArray = ["midterm","final","quiz"]
+    var typeArray = ["midterm","final","quiz","etc"]
     
     init(){
         

@@ -9,8 +9,6 @@
 import UIKit
 
 class AddExamViewController: ItemViewController {
-    
-    var exam = Exam()
     @IBOutlet weak var type: UITextField!
     @IBOutlet weak var date: UIButton!
     @IBOutlet weak var time: UIButton!
@@ -33,15 +31,19 @@ class AddExamViewController: ItemViewController {
     }
     
     @IBAction func addExam(_ sender: Any) {
-        
-        exam.subFull = subject.text!
-        exam.memo = memo.text!
-        
-        if(exam.memo != ""){
+        if(type.text != "") {
+            var examType:Exam.type?
+            for i in 0 ... categories.count-1 {
+                if type.text == categories[i] {
+                    examType = Exam.type(rawValue: i)
+                }
+            }
             
+            let exam = Exam(id: 2, time: dateVar as NSDate, subFull: subject.text!, subShort: subject.text!, memo: memo.text!, location: memo.text!, type: examType!)
+            
+            itemList.insertItem(item: exam)
             self.dismiss(animated: false, completion: nil)
-            
-        }else{
+        } else {
             /*
              let alert = UIAlertController(title: "입력 오류", message: "빈칸을 모두 입력해주세요", preferredStyle: .alert)
              
@@ -52,7 +54,6 @@ class AddExamViewController: ItemViewController {
              self.present(alert, animated: true, completion: nil)
              */
         }
-        
     }
     
     @IBAction func chooseExamType(_ sender: Any) {
