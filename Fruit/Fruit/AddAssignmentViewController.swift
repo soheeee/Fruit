@@ -10,49 +10,24 @@ import UIKit
 
 
 class AddAssignmentViewController: ItemViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    var Array = ["과제", "프로젝트", "팀플", "발표"]
-    
     @IBOutlet var name : UITextField! = UITextField()
     @IBOutlet var memo : UITextField! = UITextField()
     @IBOutlet weak var date: UIButton!
     @IBOutlet weak var time: UIButton!
     @IBOutlet var category : UITextField! = UITextField()
     @IBOutlet weak var collectionView: UICollectionView!
-    
-//    @IBOutlet weak var subject: UITextView!
-    
     @IBOutlet weak var subject: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
         name.inputAccessoryView = toolBar
         memo.inputAccessoryView = toolBar
+        categories += ["과제", "프로젝트", "팀플", "발표"]
     }
     
     @IBAction func chooseCategory(_ sender: Any){
-        
-        let categoryPicker = ActionSheetMultipleStringPicker(title: "카테고리", rows: [
-            Array
-            ], initialSelection: [0], doneBlock: {
-                picker, values, indexes in
-        
-                let str = values?.description
-                let index = Int(String((str?[(str?.index((str?.startIndex)!, offsetBy: 1))!])!))
-                
-                self.category.text = self.Array[index!]
-                
-                return
-        }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
-        
-        categoryPicker?.setTextColor(brownishGrey)
-        categoryPicker?.pickerBackgroundColor = UIColor.white
-        categoryPicker?.toolbarBackgroundColor = UIColor.white
-        categoryPicker?.toolbarButtonsColor = blushTwo
-        categoryPicker?.show()
-        
+        chooseCategoryForItem(title: "카테고리", sender: sender, category: self.category)
     }
     
     @IBAction func addAssignment(_ sender: Any) {
@@ -64,9 +39,9 @@ class AddAssignmentViewController: ItemViewController, UICollectionViewDataSourc
             self.dismiss(animated: true, completion: nil)
         }
     }
-
+    
     @IBAction func viewClose(_ sender: UIButton) {
-         self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addSubjectPressed(sender: UIButton){
@@ -84,7 +59,7 @@ class AddAssignmentViewController: ItemViewController, UICollectionViewDataSourc
     
     // make a cell for each cell index path
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! SubjectCollectionViewCell
         
@@ -118,19 +93,10 @@ class AddAssignmentViewController: ItemViewController, UICollectionViewDataSourc
     }
     
     func deleteSubject(sender: UIButton){
-        
         let i : Int = (sender.layer.value(forKey: "index")) as! Int
         subjects.remove(at: i)
         collectionView.reloadData()
-        
     }
-    /*
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        
-        
-        print("You selected cell #\(indexPath.item)!")
-    }*/
     
     @IBAction func chooseDate(_ sender: UIButton) {
         chooseDateForItem(sender: sender)
@@ -138,16 +104,15 @@ class AddAssignmentViewController: ItemViewController, UICollectionViewDataSourc
     
     @IBAction func chooseTime(_ sender: UIButton) {
         chooseTimeForItem(sender:sender)
-        
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    }
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+}

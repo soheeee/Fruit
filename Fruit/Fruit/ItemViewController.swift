@@ -29,6 +29,7 @@ extension UIToolbar {
 
 class ItemViewController : UIViewController {
     var dateVar = Date()
+    var categories : [String] = []
     
     override func viewDidLoad() {
         // Set default date to today 23:59:59
@@ -65,6 +66,27 @@ class ItemViewController : UIViewController {
         }))
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func chooseCategoryForItem(title: String, sender: Any, category: UITextField) {
+        let categoryPicker = ActionSheetMultipleStringPicker(title: title, rows: [
+            categories
+            ], initialSelection: [0], doneBlock: {
+                picker, values, indexes in
+                
+                let str = values?.description
+                let index = Int(String((str?[(str?.index((str?.startIndex)!, offsetBy: 1))!])!))
+                
+                category.text = self.categories[index!]
+                
+                return
+        }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
+        
+        categoryPicker?.setTextColor(brownishGrey)
+        categoryPicker?.pickerBackgroundColor = UIColor.white
+        categoryPicker?.toolbarBackgroundColor = UIColor.white
+        categoryPicker?.toolbarButtonsColor = blushTwo
+        categoryPicker?.show()
     }
     
     func chooseDateForItem(sender: UIButton){

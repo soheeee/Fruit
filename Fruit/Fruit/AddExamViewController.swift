@@ -9,29 +9,29 @@
 import UIKit
 
 class AddExamViewController: ItemViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-   
+    
     var exam = Exam()
     @IBOutlet weak var type: UITextField!
-//    @IBOutlet weak var subject: UITextView!
+    //    @IBOutlet weak var subject: UITextView!
     @IBOutlet weak var date: UIButton!
     @IBOutlet weak var time: UIButton!
     @IBOutlet weak var memo: UITextField!
     @IBOutlet weak var subject: UITextField!
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var selectRow = 0
-    var Array = ["중간고사", "기말고사", "퀴즈", "기타"]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
         memo.inputAccessoryView = toolBar
+        categories += ["중간고사", "기말고사", "퀴즈", "기타"]
     }
     
     @IBAction func viewClose(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
-   
+    
     @IBAction func addExam(_ sender: Any) {
         
         exam.subFull = subject.text!
@@ -43,37 +43,20 @@ class AddExamViewController: ItemViewController, UICollectionViewDataSource, UIC
             
         }else{
             /*
-            let alert = UIAlertController(title: "입력 오류", message: "빈칸을 모두 입력해주세요", preferredStyle: .alert)
-            
-            alert.view.tintColor = blushTwo
-            
-            alert.addAction(UIAlertAction(title: "확인", style: .default))
-            
-            self.present(alert, animated: true, completion: nil)
-            */
+             let alert = UIAlertController(title: "입력 오류", message: "빈칸을 모두 입력해주세요", preferredStyle: .alert)
+             
+             alert.view.tintColor = blushTwo
+             
+             alert.addAction(UIAlertAction(title: "확인", style: .default))
+             
+             self.present(alert, animated: true, completion: nil)
+             */
         }
         
     }
     
     @IBAction func chooseExamType(_ sender: Any) {
-        
-        let typePicker = ActionSheetMultipleStringPicker(title: "시험종류", rows: [Array], initialSelection: [0], doneBlock: {
-                picker, values, indexes in
-                
-                let str = values?.description
-                let index = Int(String((str?[(str?.index((str?.startIndex)!, offsetBy: 1))!])!))
-                
-                self.type.text = self.Array[index!]
-                
-                return
-        }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
-        
-        typePicker?.setTextColor(brownishGrey)
-        typePicker?.pickerBackgroundColor = UIColor.white
-        typePicker?.toolbarBackgroundColor = UIColor.white
-        typePicker?.toolbarButtonsColor = blushTwo
-        typePicker?.show()
-        
+        chooseCategoryForItem(title: "시험종류", sender: sender, category: type)
     }
     
     @IBAction func addSubject(_ sender: Any) {
@@ -135,19 +118,19 @@ class AddExamViewController: ItemViewController, UICollectionViewDataSource, UIC
     @IBAction func chooseDate(_ sender: UIButton) {
         chooseDateForItem(sender: sender)
     }
-
+    
     @IBAction func chooseTime(_ sender: UIButton) {
         chooseTimeForItem(sender: sender)
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
