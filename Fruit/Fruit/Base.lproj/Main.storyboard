@@ -727,11 +727,16 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkP-df-fUH">
+                                                            <rect key="frame" x="-0.5" y="-0.5" width="55" height="55"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        </button>
                                                     </subviews>
                                                 </view>
                                             </subviews>
                                         </view>
                                         <connections>
+                                            <outlet property="button" destination="TkP-df-fUH" id="eX5-bf-k6m"/>
                                             <outlet property="circle" destination="2JO-D3-Fan" id="4ja-w8-D6F"/>
                                             <outlet property="delete" destination="5Re-2H-yeb" id="1ca-G7-tYF"/>
                                             <outlet property="sublabel" destination="oGd-MV-kRk" id="U24-Xk-Exf"/>
