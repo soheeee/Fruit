@@ -8,8 +8,6 @@
 
 import UIKit
 
-var subjects = ["컴네", "데베시", "융소", "객지", "5", "6", "7", "8", "9", "10"]
-
 class SubjectCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sublabel: UILabel!

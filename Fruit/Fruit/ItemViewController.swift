@@ -188,7 +188,7 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
     
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return subjects.count
+        return subjectList.subjects.count
     }
     
     // make a cell for each cell index path
@@ -198,7 +198,7 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! SubjectCollectionViewCell
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.sublabel.text = subjects[indexPath.item]
+        cell.sublabel.text = subjectList.subjects[indexPath.item].short
         
         cell.delete.layer.setValue(indexPath.row, forKey: "index")
         cell.delete.addTarget(self, action: #selector(self.deleteSubject), for: UIControlEvents.touchUpInside)
@@ -231,15 +231,16 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
     
     func selectSubject(sender: UIButton) {
         let i : Int = (sender.layer.value(forKey: "index")) as! Int
-        subjectForItem?.text = subjects[i]
+        subjectForItem?.text = subjectList.subjects[i].name
     }
     
     func deleteSubject(sender: UIButton) {
         let i : Int = (sender.layer.value(forKey: "index")) as! Int
-        if(subjectForItem?.text == subjects[i]) {
+        if(subjectForItem?.text == subjectList.subjects[i].name) {
             subjectForItem?.text = ""
         }
-        subjects.remove(at: i)
+        subjectList.deleteSubject(at: i)
+        subjectList.subjects.remove(at: i)
         collectionViewForItem?.reloadData()
     }
 }

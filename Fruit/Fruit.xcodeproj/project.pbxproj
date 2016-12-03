@@ -10,6 +10,8 @@
 		3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C1C2F1DD78ED80021516D /* ItemList.swift */; };
 		3CA83D8F1DE1E3AC009E9975 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */; };
 		3CC7A55E1DF2DA7E00295358 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */; };
+		3CC7A5601DF3177700295358 /* SubjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A55F1DF3177700295358 /* SubjectList.swift */; };
+		3CC7A5621DF3185F00295358 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A5611DF3185F00295358 /* Subject.swift */; };
 		8D22BFA21DE00F1000AB4D0B /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */; };
 		8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */; };
 		8D3665DE1DE4166B0071F673 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3665DD1DE4166B0071F673 /* Colors.swift */; };
@@ -65,6 +67,8 @@
 		3C1C1C2F1DD78ED80021516D /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		3CC7A55F1DF3177700295358 /* SubjectList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectList.swift; sourceTree = "<group>"; };
+		3CC7A5611DF3185F00295358 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExamViewController.swift; sourceTree = "<group>"; };
 		8D3665DD1DE4166B0071F673 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 				8D5AEF671DED63080064E06F /* SubjectCollectionViewCell.swift */,
 				8D715F071DC867C5009018AE /* Item.swift */,
 				3C1C1C2F1DD78ED80021516D /* ItemList.swift */,
+				3CC7A5611DF3185F00295358 /* Subject.swift */,
+				3CC7A55F1DF3177700295358 /* SubjectList.swift */,
 				8D715F091DC86CFC009018AE /* Assignment.swift */,
 				8D715F0B1DC87019009018AE /* Exam.swift */,
 				8D3665DD1DE4166B0071F673 /* Colors.swift */,
@@ -411,6 +417,7 @@
 				8DB548D41DE2D09700E92D5C /* ActionSheetLocalePicker.m in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
 				3CA83D8F1DE1E3AC009E9975 /* MainTableViewCell.swift in Sources */,
+				3CC7A5601DF3177700295358 /* SubjectList.swift in Sources */,
 				8DD66B6B1DDB328100712B9F /* KCFABManager.swift in Sources */,
 				8DB548D51DE2D09700E92D5C /* ActionSheetMultipleStringPicker.m in Sources */,
 				8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */,
@@ -422,6 +429,7 @@
 				8D5AEF681DED63080064E06F /* SubjectCollectionViewCell.swift in Sources */,
 				8DB548D31DE2D09700E92D5C /* ActionSheetDistancePicker.m in Sources */,
 				8DD66B6E1DDB328100712B9F /* KCFloatingActionButton.swift in Sources */,
+				3CC7A5621DF3185F00295358 /* Subject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
