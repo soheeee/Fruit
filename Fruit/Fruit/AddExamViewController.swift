@@ -22,7 +22,7 @@ class AddExamViewController: ItemViewController {
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
         memo.inputAccessoryView = toolBar
-        categories += ["중간고사", "기말고사", "퀴즈", "기타"]
+        categories += Exam.typeArray
         collectionViewForItem = collectionView
     }
     

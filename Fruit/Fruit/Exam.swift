@@ -21,7 +21,7 @@ class Exam:Item{
         case etc = 3
     }
     
-    var typeArray = ["midterm","final","quiz","etc"]
+    static var typeArray = ["중간고사","기말고사","퀴즈","기타"]
     
     init(){
         
@@ -33,7 +33,7 @@ class Exam:Item{
 		self.memo = memo
 		self.location = location
 		
-        super.init(id: id, title: typeArray[type.rawValue], time: time, subFull: subFull, subShort:subShort)
+        super.init(id: id, title: Exam.typeArray[type.rawValue], time: time, subFull: subFull, subShort:subShort)
     }
 	
 	required init?(coder aDecoder: NSCoder) {
