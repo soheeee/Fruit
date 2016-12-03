@@ -38,6 +38,16 @@ class AddAssignmentViewController: ItemViewController {
             itemList.insertItem(item: assignment)
             
             self.dismiss(animated: true, completion: nil)
+        } else {
+            /*
+             let alert = UIAlertController(title: "입력 오류", message: "빈칸을 모두 입력해주세요", preferredStyle: .alert)
+             
+             alert.view.tintColor = blushTwo
+             
+             alert.addAction(UIAlertAction(title: "확인", style: .default))
+             
+             self.present(alert, animated: true, completion: nil)
+             */
         }
     }
     
