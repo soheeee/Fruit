@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C1C2F1DD78ED80021516D /* ItemList.swift */; };
 		3CA83D8F1DE1E3AC009E9975 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */; };
+		3CC7A55E1DF2DA7E00295358 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */; };
 		8D22BFA21DE00F1000AB4D0B /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */; };
 		8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */; };
 		8D3665DE1DE4166B0071F673 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3665DD1DE4166B0071F673 /* Colors.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		3C1C1C2F1DD78ED80021516D /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExamViewController.swift; sourceTree = "<group>"; };
 		8D3665DD1DE4166B0071F673 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */,
 				A1A006701DDC335F007E131D /* MainNaviController.swift */,
 				8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */,
+				3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */,
 				8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */,
 				8D5AEF671DED63080064E06F /* SubjectCollectionViewCell.swift */,
 				8D715F071DC867C5009018AE /* Item.swift */,
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D715F0A1DC86CFC009018AE /* Assignment.swift in Sources */,
+				3CC7A55E1DF2DA7E00295358 /* ItemViewController.swift in Sources */,
 				8D715F0C1DC87019009018AE /* Exam.swift in Sources */,
 				8DD66B6C1DDB328100712B9F /* KCFABViewController.swift in Sources */,
 				8DB548D71DE2D09700E92D5C /* DistancePickerView.m in Sources */,
