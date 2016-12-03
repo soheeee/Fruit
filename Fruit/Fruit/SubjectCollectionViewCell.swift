@@ -15,5 +15,6 @@ class SubjectCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sublabel: UILabel!
     @IBOutlet weak var circle: UIImageView!
     @IBOutlet weak var delete: UIButton!
+    @IBOutlet weak var button: UIButton!
   
 }

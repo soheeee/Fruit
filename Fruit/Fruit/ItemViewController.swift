@@ -31,6 +31,7 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
     var dateVar = Date()
     var categories : [String] = []
     var collectionViewForItem: UICollectionView?
+    var subjectForItem: UITextField?
     
     override func viewDidLoad() {
         // Set default date to today 23:59:59
@@ -64,6 +65,7 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
             subject.text = alert?.textFields![0].text
+            // TODO: Save short name, too
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -201,6 +203,9 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         cell.delete.layer.setValue(indexPath.row, forKey: "index")
         cell.delete.addTarget(self, action: #selector(self.deleteSubject), for: UIControlEvents.touchUpInside)
         
+        cell.button.layer.setValue(indexPath.row, forKey: "index")
+        cell.button.addTarget(self, action: #selector(self.selectSubject), for: .touchUpInside)
+        
         //cellColor
         let cellColor = indexPath.item % 4
         switch(cellColor){
@@ -224,8 +229,16 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         return cell
     }
     
-    func deleteSubject(sender: UIButton){
+    func selectSubject(sender: UIButton) {
         let i : Int = (sender.layer.value(forKey: "index")) as! Int
+        subjectForItem?.text = subjects[i]
+    }
+    
+    func deleteSubject(sender: UIButton) {
+        let i : Int = (sender.layer.value(forKey: "index")) as! Int
+        if(subjectForItem?.text == subjects[i]) {
+            subjectForItem?.text = ""
+        }
         subjects.remove(at: i)
         collectionViewForItem?.reloadData()
     }

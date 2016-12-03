@@ -24,6 +24,7 @@ class AddExamViewController: ItemViewController {
         memo.inputAccessoryView = toolBar
         categories += Exam.typeArray
         collectionViewForItem = collectionView
+        subjectForItem = subject
     }
     
     @IBAction func viewClose(_ sender: UIButton) {
