@@ -12,6 +12,8 @@
 		8D22BFA21DE00F1000AB4D0B /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */; };
 		8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */; };
 		8D3665DE1DE4166B0071F673 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3665DD1DE4166B0071F673 /* Colors.swift */; };
+		8D5AEF681DED63080064E06F /* SubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AEF671DED63080064E06F /* SubjectCollectionViewCell.swift */; };
+		8D5AEF6A1DEEBAE40064E06F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AEF691DEEBAE40064E06F /* UIView.swift */; };
 		8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715ED91DC8659D009018AE /* AppDelegate.swift */; };
 		8D715EDF1DC8659D009018AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D715EDD1DC8659D009018AE /* Main.storyboard */; };
 		8D715EE11DC8659D009018AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D715EE01DC8659D009018AE /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExamViewController.swift; sourceTree = "<group>"; };
 		8D3665DD1DE4166B0071F673 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8D5AEF671DED63080064E06F /* SubjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		8D5AEF691DEEBAE40064E06F /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8D715ED61DC8659D009018AE /* Fruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D715ED91DC8659D009018AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D715EDE1DC8659D009018AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -170,11 +174,13 @@
 				A1A006701DDC335F007E131D /* MainNaviController.swift */,
 				8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */,
 				8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */,
+				8D5AEF671DED63080064E06F /* SubjectCollectionViewCell.swift */,
 				8D715F071DC867C5009018AE /* Item.swift */,
 				3C1C1C2F1DD78ED80021516D /* ItemList.swift */,
 				8D715F091DC86CFC009018AE /* Assignment.swift */,
 				8D715F0B1DC87019009018AE /* Exam.swift */,
 				8D3665DD1DE4166B0071F673 /* Colors.swift */,
+				8D5AEF691DEEBAE40064E06F /* UIView.swift */,
 				8D715EE51DC8659D009018AE /* Info.plist */,
 				8DFD925C1DE2B6D100C1D375 /* Fruit-Bridging-Header.h */,
 				8D715EE01DC8659D009018AE /* Assets.xcassets */,
@@ -408,6 +414,8 @@
 				8D3665DE1DE4166B0071F673 /* Colors.swift in Sources */,
 				8DB548D61DE2D09700E92D5C /* ActionSheetStringPicker.m in Sources */,
 				8DD66B701DDB328100712B9F /* KCFloatingActionButtonItem.swift in Sources */,
+				8D5AEF6A1DEEBAE40064E06F /* UIView.swift in Sources */,
+				8D5AEF681DED63080064E06F /* SubjectCollectionViewCell.swift in Sources */,
 				8DB548D31DE2D09700E92D5C /* ActionSheetDistancePicker.m in Sources */,
 				8DD66B6E1DDB328100712B9F /* KCFloatingActionButton.swift in Sources */,
 			);
