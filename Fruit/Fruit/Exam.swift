@@ -39,6 +39,7 @@ class Exam:Item{
 	required init?(coder aDecoder: NSCoder) {
 		self.memo = aDecoder.decodeObject(forKey: "memo") as! String
 		self.location = aDecoder.decodeObject(forKey: "location") as! String
+        self.type = Exam.type(rawValue:aDecoder.decodeInteger(forKey: "type"))!
 		
 		super.init(coder: aDecoder)
 	}
@@ -46,6 +47,7 @@ class Exam:Item{
 	override func encode(with aCoder: NSCoder) {
 		aCoder.encode(self.memo, forKey:"memo")
 		aCoder.encode(self.location, forKey:"location")
+        aCoder.encode(self.type.rawValue, forKey:"type")
 		
 		super.encode(with: aCoder)
 	}

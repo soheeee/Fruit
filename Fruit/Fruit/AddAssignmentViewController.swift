@@ -23,8 +23,9 @@ class AddAssignmentViewController: ItemViewController {
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
         name.inputAccessoryView = toolBar
         memo.inputAccessoryView = toolBar
-        categories += ["과제", "프로젝트", "팀플", "발표"]
+        categories += Assignment.typeArray
         collectionViewForItem = collectionView
+        subjectForItem = subject
     }
     
     @IBAction func chooseCategory(_ sender: Any){
@@ -33,7 +34,14 @@ class AddAssignmentViewController: ItemViewController {
     
     @IBAction func addAssignment(_ sender: Any) {
         if(name.text != "") {
-            let assignment = Assignment(id: 1, time: dateVar as NSDate, name: name.text!, subFull: category.text!, subShort: category.text!, memo: memo.text!)
+            var categoryType:Assignment.type?
+            for i in 0 ... categories.count-1 {
+                if category.text == categories[i] {
+                    categoryType = Assignment.type(rawValue: i)
+                }
+            }
+            
+            let assignment = Assignment(id: 0, time: dateVar as NSDate, name: name.text!, subFull: subject.text!, subShort: subject.text!, memo: memo.text!, type:categoryType!)
             
             itemList.insertItem(item: assignment)
             

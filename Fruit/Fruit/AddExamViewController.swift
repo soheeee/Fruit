@@ -40,7 +40,7 @@ class AddExamViewController: ItemViewController {
                 }
             }
             
-            let exam = Exam(id: 2, time: dateVar as NSDate, subFull: subject.text!, subShort: subject.text!, memo: memo.text!, location: memo.text!, type: examType!)
+            let exam = Exam(id: 1, time: dateVar as NSDate, subFull: subject.text!, subShort: subject.text!, memo: memo.text!, location: memo.text!, type: examType!)
             
             itemList.insertItem(item: exam)
             self.dismiss(animated: false, completion: nil)
