@@ -237,7 +237,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         var dateString:String
         var assignmentDue:Int = 0
         
-        if(arrayItem.count > 1) {
+        if(arrayItem.count > 0) {
             for i in 0 ... arrayItem.count - 1{
                 dateString = formatter.string(from: arrayItem[i].time as Date)
                 
