@@ -61,6 +61,12 @@ class ItemList {
 		saveItems()
 	}
     
+    func insertItem(item: Item) {
+        items += [item]
+        
+        saveItems()
+    }
+    
     func getItemsFromNow() -> [Item] {
         let today = Date()
         

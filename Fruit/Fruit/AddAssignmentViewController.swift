@@ -30,7 +30,6 @@ extension UIToolbar {
 
 class AddAssignmentViewController: UIViewController {
     
-    var assignment = Assignment()
     var Array = ["과제", "프로젝트", "팀플", "발표"]
     
     @IBOutlet var name : UITextField! = UITextField()
@@ -41,12 +40,18 @@ class AddAssignmentViewController: UIViewController {
 //    @IBOutlet weak var subject: UITextView!
     
     @IBOutlet weak var subject: UITextField!
+    
+    var dateVar = Date()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
         name.inputAccessoryView = toolBar
         memo.inputAccessoryView = toolBar
+        
+        // Set default date to today 23:59:59
+        setTime(hour: 23, minute: 59, second: 59)
         
         setBackgroundColor()
         
@@ -80,17 +85,20 @@ class AddAssignmentViewController: UIViewController {
     }
     
     @IBAction func addAssignment(_ sender: Any) {
-        
-        assignment.name = name.text!
-        assignment.memo = memo.text!
-        
-        if(assignment.name != nil && assignment.memo != nil){
-            self.dismiss(animated: false, completion: nil)
+        if(name.text != "") {
+            let assignment = Assignment(id: 1, time: dateVar as NSDate, name: name.text!, subFull: category.text!, subShort: category.text!, memo: memo.text!)
+            
+            print(assignment.name)
+            print(assignment.time.description)
+            itemList.insertItem(item: assignment)
+            
+            self.dismiss(animated: true, completion: nil)
         }
+        
     }
 
     @IBAction func viewClose(_ sender: UIButton) {
-         self.dismiss(animated: false, completion: nil)
+         self.dismiss(animated: true, completion: nil)
     }
     
     func setBackgroundColor(){
@@ -141,6 +149,9 @@ class AddAssignmentViewController: UIViewController {
                 dateFormatter.dateFormat = "yyyy년 MM월 dd일"
                 
                 self.date.setTitle(dateFormatter.string(from: dateObj!), for: UIControlState.normal)
+                
+                self.setDate(dateObj: dateObj!)
+                
                 return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
  
         datePicker?.setTextColor(brownishGrey)
@@ -168,6 +179,9 @@ class AddAssignmentViewController: UIViewController {
                 dateFormatter.dateFormat = "h:mm a"
                 
                 self.time.setTitle(dateFormatter.string(from: dateObj!), for: UIControlState.normal)
+                
+                self.setTime(timeObj: dateObj!)
+                
                 return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
         
         timePicker?.setTextColor(brownishGrey)
@@ -181,6 +195,46 @@ class AddAssignmentViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setDate(dateObj:Date) {
+        let cal = Calendar(identifier: .gregorian)
+        var components = cal.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateObj)
+        let year = components.year
+        let month = components.month
+        let day = components.day
+        setDate(year: year!, month: month!, day: day!)
+    }
+    
+    func setDate(year:Int, month:Int, day:Int) {
+        let cal = Calendar(identifier: .gregorian)
+        var components = cal.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateVar)
+        components.year = year
+        components.month = month
+        components.day = day
+        dateVar = cal.date(from: components)!
+    }
+    
+    func setTime(timeObj:Date) {
+        let cal = Calendar(identifier: .gregorian)
+        var components = cal.dateComponents([.year, .month, .day, .hour, .minute, .second], from: timeObj)
+        let hour = components.hour
+        let minute = components.minute
+        let second = components.second
+        setTime(hour: hour!, minute: minute!, second: second!)
+    }
+    
+    func setTime(hour:Int, minute:Int, second:Int) {
+        let cal = Calendar(identifier: .gregorian)
+        var components = cal.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateVar)
+        components.hour = hour
+        components.minute = minute
+        components.second = second
+        
+        print(dateVar.description)
+        dateVar = cal.date(from: components)!
+        
+        print(dateVar.description)
     }
 
     /*
