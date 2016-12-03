@@ -13,37 +13,28 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     var startLocation:CGPoint!
     var lastLocation:CGPoint!
-    var arrayItem:[Item] = itemList.items.sorted(by: {$0.time.compare($1.time as Date) == ComparisonResult.orderedDescending})
+    var arrayItem:[Item] = []
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
-//    @IBOutlet weak var todayAssignment: UITextView!
-//    @IBOutlet weak var todayLeftCount: UITextView!
-//    @IBOutlet weak var todayDate: UITextView!
-    
     @IBOutlet weak var todayTitle: UILabel!
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var todayDate: UILabel!
     @IBOutlet weak var todayLeftCount: UILabel!
     @IBAction func CreateDummy(_ sender: Any) {
         itemList.createDummy()
-
+        
         refreshTable()
     }
     
     func setUpperText(){
-//        todayAssignment.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
-//        todayLeftCount.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
-//        todayDate.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
-        
         todayLeftCount.layer.cornerRadius = todayLeftCount.frame.size.height/2
         todayLeftCount.clipsToBounds = false
         todayLeftCount.layer.shadowOpacity = 1
         todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
         todayLeftCount.layer.shadowColor = UIColor(red: CGFloat(238)/255, green: CGFloat(65)/255, blue: CGFloat(86)/255, alpha: 0.5).cgColor
         line.backgroundColor = white
-    
+        
         
         let current = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -94,7 +85,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         return " " + koreanWeekDay + "요일"
     }
     
-    func setUpperViewLayer() {        
+    func setUpperViewLayer() {
         let gradient = CAGradientLayer()
         gradient.frame = upperView.frame
         
@@ -129,7 +120,6 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         self.refreshTable()
     }
     
@@ -140,7 +130,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         if sender.state == UIGestureRecognizerState.began {
             startLocation = sender.location(in: self.view)
         } else if sender.state == UIGestureRecognizerState.ended {
-            // Check Velocity            
+            // Check Velocity
             let vel = -sender.velocity(in: self.view).y
             var first:Int = 0
             let cellHeight = tableView.rowHeight
@@ -209,7 +199,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             cell.time.text = item.subShort + " - " + timeString
             cell.rightTitle.text = ""
             cell.rightTime.text = ""
-        }        
+        }
         
         // Date
         formatter.dateFormat = "MM/dd"
@@ -247,15 +237,16 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         var dateString:String
         var assignmentDue:Int = 0
         
-        for i in 0 ... arrayItem.count-1{
-            
-            dateString = formatter.string(from: arrayItem[i].time as Date)
-            
-            if(today == dateString){
-                assignmentDue += 1
+        if(arrayItem.count > 1) {
+            for i in 0 ... arrayItem.count - 1{
+                dateString = formatter.string(from: arrayItem[i].time as Date)
+                
+                if(today == dateString){
+                    assignmentDue += 1
+                }
             }
-            
         }
+        
         todayLeftCount.text = String(assignmentDue) + "개 남았습니다"
         tableView.reloadData()
     }
