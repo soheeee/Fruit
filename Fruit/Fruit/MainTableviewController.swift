@@ -118,7 +118,6 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         self.setUpperViewLayer()
         self.setUpperText()
-        self.refreshTable()
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteCell))
         self.view.addGestureRecognizer(longPressRecognizer)
@@ -127,6 +126,11 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let pan = UIPanGestureRecognizer(target: self, action: #selector(self.panedView))
         self.view.addGestureRecognizer(pan)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.refreshTable()
     }
     
     func panedView(sender: UIPanGestureRecognizer){
