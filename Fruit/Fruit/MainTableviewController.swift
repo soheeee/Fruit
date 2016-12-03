@@ -186,6 +186,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as! MainTableViewCell
         let item : Item = arrayItem[indexPath.row]
+        let itemname: String = item.title
         
         // Time
         let formatter = DateFormatter()
@@ -196,13 +197,11 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             // Right
             cell.title.text = ""
             cell.time.text = ""
-            cell.rightTitle.text = item.title
-            //let itemname: String = item.title
-            //cell.rightTitle.text = limitedTitleLength(title: itemname, start:0, end: itemname.characters.count)
+            cell.rightTitle.text = limitedTitleLength(title: itemname)
             cell.rightTime.text = item.subShort + " - " + timeString
         } else {
             // Left
-            cell.title.text = item.title
+            cell.title.text = limitedTitleLength(title: itemname)
             cell.time.text = item.subShort + " - " + timeString
             cell.rightTitle.text = ""
             cell.rightTime.text = ""
@@ -274,12 +273,20 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     //limiting title length
-    func limitedTitleLength(title: String, start: Int, end: Int) -> String{
+    func limitedTitleLength(title: String) -> String{
         
-        let start = title.index(title.startIndex, offsetBy: start)
-        let end = title.index(title.endIndex, offsetBy: -5)
-        let range = start..<end
-        
-        return title.substring(with: range)
+        if(title.characters.count <= 8){
+            
+            return title
+            
+        }else{
+            
+            let start = title.index(title.startIndex, offsetBy: 0)
+            let end = title.index(title.startIndex, offsetBy: 8)
+            let range = start..<end
+            
+            return title.substring(with: range) + "..."
+            
+        }
     }
 }

@@ -28,7 +28,7 @@ extension UIToolbar {
     }
 }
 
-class AddAssignmentViewController: UIViewController {
+class AddAssignmentViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var assignment = Assignment()
     var Array = ["과제", "프로젝트", "팀플", "발표"]
@@ -38,6 +38,8 @@ class AddAssignmentViewController: UIViewController {
     @IBOutlet weak var date: UIButton!
     @IBOutlet weak var time: UIButton!
     @IBOutlet var category : UITextField! = UITextField()
+    @IBOutlet weak var collectionView: UICollectionView!
+    
 //    @IBOutlet weak var subject: UITextView!
     
     @IBOutlet weak var subject: UITextField!
@@ -47,7 +49,7 @@ class AddAssignmentViewController: UIViewController {
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
         name.inputAccessoryView = toolBar
         memo.inputAccessoryView = toolBar
-        
+      
         setBackgroundColor()
         
     }
@@ -117,12 +119,70 @@ class AddAssignmentViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
             self.subject.text = alert?.textFields![0].text
-//            self.subject.text = alert?.textFields![0].te
         }))
         
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    let reuseIdentifier = "subcell" // also enter this string as the cell identifier in the storyboard
+    
+    // MARK: - UICollectionViewDataSource protocol
+    
+    // tell the collection view how many cells to make
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return subjects.count
+    }
+    
+    // make a cell for each cell index path
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        // get a reference to our storyboard cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! SubjectCollectionViewCell
+        
+        // Use the outlet in our custom class to get a reference to the UILabel in the cell
+        cell.sublabel.text = subjects[indexPath.item]
+        
+        cell.delete.layer.setValue(indexPath.row, forKey: "index")
+        cell.delete.addTarget(self, action: #selector(self.deleteSubject), for: UIControlEvents.touchUpInside)
+        
+        //cellColor
+        let cellColor = indexPath.item % 4
+        switch(cellColor){
+        case 0:
+            cell.circle.backgroundColor = lightPeach
+            break
+        case 1:
+            cell.circle.backgroundColor = paleSalmon
+            break
+        case 2:
+            cell.circle.backgroundColor = blush
+            break
+        case 3:
+            cell.circle.backgroundColor = blushTwo
+            break
+        default:
+            cell.circle.backgroundColor = warmGrey
+            break
+        }
+        
+        return cell
+    }
+    
+    func deleteSubject(sender: UIButton){
+        
+        let i : Int = (sender.layer.value(forKey: "index")) as! Int
+        subjects.remove(at: i)
+        collectionView.reloadData()
+        
+    }
+    /*
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        
+        
+        print("You selected cell #\(indexPath.item)!")
+    }*/
     
     @IBAction func chooseDate(_ sender: UIButton) {
         
