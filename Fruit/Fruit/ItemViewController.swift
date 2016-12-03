@@ -65,7 +65,10 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
             subject.text = alert?.textFields![0].text
-            // TODO: Save short name, too
+            // Save new subject immediately
+            let newSubject = Subject(name: (alert?.textFields![0].text)!, short: (alert?.textFields![1].text)!)
+            subjectList.insertSubject(subject: newSubject)
+            self.collectionViewForItem?.reloadData()
         }))
         
         self.present(alert, animated: true, completion: nil)
