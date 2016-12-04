@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     var startLocation:CGPoint!
@@ -280,6 +279,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         alert.view.tintColor = blushTwo
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
+        alert.addAction(UIAlertAction(title: "공유", style: .default){UIAlertAction in self.share()})
         alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(item: self.arrayItem[row])
             self.refreshTable()})
         
@@ -287,7 +287,29 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         // Necessary to apply tint on iOS 9
         alert.view.tintColor = blushTwo
+    }
+    
+    func share() {
+        print("share")
         
+        if KOAppCall.canOpenKakaoTalkAppLink() {
+            KOAppCall.openKakaoTalkAppLink(dummyLinkObject())
+        } else {
+            print("Cannot open Kakaotalk")
+        }
+    }
+    
+    func dummyLinkObject() -> [KakaoTalkLinkObject] {
+        let label = KakaoTalkLinkObject.createLabel("Test Label\nNext Line")
+        let image = KakaoTalkLinkObject.createImage("https://developers.kakao.com/assets/img/link_sample.jpg", width: 138, height: 80)
+        let webLink = KakaoTalkLinkObject.createWebLink("Test Link", url: "http://www.kakao.com")
+        
+        let androidAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.android, devicetype: KakaoTalkLinkActionDeviceType.phone, execparam: ["test1" : "test1", "test2" : "test2"])
+        let iphoneAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.IOS, devicetype: KakaoTalkLinkActionDeviceType.phone, execparam: ["test1" : "test1", "test2" : "test2"])
+        let ipadAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.IOS, devicetype: KakaoTalkLinkActionDeviceType.pad, execparam: ["test1" : "test1", "test2" : "test2"])
+        let appLink = KakaoTalkLinkObject.createAppButton("Test Button", actions: [androidAppAction!, iphoneAppAction!, ipadAppAction!])
+        
+        return [label!, image!, webLink!, appLink!]
     }
     
     //limiting title length

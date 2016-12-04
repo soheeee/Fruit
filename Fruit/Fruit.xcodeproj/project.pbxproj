@@ -12,6 +12,7 @@
 		3CC7A55E1DF2DA7E00295358 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */; };
 		3CC7A5601DF3177700295358 /* SubjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A55F1DF3177700295358 /* SubjectList.swift */; };
 		3CC7A5621DF3185F00295358 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A5611DF3185F00295358 /* Subject.swift */; };
+		3CC7A56A1DF41C3500295358 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC7A5691DF41C3500295358 /* KakaoOpenSDK.framework */; };
 		8D22BFA21DE00F1000AB4D0B /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */; };
 		8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */; };
 		8D3665DE1DE4166B0071F673 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3665DD1DE4166B0071F673 /* Colors.swift */; };
@@ -69,6 +70,7 @@
 		3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		3CC7A55F1DF3177700295358 /* SubjectList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectList.swift; sourceTree = "<group>"; };
 		3CC7A5611DF3185F00295358 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		3CC7A5691DF41C3500295358 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExamViewController.swift; sourceTree = "<group>"; };
 		8D3665DD1DE4166B0071F673 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CC7A56A1DF41C3500295358 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +248,7 @@
 		8DD66B5E1DDB24BB00712B9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CC7A5691DF41C3500295358 /* KakaoOpenSDK.framework */,
 				8DFD92541DE2B32400C1D375 /* CoreActionSheetPicker */,
 			);
 			name = Frameworks;
@@ -582,8 +586,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: youarenothere-@hotmail.com (S4S9DKY2SU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Fruit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sohee.Fruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Fruit/Fruit-Bridging-Header.h";
@@ -601,8 +610,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: youarenothere-@hotmail.com (S4S9DKY2SU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+<<<<<<< HEAD
+=======
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+>>>>>>> e3420151a30b35d3bdedc30a4eebc70bdb1ee00c
 				INFOPLIST_FILE = Fruit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sohee.Fruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Fruit/Fruit-Bridging-Header.h";
