@@ -16,7 +16,9 @@ class AddExamViewController: ItemViewController {
     @IBOutlet weak var subject: UITextField!
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var selectRow = 0
+    
+    var isEditmode:Bool = false
+    var examToEdit:Exam?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,33 @@ class AddExamViewController: ItemViewController {
         categories += Exam.typeArray
         collectionViewForItem = collectionView
         subjectForItem = subject
+        
+        if isEditmode {
+            loadExam()
+        }
     }
+    
+    func loadExam() {
+        if examToEdit == nil {
+            print("failToLoad")
+            return
+        }
+        
+        let data = examToEdit!
+        self.type.text = Exam.typeArray[data.type.rawValue]
+        self.dateVar = data.time as Date
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        self.date.setTitle(dateFormatter.string(from: dateVar), for: .normal)
+        dateFormatter.dateFormat = "h:mm a"
+        self.time.setTitle(dateFormatter.string(from: dateVar), for: .normal)
+        
+        self.memo.text = data.memo
+        self.subject.text = data.subject.name
+        self.selectedSubject = data.subject
+    }
+    
     
     @IBAction func viewClose(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
@@ -42,7 +70,12 @@ class AddExamViewController: ItemViewController {
             
             let exam = Exam(id: 1, time: dateVar as NSDate, subject: selectedSubject, memo: memo.text!, location: memo.text!, type: examType!)
             
-            itemList.insertItem(item: exam)
+            if isEditmode {
+                itemList.changeItem(from: examToEdit!, to: exam)
+            } else {
+                itemList.insertItem(item: exam)
+            }
+            
             self.dismiss(animated: false, completion: nil)
         } else {
             /*

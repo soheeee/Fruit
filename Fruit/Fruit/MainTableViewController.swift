@@ -236,6 +236,11 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             self.navigationController?.present(vc, animated: true, completion: nil)
         } else if item.id == 1 {
             print("Exam")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "AddExam") as! AddExamViewController
+            vc.isEditmode = true
+            vc.examToEdit = item as? Exam
+            self.navigationController?.present(vc, animated: true, completion: nil)
         }
     }
     
