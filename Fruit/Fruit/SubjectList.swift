@@ -60,8 +60,11 @@ class SubjectList {
     }
     
     func insertSubject(subject: Subject) {
-        subjects += [subject]
+        if subjects.filter({$0 == subject}).count == 0 {
+            subjects += [subject]
+            
+            saveSubjects()
+        }
         
-        saveSubjects()
     }
 }
