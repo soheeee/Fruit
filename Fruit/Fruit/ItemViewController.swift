@@ -237,12 +237,14 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
     func selectSubject(sender: UIButton) {
         let i : Int = (sender.layer.value(forKey: "index")) as! Int
         subjectForItem?.text = subjectList.subjects[i].name
+        selectedSubject = subjectList.subjects[i]
     }
     
     func deleteSubject(sender: UIButton) {
         let i : Int = (sender.layer.value(forKey: "index")) as! Int
-        if(subjectForItem?.text == subjectList.subjects[i].name) {
+        if(selectedSubject == subjectList.subjects[i]) {
             subjectForItem?.text = ""
+            selectedSubject = Subject(name: "", short: "")
         }
         subjectList.deleteSubject(at: i)
         collectionViewForItem?.reloadData()
