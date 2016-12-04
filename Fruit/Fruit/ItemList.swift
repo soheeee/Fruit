@@ -67,6 +67,13 @@ class ItemList {
         saveItems()
     }
     
+    func changeItem(from: Item, to: Item) {
+        items = items.filter({$0 != from})
+        items += [to]
+        
+        saveItems()
+    }
+    
     func getItemsFromNow() -> [Item] {
         let today = Date()
         

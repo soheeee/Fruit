@@ -53,6 +53,7 @@ class AddAssignmentViewController: ItemViewController {
         self.time.setTitle(dateFormatter.string(from: dateVar), for: .normal)
         self.category.text = categories[data.type.rawValue]
         self.subject.text = data.subject.name
+        self.selectedSubject = data.subject
     }
     
     @IBAction func chooseCategory(_ sender: Any){
@@ -60,7 +61,7 @@ class AddAssignmentViewController: ItemViewController {
     }
     
     @IBAction func addAssignment(_ sender: Any) {
-        if(name.text != "") {
+        if name.text != "" {
             var categoryType:Assignment.type = Assignment.type.assignment
             for i in 0 ... categories.count-1 {
                 if category.text == categories[i] {
@@ -70,7 +71,11 @@ class AddAssignmentViewController: ItemViewController {
             
             let assignment = Assignment(id: 0, time: dateVar as NSDate, name: name.text!, subject: selectedSubject, memo: memo.text!, type:categoryType)
             
-            itemList.insertItem(item: assignment)
+            if isEditmode {
+                itemList.changeItem(from: assignmentToEdit!, to: assignment)
+            } else {
+                itemList.insertItem(item: assignment)
+            }
             
             self.dismiss(animated: true, completion: nil)
         } else {
