@@ -243,7 +243,6 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
             subjectForItem?.text = ""
         }
         subjectList.deleteSubject(at: i)
-        subjectList.subjects.remove(at: i)
         collectionViewForItem?.reloadData()
     }
 }
