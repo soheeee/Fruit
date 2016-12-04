@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4n2-86-byB">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4n2-86-byB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -538,6 +538,7 @@
                         <outlet property="subject" destination="KPD-0P-HcS" id="rSL-RZ-BXs"/>
                         <outlet property="time" destination="DGg-qI-YK3" id="seu-Ai-eHL"/>
                         <outlet property="titleText" destination="VDD-JM-sb0" id="SLX-5s-UuH"/>
+                        <outlet property="topView" destination="tlZ-85-rvZ" id="1iu-1e-0uG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLd-fx-bBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -851,6 +852,7 @@
                         <outlet property="subject" destination="oXI-9D-2nf" id="5fT-K4-Lat"/>
                         <outlet property="time" destination="Da7-t4-GKP" id="Ojz-Z1-Vfi"/>
                         <outlet property="titleText" destination="N8j-xT-4FH" id="ANl-2M-doj"/>
+                        <outlet property="topView" destination="Kdq-Vl-sN2" id="P93-ab-HH3"/>
                         <outlet property="type" destination="Iej-RZ-2mh" id="uhS-2w-0FR"/>
                     </connections>
                 </viewController>

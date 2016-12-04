@@ -33,13 +33,16 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
     var collectionViewForItem: UICollectionView?
     var subjectForItem: UITextField?
     var selectedSubject: Subject = Subject(name: "", short: "")
+    var width:CGFloat = 0.0, height:CGFloat = 0.0
+    var xPosition:CGFloat = 0.0
     
     override func viewDidLoad() {
         // Set default date to today 23:59:59
         setTime(hour: 23, minute: 59, second: 59)
-        
         setBackgroundColor()
+
     }
+
     
     func dismissPicker() {
         view.endEditing(true)
@@ -249,4 +252,5 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         subjectList.deleteSubject(at: i)
         collectionViewForItem?.reloadData()
     }
-}
+    
+  }

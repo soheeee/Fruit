@@ -18,6 +18,7 @@ class AddExamViewController: ItemViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet var topView: UIView!
     var isEditmode:Bool = false
     var examToEdit:Exam?
     
@@ -32,6 +33,49 @@ class AddExamViewController: ItemViewController {
         if isEditmode {
             titleText.text = "시험 수정"
             loadExam()
+        }
+        
+        
+        //add observer to notification center for receiving keyboard event
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+        
+        width = topView.frame.size.width
+        height = topView.frame.size.height
+        xPosition = topView.frame.origin.x
+    }
+    
+    func keyboardWillShow(notification:Notification) {
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        
+        print("키보드 : \(keyboardHeight)")
+        let yPosition = topView.frame.origin.y - keyboardHeight
+        
+        if(memo.isEditing){
+            UIView.animate(withDuration: 1.0, animations: {
+                let rect = CGRect(x: self.xPosition, y: yPosition, width: self.width, height: self.height)
+                self.topView.frame = rect
+            })
+        }
+    }
+    
+    func keyboardWillHide(notification:Notification) {
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        
+        print("키보드 : \(keyboardHeight)")
+        let yPosition = topView.frame.origin.y + keyboardHeight
+        
+        if(memo.isEditing){
+            UIView.animate(withDuration: 1.0, animations: {
+                let rect = CGRect(x: self.xPosition, y: yPosition, width: self.width, height: self.height)
+                self.topView.frame = rect
+            })
         }
     }
     
