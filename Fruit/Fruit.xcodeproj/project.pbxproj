@@ -42,7 +42,7 @@
 		8DD66B6F1DDB328100712B9F /* KCFloatingActionButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B691DDB328100712B9F /* KCFloatingActionButtonDelegate.swift */; };
 		8DD66B701DDB328100712B9F /* KCFloatingActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */; };
 		8DFD92551DE2B32400C1D375 /* CoreActionSheetPicker in Resources */ = {isa = PBXBuildFile; fileRef = 8DFD92541DE2B32400C1D375 /* CoreActionSheetPicker */; };
-		A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */; };
+		A19750501DD1AAEF007CDFC9 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197504F1DD1AAEF007CDFC9 /* MainTableViewController.swift */; };
 		A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A006701DDC335F007E131D /* MainNaviController.swift */; };
 /* End PBXBuildFile section */
 
@@ -117,7 +117,7 @@
 		8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonItem.swift; sourceTree = "<group>"; };
 		8DFD92541DE2B32400C1D375 /* CoreActionSheetPicker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreActionSheetPicker; sourceTree = "<group>"; };
 		8DFD925C1DE2B6D100C1D375 /* Fruit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fruit-Bridging-Header.h"; sourceTree = "<group>"; };
-		A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableviewController.swift; sourceTree = "<group>"; };
+		A197504F1DD1AAEF007CDFC9 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		A1A006701DDC335F007E131D /* MainNaviController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNaviController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,7 +175,7 @@
 				8D715ED91DC8659D009018AE /* AppDelegate.swift */,
 				8D715EE21DC8659D009018AE /* LaunchScreen.storyboard */,
 				8D715EDD1DC8659D009018AE /* Main.storyboard */,
-				A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */,
+				A197504F1DD1AAEF007CDFC9 /* MainTableViewController.swift */,
 				3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */,
 				A1A006701DDC335F007E131D /* MainNaviController.swift */,
 				8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */,
@@ -412,7 +412,7 @@
 				3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */,
 				8DB548D21DE2D09700E92D5C /* ActionSheetDatePicker.m in Sources */,
 				8DB548D11DE2D09700E92D5C /* ActionSheetCustomPicker.m in Sources */,
-				A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */,
+				A19750501DD1AAEF007CDFC9 /* MainTableViewController.swift in Sources */,
 				A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */,
 				8DB548D41DE2D09700E92D5C /* ActionSheetLocalePicker.m in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
