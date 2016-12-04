@@ -18,6 +18,9 @@ class AddAssignmentViewController: ItemViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var subject: UITextField!
     
+    var isEditmode:Bool = false
+    var assignmentToEdit:Assignment?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.dismissPicker))
@@ -26,6 +29,30 @@ class AddAssignmentViewController: ItemViewController {
         categories += Assignment.typeArray
         collectionViewForItem = collectionView
         subjectForItem = subject
+        
+        if isEditmode {
+            loadAssignment()
+        }
+    }
+    
+    func loadAssignment() {
+        if assignmentToEdit == nil {
+            print("failToLoad")
+            return
+        }
+        
+        let data = assignmentToEdit!
+        self.name.text = data.name
+        self.memo.text = data.memo
+        self.dateVar = data.time as Date
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        self.date.setTitle(dateFormatter.string(from: dateVar), for: .normal)
+        dateFormatter.dateFormat = "h:mm a"
+        self.time.setTitle(dateFormatter.string(from: dateVar), for: .normal)
+        self.category.text = categories[data.type.rawValue]
+        self.subject.text = data.subFull        
     }
     
     @IBAction func chooseCategory(_ sender: Any){

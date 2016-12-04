@@ -221,6 +221,24 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         return tableView.frame.height/4
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = arrayItem[indexPath.row]
+        self.tableView.deselectRow(at: indexPath, animated: false)
+        
+        if item.id == -1 {
+            print("Dummy")
+        } else if item.id == 0 {
+            print("Assignment")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "AddAssignment") as! AddAssignmentViewController
+            vc.isEditmode = true
+            vc.assignmentToEdit = item as? Assignment
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        } else if item.id == 1 {
+            print("Exam")
+        }
+    }
+    
     @IBAction func CreateItem(_ sender: Any) {
         itemList.createDummy()
         refreshTable()
