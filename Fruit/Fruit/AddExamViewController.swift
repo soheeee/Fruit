@@ -9,6 +9,7 @@
 import UIKit
 
 class AddExamViewController: ItemViewController {
+    @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var type: UITextField!
     @IBOutlet weak var date: UIButton!
     @IBOutlet weak var time: UIButton!
@@ -29,6 +30,7 @@ class AddExamViewController: ItemViewController {
         subjectForItem = subject
         
         if isEditmode {
+            titleText.text = "시험 수정"
             loadExam()
         }
     }
