@@ -23,17 +23,11 @@ class Exam:Item{
     
     static var typeArray = ["중간고사","기말고사","퀴즈","기타"]
     
-    init(){
-        
-        super.init(id: -1, title: "Title", time: NSDate(), subFull: "Fullname", subShort: "Shortname")
-        
-    }
-    
-    init(id: Int, time: NSDate, subFull:String, subShort:String, memo:String, location:String, type: type) {
+    init(id: Int, time: NSDate, subject: Subject, memo: String, location: String, type: type) {
 		self.memo = memo
 		self.location = location
 		
-        super.init(id: id, title: Exam.typeArray[type.rawValue], time: time, subFull: subFull, subShort:subShort)
+        super.init(id: id, title: Exam.typeArray[type.rawValue], time: time, subject: subject)
     }
 	
 	required init?(coder aDecoder: NSCoder) {

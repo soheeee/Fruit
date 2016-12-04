@@ -192,11 +192,11 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             cell.title.text = ""
             cell.time.text = ""
             cell.rightTitle.text = limitedTitleLength(title: itemname)
-            cell.rightTime.text = item.subShort + " - " + timeString
+            cell.rightTime.text = item.subject.short + " - " + timeString
         } else {
             // Left
             cell.title.text = limitedTitleLength(title: itemname)
-            cell.time.text = item.subShort + " - " + timeString
+            cell.time.text = item.subject.short + " - " + timeString
             cell.rightTitle.text = ""
             cell.rightTime.text = ""
         }

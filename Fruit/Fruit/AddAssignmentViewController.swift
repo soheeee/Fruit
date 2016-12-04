@@ -52,7 +52,7 @@ class AddAssignmentViewController: ItemViewController {
         dateFormatter.dateFormat = "h:mm a"
         self.time.setTitle(dateFormatter.string(from: dateVar), for: .normal)
         self.category.text = categories[data.type.rawValue]
-        self.subject.text = data.subFull        
+        self.subject.text = data.subject.name
     }
     
     @IBAction func chooseCategory(_ sender: Any){
@@ -68,7 +68,7 @@ class AddAssignmentViewController: ItemViewController {
                 }
             }
             
-            let assignment = Assignment(id: 0, time: dateVar as NSDate, name: name.text!, subFull: subject.text!, subShort: subject.text!, memo: memo.text!, type:categoryType!)
+            let assignment = Assignment(id: 0, time: dateVar as NSDate, name: name.text!, subject: selectedSubject!, memo: memo.text!, type:categoryType!)
             
             itemList.insertItem(item: assignment)
             

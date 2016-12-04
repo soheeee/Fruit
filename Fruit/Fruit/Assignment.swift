@@ -23,18 +23,12 @@ class Assignment:Item{
     
     static var typeArray = ["과제", "프로젝트", "팀플", "발표"]
     
-    init(){
-        
-        super.init(id: -1, title: "Title", time: NSDate(), subFull: "Fullname", subShort: "Shortname")
-        
-    }
-    
-    init(id: Int, time: NSDate, name: String, subFull:String, subShort:String, memo:String, type:type) {
+    init(id: Int, time: NSDate, name: String, subject: Subject, memo: String, type: type) {
 		self.name = name
 		self.memo = memo
         self.type = type
 		
-        super.init(id: id, title: name, time: time, subFull:subFull, subShort:subShort)
+        super.init(id: id, title: name, time: time, subject: subject)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
