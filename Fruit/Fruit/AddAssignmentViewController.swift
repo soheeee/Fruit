@@ -10,6 +10,7 @@ import UIKit
 
 
 class AddAssignmentViewController: ItemViewController {
+    @IBOutlet weak var titleText: UILabel!
     @IBOutlet var name : UITextField! = UITextField()
     @IBOutlet var memo : UITextField! = UITextField()
     @IBOutlet weak var date: UIButton!
@@ -31,6 +32,7 @@ class AddAssignmentViewController: ItemViewController {
         subjectForItem = subject
         
         if isEditmode {
+            titleText.text = "과제 수정"
             loadAssignment()
         }
     }
