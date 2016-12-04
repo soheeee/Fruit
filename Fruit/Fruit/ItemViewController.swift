@@ -32,7 +32,7 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
     var categories : [String] = []
     var collectionViewForItem: UICollectionView?
     var subjectForItem: UITextField?
-    var selectedSubject: Subject?
+    var selectedSubject: Subject = Subject(name: "", short: "")
     
     override func viewDidLoad() {
         // Set default date to today 23:59:59

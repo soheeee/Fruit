@@ -61,14 +61,14 @@ class AddAssignmentViewController: ItemViewController {
     
     @IBAction func addAssignment(_ sender: Any) {
         if(name.text != "") {
-            var categoryType:Assignment.type?
+            var categoryType:Assignment.type = Assignment.type.assignment
             for i in 0 ... categories.count-1 {
                 if category.text == categories[i] {
-                    categoryType = Assignment.type(rawValue: i)
+                    categoryType = Assignment.type(rawValue: i)!
                 }
             }
             
-            let assignment = Assignment(id: 0, time: dateVar as NSDate, name: name.text!, subject: selectedSubject!, memo: memo.text!, type:categoryType!)
+            let assignment = Assignment(id: 0, time: dateVar as NSDate, name: name.text!, subject: selectedSubject, memo: memo.text!, type:categoryType)
             
             itemList.insertItem(item: assignment)
             

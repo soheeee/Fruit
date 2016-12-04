@@ -13,7 +13,7 @@ class Item: NSObject, NSCoding{
     var id:Int
     var time:NSDate
     var title:String = "def"
-    var subject:Subject
+    var subject:Subject = Subject(name: "", short: "")
     
     init(id:Int, title:String, time:NSDate, subject:Subject){
         self.id = id
