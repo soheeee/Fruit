@@ -13,7 +13,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     var startLocation:CGPoint!
     var lastLocation:CGPoint!
-    var arrayItem:[Item] = itemList.items.sorted(by: {$0.time.compare($1.time as Date) == ComparisonResult.orderedDescending})
+    var arrayItem:[Item] = []
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -21,24 +21,20 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var todayDate: UILabel!
     @IBOutlet weak var todayLeftCount: UILabel!
-    
     @IBAction func CreateDummy(_ sender: Any) {
         itemList.createDummy()
+        
         refreshTable()
     }
     
     func setUpperText(){
-//        todayAssignment.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
-//        todayLeftCount.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
-//        todayDate.textContainerInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
-        
         todayLeftCount.layer.cornerRadius = todayLeftCount.frame.size.height/2
         todayLeftCount.clipsToBounds = false
         todayLeftCount.layer.shadowOpacity = 1
         todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
         todayLeftCount.layer.shadowColor = UIColor(red: CGFloat(238)/255, green: CGFloat(65)/255, blue: CGFloat(86)/255, alpha: 0.5).cgColor
         line.backgroundColor = white
-    
+        
         
         let current = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -89,7 +85,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         return " " + koreanWeekDay + "요일"
     }
     
-    func setUpperViewLayer() {        
+    func setUpperViewLayer() {
         let gradient = CAGradientLayer()
         gradient.frame = upperView.frame
         
@@ -113,7 +109,6 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         self.setUpperViewLayer()
         self.setUpperText()
-        self.refreshTable()
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteCell))
         self.view.addGestureRecognizer(longPressRecognizer)
@@ -124,6 +119,10 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.refreshTable()
+    }
+    
     func panedView(sender: UIPanGestureRecognizer){
         if arrayItem.count == 0 {
             return
@@ -131,7 +130,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         if sender.state == UIGestureRecognizerState.began {
             startLocation = sender.location(in: self.view)
         } else if sender.state == UIGestureRecognizerState.ended {
-            // Check Velocity            
+            // Check Velocity
             let vel = -sender.velocity(in: self.view).y
             var first:Int = 0
             let cellHeight = tableView.rowHeight
@@ -181,6 +180,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as! MainTableViewCell
         let item : Item = arrayItem[indexPath.row]
+        let itemname: String = item.title
         
         // Time
         let formatter = DateFormatter()
@@ -191,17 +191,15 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             // Right
             cell.title.text = ""
             cell.time.text = ""
-            cell.rightTitle.text = item.title
-            //let itemname: String = item.title
-            //cell.rightTitle.text = limitedTitleLength(title: itemname, start:0, end: itemname.characters.count)
-            cell.rightTime.text = item.subShort + " - " + timeString
+            cell.rightTitle.text = limitedTitleLength(title: itemname)
+            cell.rightTime.text = item.subject.short + " - " + timeString
         } else {
             // Left
-            cell.title.text = item.title
-            cell.time.text = item.subShort + " - " + timeString
+            cell.title.text = limitedTitleLength(title: itemname)
+            cell.time.text = item.subject.short + " - " + timeString
             cell.rightTitle.text = ""
             cell.rightTime.text = ""
-        }        
+        }
         
         // Date
         formatter.dateFormat = "MM/dd"
@@ -223,6 +221,29 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         return tableView.frame.height/4
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = arrayItem[indexPath.row]
+        self.tableView.deselectRow(at: indexPath, animated: false)
+        
+        if item.id == -1 {
+            print("Dummy")
+        } else if item.id == 0 {
+            print("Assignment")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "AddAssignment") as! AddAssignmentViewController
+            vc.isEditmode = true
+            vc.assignmentToEdit = item as? Assignment
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        } else if item.id == 1 {
+            print("Exam")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "AddExam") as! AddExamViewController
+            vc.isEditmode = true
+            vc.examToEdit = item as? Exam
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func CreateItem(_ sender: Any) {
         itemList.createDummy()
         refreshTable()
@@ -239,8 +260,8 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         var dateString:String
         var assignmentDue:Int = 0
         
-        if(arrayItem.count > 0){
-            for i in 0 ... arrayItem.count-1{
+        if(arrayItem.count > 0) {
+            for i in 0 ... arrayItem.count - 1{
                 dateString = formatter.string(from: arrayItem[i].time as Date)
                 
                 if(today == dateString){
@@ -248,13 +269,10 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
                 }
             }
         }
-        else{
-            arrayItem += [Assignment(id: 0, time: NSDate(timeIntervalSinceNow: 999999), name: "Wireshark", subFull: "컴퓨터네트워크",subShort:"컴네", memo: "TestMemo")]
-        }
+        
         todayLeftCount.text = String(assignmentDue) + "개 남았습니다"
         tableView.reloadData()
     }
-    
     
     func deleteItem(row: Int) {
         let alert = UIAlertController(title: "항목 삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
@@ -273,12 +291,20 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     //limiting title length
-    func limitedTitleLength(title: String, start: Int, end: Int) -> String{
+    func limitedTitleLength(title: String) -> String{
         
-        let start = title.index(title.startIndex, offsetBy: start)
-        let end = title.index(title.endIndex, offsetBy: -5)
-        let range = start..<end
-        
-        return title.substring(with: range)
+        if(title.characters.count <= 8){
+            
+            return title
+            
+        }else{
+            
+            let start = title.index(title.startIndex, offsetBy: 0)
+            let end = title.index(title.startIndex, offsetBy: 8)
+            let range = start..<end
+            
+            return title.substring(with: range) + "..."
+            
+        }
     }
 }

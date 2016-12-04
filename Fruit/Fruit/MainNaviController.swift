@@ -42,6 +42,7 @@ class MainNaviController : UINavigationController {
         fab.addItem("과제추가", icon:UIImage(named:"book")!, color: paleSalmon, handler: {item in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "AddAssignment") as! AddAssignmentViewController
+            vc.isEditmode = false
             self.present(vc, animated: true, completion: nil)
             fab.close()
         })
@@ -49,6 +50,7 @@ class MainNaviController : UINavigationController {
         fab.addItem("시험추가", icon:UIImage(named:"exam")!, color: blushTwo, handler: {item in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "AddExam") as! AddExamViewController
+            // vc.isEditmode = false
             self.present(vc, animated: true, completion: nil)
             fab.close()
         })

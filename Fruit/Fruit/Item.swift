@@ -13,30 +13,26 @@ class Item: NSObject, NSCoding{
     var id:Int
     var time:NSDate
     var title:String = "def"
-    var subFull:String = "def"
-    var subShort:String = "def"
+    var subject:Subject = Subject(name: "", short: "")
     
-    init(id:Int, title:String, time:NSDate, subFull: String, subShort: String){
+    init(id:Int, title:String, time:NSDate, subject:Subject){
         self.id = id
         self.title = title
         self.time = time
-        self.subFull = subFull
-        self.subShort = subShort
+        self.subject = subject
     }
     
 	required init?(coder aDecoder: NSCoder) {
 		self.id = aDecoder.decodeInteger(forKey: "id")
 		self.title = aDecoder.decodeObject(forKey: "title") as! String
 		self.time = aDecoder.decodeObject(forKey: "time") as! NSDate
-        self.subFull = aDecoder.decodeObject(forKey: "subFull") as! String
-        self.subShort = aDecoder.decodeObject(forKey: "subShort") as! String
+        self.subject = aDecoder.decodeObject(forKey: "subject") as! Subject
 	}
 	
 	func encode(with aCoder: NSCoder) {
 		aCoder.encode(self.id, forKey: "id")
 		aCoder.encode(self.title, forKey: "title")
-        aCoder.encode(self.time, forKey:"time")
-        aCoder.encode(self.subFull, forKey:"subFull")
-        aCoder.encode(self.subShort, forKey:"subShort")
+        aCoder.encode(self.time, forKey: "time")
+        aCoder.encode(self.subject, forKey: "subject")
 	}
 }

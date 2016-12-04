@@ -41,14 +41,14 @@ class ItemList {
 	
 	func tutorialData() -> [Item] {
         // TODO: Change date to special day
-        let dummyAssignment = Assignment(id: 0, time: NSDate(timeIntervalSinceNow: 999999), name: "TestAssignment", subFull: "TestSubject",subShort:"TS", memo: "TestMemo")
-        let dummyExam = Exam(id: 1, time: NSDate(timeIntervalSinceNow: 999999), subFull: "dummySubject",subShort:"DS" ,  memo: "dummyMemo", location: "dummyLocation", type: Exam.type.quiz)
+        let dummyAssignment = Assignment(id: 0, time: NSDate(timeIntervalSinceNow: 999999), name: "TestAssignment", subject: subjectList.newSubject(name: "TutorialSubject", short: "TS"), memo: "TestMemo", type:Assignment.type.assignment)
+        let dummyExam = Exam(id: 1, time: NSDate(timeIntervalSinceNow: 999999), subject: subjectList.newSubject(name: "TutorialSubject", short: "TS"),  memo: "dummyMemo", location: "dummyLocation", type: Exam.type.quiz)
 		return [dummyAssignment, dummyExam]
 	}
 	
 	func createDummy() {
         // It creates an item which ends 9999secs later
-        let dummyItem = Item(id: -1, title: "dummy" + String(items.count), time: NSDate(timeIntervalSinceNow: 9999), subFull:"dummysub", subShort:"DS")
+        let dummyItem = Item(id: -1, title: "dummy" + String(items.count), time: NSDate(timeIntervalSinceNow: 9999), subject: subjectList.newSubject(name: "longname", short: "short"))
 		
 		items += [dummyItem]
 		
@@ -60,6 +60,19 @@ class ItemList {
 		
 		saveItems()
 	}
+    
+    func insertItem(item: Item) {
+        items += [item]
+        
+        saveItems()
+    }
+    
+    func changeItem(from: Item, to: Item) {
+        items = items.filter({$0 != from})
+        items += [to]
+        
+        saveItems()
+    }
     
     func getItemsFromNow() -> [Item] {
         let today = Date()

@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C1C2F1DD78ED80021516D /* ItemList.swift */; };
 		3CA83D8F1DE1E3AC009E9975 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */; };
+		3CC7A55E1DF2DA7E00295358 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */; };
+		3CC7A5601DF3177700295358 /* SubjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A55F1DF3177700295358 /* SubjectList.swift */; };
+		3CC7A5621DF3185F00295358 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7A5611DF3185F00295358 /* Subject.swift */; };
 		8D22BFA21DE00F1000AB4D0B /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */; };
 		8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */; };
 		8D3665DE1DE4166B0071F673 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3665DD1DE4166B0071F673 /* Colors.swift */; };
+		8D5AEF681DED63080064E06F /* SubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AEF671DED63080064E06F /* SubjectCollectionViewCell.swift */; };
+		8D5AEF6A1DEEBAE40064E06F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5AEF691DEEBAE40064E06F /* UIView.swift */; };
 		8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D715ED91DC8659D009018AE /* AppDelegate.swift */; };
 		8D715EDF1DC8659D009018AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D715EDD1DC8659D009018AE /* Main.storyboard */; };
 		8D715EE11DC8659D009018AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D715EE01DC8659D009018AE /* Assets.xcassets */; };
@@ -37,7 +42,7 @@
 		8DD66B6F1DDB328100712B9F /* KCFloatingActionButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B691DDB328100712B9F /* KCFloatingActionButtonDelegate.swift */; };
 		8DD66B701DDB328100712B9F /* KCFloatingActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */; };
 		8DFD92551DE2B32400C1D375 /* CoreActionSheetPicker in Resources */ = {isa = PBXBuildFile; fileRef = 8DFD92541DE2B32400C1D375 /* CoreActionSheetPicker */; };
-		A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */; };
+		A19750501DD1AAEF007CDFC9 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197504F1DD1AAEF007CDFC9 /* MainTableViewController.swift */; };
 		A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A006701DDC335F007E131D /* MainNaviController.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,9 +66,14 @@
 /* Begin PBXFileReference section */
 		3C1C1C2F1DD78ED80021516D /* ItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		3CC7A55F1DF3177700295358 /* SubjectList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectList.swift; sourceTree = "<group>"; };
+		3CC7A5611DF3185F00295358 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExamViewController.swift; sourceTree = "<group>"; };
 		8D3665DD1DE4166B0071F673 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8D5AEF671DED63080064E06F /* SubjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		8D5AEF691DEEBAE40064E06F /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8D715ED61DC8659D009018AE /* Fruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D715ED91DC8659D009018AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D715EDE1DC8659D009018AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,7 +117,7 @@
 		8DD66B6A1DDB328100712B9F /* KCFloatingActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonItem.swift; sourceTree = "<group>"; };
 		8DFD92541DE2B32400C1D375 /* CoreActionSheetPicker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreActionSheetPicker; sourceTree = "<group>"; };
 		8DFD925C1DE2B6D100C1D375 /* Fruit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fruit-Bridging-Header.h"; sourceTree = "<group>"; };
-		A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableviewController.swift; sourceTree = "<group>"; };
+		A197504F1DD1AAEF007CDFC9 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		A1A006701DDC335F007E131D /* MainNaviController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNaviController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,16 +175,21 @@
 				8D715ED91DC8659D009018AE /* AppDelegate.swift */,
 				8D715EE21DC8659D009018AE /* LaunchScreen.storyboard */,
 				8D715EDD1DC8659D009018AE /* Main.storyboard */,
-				A197504F1DD1AAEF007CDFC9 /* MainTableviewController.swift */,
+				A197504F1DD1AAEF007CDFC9 /* MainTableViewController.swift */,
 				3CA83D8E1DE1E3AC009E9975 /* MainTableViewCell.swift */,
 				A1A006701DDC335F007E131D /* MainNaviController.swift */,
 				8D22BFA11DE00F1000AB4D0B /* AddAssignmentViewController.swift */,
+				3CC7A55D1DF2DA7E00295358 /* ItemViewController.swift */,
 				8D22BFA71DE020D000AB4D0B /* AddExamViewController.swift */,
+				8D5AEF671DED63080064E06F /* SubjectCollectionViewCell.swift */,
 				8D715F071DC867C5009018AE /* Item.swift */,
 				3C1C1C2F1DD78ED80021516D /* ItemList.swift */,
+				3CC7A5611DF3185F00295358 /* Subject.swift */,
+				3CC7A55F1DF3177700295358 /* SubjectList.swift */,
 				8D715F091DC86CFC009018AE /* Assignment.swift */,
 				8D715F0B1DC87019009018AE /* Exam.swift */,
 				8D3665DD1DE4166B0071F673 /* Colors.swift */,
+				8D5AEF691DEEBAE40064E06F /* UIView.swift */,
 				8D715EE51DC8659D009018AE /* Info.plist */,
 				8DFD925C1DE2B6D100C1D375 /* Fruit-Bridging-Header.h */,
 				8D715EE01DC8659D009018AE /* Assets.xcassets */,
@@ -316,7 +331,6 @@
 				TargetAttributes = {
 					8D715ED51DC8659D009018AE = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = WC25YV795S;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -386,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D715F0A1DC86CFC009018AE /* Assignment.swift in Sources */,
+				3CC7A55E1DF2DA7E00295358 /* ItemViewController.swift in Sources */,
 				8D715F0C1DC87019009018AE /* Exam.swift in Sources */,
 				8DD66B6C1DDB328100712B9F /* KCFABViewController.swift in Sources */,
 				8DB548D71DE2D09700E92D5C /* DistancePickerView.m in Sources */,
@@ -397,11 +412,12 @@
 				3C1C1C301DD78ED80021516D /* ItemList.swift in Sources */,
 				8DB548D21DE2D09700E92D5C /* ActionSheetDatePicker.m in Sources */,
 				8DB548D11DE2D09700E92D5C /* ActionSheetCustomPicker.m in Sources */,
-				A19750501DD1AAEF007CDFC9 /* MainTableviewController.swift in Sources */,
+				A19750501DD1AAEF007CDFC9 /* MainTableViewController.swift in Sources */,
 				A1A006711DDC335F007E131D /* MainNaviController.swift in Sources */,
 				8DB548D41DE2D09700E92D5C /* ActionSheetLocalePicker.m in Sources */,
 				8D715EDA1DC8659D009018AE /* AppDelegate.swift in Sources */,
 				3CA83D8F1DE1E3AC009E9975 /* MainTableViewCell.swift in Sources */,
+				3CC7A5601DF3177700295358 /* SubjectList.swift in Sources */,
 				8DD66B6B1DDB328100712B9F /* KCFABManager.swift in Sources */,
 				8DB548D51DE2D09700E92D5C /* ActionSheetMultipleStringPicker.m in Sources */,
 				8D22BFA81DE020D000AB4D0B /* AddExamViewController.swift in Sources */,
@@ -409,8 +425,11 @@
 				8D3665DE1DE4166B0071F673 /* Colors.swift in Sources */,
 				8DB548D61DE2D09700E92D5C /* ActionSheetStringPicker.m in Sources */,
 				8DD66B701DDB328100712B9F /* KCFloatingActionButtonItem.swift in Sources */,
+				8D5AEF6A1DEEBAE40064E06F /* UIView.swift in Sources */,
+				8D5AEF681DED63080064E06F /* SubjectCollectionViewCell.swift in Sources */,
 				8DB548D31DE2D09700E92D5C /* ActionSheetDistancePicker.m in Sources */,
 				8DD66B6E1DDB328100712B9F /* KCFloatingActionButton.swift in Sources */,
+				3CC7A5621DF3185F00295358 /* Subject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +581,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: youarenothere-@hotmail.com (S4S9DKY2SU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WC25YV795S;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Fruit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sohee.Fruit;
