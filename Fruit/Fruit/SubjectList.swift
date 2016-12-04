@@ -65,6 +65,31 @@ class SubjectList {
             
             saveSubjects()
         }
+    }
+    
+    func newSubject(name: String, short: String) -> Subject {
+        let results = subjects.filter({$0.name == name})
         
+        if results.count == 0 {
+            // There is no same subject
+            return Subject(name: name, short: short)
+        } else {
+            // There is a same subject
+            
+            if results.count > 1 {
+                // There are multiple subjects with same name.
+                print("ERROR: There are duplicated subjects")
+            }
+            
+            let result = results.first!
+            if result.short == short {
+                return result
+            } else {
+                // Trying to change shortname.
+                print("Wanring: New subject has different shortname. Shortname changed")
+                result.short = short
+                return result
+            }
+        }
     }
 }

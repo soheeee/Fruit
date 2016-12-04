@@ -32,6 +32,7 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
     var categories : [String] = []
     var collectionViewForItem: UICollectionView?
     var subjectForItem: UITextField?
+    var selectedSubject: Subject?
     
     override func viewDidLoad() {
         // Set default date to today 23:59:59
@@ -66,8 +67,9 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
             subject.text = alert?.textFields![0].text
             // Save new subject immediately
-            let newSubject = Subject(name: (alert?.textFields![0].text)!, short: (alert?.textFields![1].text)!)
+            let newSubject = subjectList.newSubject(name: (alert?.textFields![0].text)!, short: (alert?.textFields![1].text)!)
             subjectList.insertSubject(subject: newSubject)
+            self.selectedSubject = newSubject
             self.collectionViewForItem?.reloadData()
         }))
         
