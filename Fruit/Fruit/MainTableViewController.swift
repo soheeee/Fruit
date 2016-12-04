@@ -274,12 +274,12 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func deleteItem(row: Int) {
-        let alert = UIAlertController(title: "항목 삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "항목 변경", message: "원하는 항목 선택햐주세요", preferredStyle: .alert)
         
         alert.view.tintColor = blushTwo
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
-        alert.addAction(UIAlertAction(title: "공유", style: .default){UIAlertAction in self.share()})
+        alert.addAction(UIAlertAction(title: "공유", style: .default){UIAlertAction in self.share(row: row)})
         alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(item: self.arrayItem[row])
             self.refreshTable()})
         
@@ -289,27 +289,35 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         alert.view.tintColor = blushTwo
     }
     
-    func share() {
+    func share(row: Int) {
         print("share")
         
         if KOAppCall.canOpenKakaoTalkAppLink() {
-            KOAppCall.openKakaoTalkAppLink(dummyLinkObject())
+            KOAppCall.openKakaoTalkAppLink(dummyLinkObject(row: row))
         } else {
             print("Cannot open Kakaotalk")
         }
     }
     
-    func dummyLinkObject() -> [KakaoTalkLinkObject] {
-        let label = KakaoTalkLinkObject.createLabel("Test Label\nNext Line")
+    func dummyLinkObject(row:Int) -> [KakaoTalkLinkObject] {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM월 dd일 a hh시 mm분"
+        let timeString = formatter.string(from: self.arrayItem[row].time as Date)
+        
+        let label = KakaoTalkLinkObject.createLabel("과제 알림입니다.\n" +
+            "과제명: " + (self.arrayItem[row].title).description +
+            "\n과목명: " + (self.arrayItem[row].subject.name) +
+            "\n마감: " + timeString)
+        
         let image = KakaoTalkLinkObject.createImage("https://developers.kakao.com/assets/img/link_sample.jpg", width: 138, height: 80)
-        let webLink = KakaoTalkLinkObject.createWebLink("Test Link", url: "http://www.kakao.com")
+        let webLink = KakaoTalkLinkObject.createWebLink("과제 * 일정 관리 Fruit", url: "https://projectintheclass.github.io/Fruit/")
         
         let androidAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.android, devicetype: KakaoTalkLinkActionDeviceType.phone, execparam: ["test1" : "test1", "test2" : "test2"])
         let iphoneAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.IOS, devicetype: KakaoTalkLinkActionDeviceType.phone, execparam: ["test1" : "test1", "test2" : "test2"])
         let ipadAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.IOS, devicetype: KakaoTalkLinkActionDeviceType.pad, execparam: ["test1" : "test1", "test2" : "test2"])
-        let appLink = KakaoTalkLinkObject.createAppButton("Test Button", actions: [androidAppAction!, iphoneAppAction!, ipadAppAction!])
+        let appLink = KakaoTalkLinkObject.createAppButton("Fruit 보러가기", actions: [androidAppAction!, iphoneAppAction!, ipadAppAction!])
         
-        return [label!, image!, webLink!, appLink!]
+        return [image!, label!, webLink!, appLink!]
     }
     
     //limiting title length
