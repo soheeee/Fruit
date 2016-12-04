@@ -17,18 +17,13 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
-//    @IBOutlet weak var todayAssignment: UITextView!
-//    @IBOutlet weak var todayLeftCount: UITextView!
-//    @IBOutlet weak var todayDate: UITextView!
-    
     @IBOutlet weak var todayTitle: UILabel!
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var todayDate: UILabel!
     @IBOutlet weak var todayLeftCount: UILabel!
+    
     @IBAction func CreateDummy(_ sender: Any) {
         itemList.createDummy()
-
         refreshTable()
     }
     
@@ -244,18 +239,22 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         var dateString:String
         var assignmentDue:Int = 0
         
-        for i in 0 ... arrayItem.count-1{
-            
-            dateString = formatter.string(from: arrayItem[i].time as Date)
-            
-            if(today == dateString){
-                assignmentDue += 1
+        if(arrayItem.count > 0){
+            for i in 0 ... arrayItem.count-1{
+                dateString = formatter.string(from: arrayItem[i].time as Date)
+                
+                if(today == dateString){
+                    assignmentDue += 1
+                }
             }
-            
+        }
+        else{
+            arrayItem += [Assignment(id: 0, time: NSDate(timeIntervalSinceNow: 999999), name: "Wireshark", subFull: "컴퓨터네트워크",subShort:"컴네", memo: "TestMemo")]
         }
         todayLeftCount.text = String(assignmentDue) + "개 남았습니다"
         tableView.reloadData()
     }
+    
     
     func deleteItem(row: Int) {
         let alert = UIAlertController(title: "항목 삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
