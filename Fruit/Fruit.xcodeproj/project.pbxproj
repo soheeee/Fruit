@@ -610,13 +610,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: youarenothere-@hotmail.com (S4S9DKY2SU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
-<<<<<<< HEAD
-=======
+
+
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
->>>>>>> e3420151a30b35d3bdedc30a4eebc70bdb1ee00c
+
 				INFOPLIST_FILE = Fruit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
