@@ -199,7 +199,19 @@
                             <constraint firstItem="68V-qZ-wx2" firstAttribute="height" secondItem="uRj-iA-MUV" secondAttribute="height" id="zbs-79-sBd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tSK-fs-IoG"/>
+                    <navigationItem key="navigationItem" id="tSK-fs-IoG">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="eM1-me-Jae">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1tO-z8-oWc">
+                                <rect key="frame" x="16" y="8" width="22" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="harvest"/>
+                                <connections>
+                                    <action selector="selectTheme:" destination="837-Tq-isK" eventType="touchUpInside" id="Do8-qt-KqV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
@@ -409,7 +421,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nNw-lq-kJo">
                                 <rect key="frame" x="0.0" y="218" width="375" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="3Vx-06-aqY">
                                     <size key="itemSize" width="66" height="66"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -492,7 +504,7 @@
                                 </connections>
                             </collectionView>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KPD-0P-HcS">
-                                <rect key="frame" x="102" y="162" width="220" height="35"/>
+                                <rect key="frame" x="107" y="162" width="215" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -658,7 +670,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXI-9D-2nf">
-                                <rect key="frame" x="102" y="162" width="220" height="35"/>
+                                <rect key="frame" x="107" y="162" width="215" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -674,7 +686,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="opE-SD-IuV">
                                 <rect key="frame" x="0.0" y="218" width="375" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="BuC-qP-ni6">
                                     <size key="itemSize" width="66" height="66"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -870,6 +882,7 @@
         <image name="circle2_1x" width="57" height="57"/>
         <image name="circle3_1x" width="57" height="57"/>
         <image name="circle4_1x" width="57" height="57"/>
+        <image name="harvest" width="64" height="64"/>
         <image name="triangle_1x" width="20" height="15"/>
     </resources>
 </document>

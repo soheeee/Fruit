@@ -106,7 +106,7 @@ class AddExamViewController: ItemViewController {
     }
     
     @IBAction func addExam(_ sender: Any) {
-        if(type.text != "") {
+        if(type.text != "" && subject.text != "") {
             var examType:Exam.type?
             for i in 0 ... categories.count-1 {
                 if type.text == categories[i] {
@@ -124,15 +124,15 @@ class AddExamViewController: ItemViewController {
             
             self.dismiss(animated: false, completion: nil)
         } else {
-            /*
+            
              let alert = UIAlertController(title: "입력 오류", message: "빈칸을 모두 입력해주세요", preferredStyle: .alert)
              
-             alert.view.tintColor = blushTwo
+             alert.view.tintColor = Theme.main4
              
              alert.addAction(UIAlertAction(title: "확인", style: .default))
              
              self.present(alert, animated: true, completion: nil)
-             */
+            
         }
     }
     

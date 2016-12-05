@@ -39,7 +39,7 @@ class MainNaviController : UINavigationController {
         
         let fab = KCFloatingActionButton(image: UIImage(named: "main_add")!)
         
-        fab.addItem("과제추가", icon:UIImage(named:"book")!, color: paleSalmon, handler: {item in
+        fab.addItem("과제추가", icon:UIImage(named:"book")!, color: Theme.main2, handler: {item in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "AddAssignment") as! AddAssignmentViewController
             vc.isEditmode = false
@@ -47,7 +47,7 @@ class MainNaviController : UINavigationController {
             fab.close()
         })
         
-        fab.addItem("시험추가", icon:UIImage(named:"exam")!, color: blushTwo, handler: {item in
+        fab.addItem("시험추가", icon:UIImage(named:"exam")!, color: Theme.main4, handler: {item in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "AddExam") as! AddExamViewController
             // vc.isEditmode = false
