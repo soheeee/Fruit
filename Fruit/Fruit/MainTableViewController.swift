@@ -11,13 +11,20 @@ import UIKit
 class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     var loadTheme: Bool = {
-        let theme = Theme.defaults.string(forKey: "Theme")
+        var theme = Theme.defaults.string(forKey: "Theme")
+        if (theme == nil) {theme = "Peach"}
         Theme.loadTheme(name: theme!)
         return true
     }()
     var startLocation:CGPoint!
     var lastLocation:CGPoint!
     var arrayItem:[Item] = []
+
+    @IBOutlet weak var triangle: UILabel!
+    @IBOutlet weak var circle1: UIImageView!
+    @IBOutlet weak var circle2: UIImageView!
+    @IBOutlet weak var circle3: UIImageView!
+    @IBOutlet weak var circle4: UIImageView!
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -89,6 +96,8 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func setUpperViewLayer() {
+        triangle.textColor = Theme.main0
+        
         let gradient = CAGradientLayer()
         gradient.frame = upperView.frame
         
@@ -112,6 +121,11 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         self.setUpperViewLayer()
         self.setUpperText()
+        
+        circle1.backgroundColor = Theme.main1
+        circle2.backgroundColor = Theme.main2
+        circle3.backgroundColor = Theme.main3
+        circle4.backgroundColor = Theme.main4
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteCell))
         self.view.addGestureRecognizer(longPressRecognizer)

@@ -34,7 +34,7 @@ extension UIView {
             return UIColor(cgColor: layer.borderColor!)
         }
         set {
-            layer.borderColor = UIColor.white.cgColor
+            layer.borderColor =  UIColor(red: CGFloat(170)/255, green: CGFloat(170)/255, blue: CGFloat(170)/255, alpha: 1.0).cgColor
         }
     }
 }
