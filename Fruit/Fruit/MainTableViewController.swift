@@ -10,9 +10,21 @@ import UIKit
 
 class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
+    var loadTheme: Bool = {
+        var theme = Theme.defaults.string(forKey: "Theme")
+        if (theme == nil) {theme = "Peach"}
+        Theme.loadTheme(name: theme!)
+        return true
+    }()
     var startLocation:CGPoint!
     var lastLocation:CGPoint!
     var arrayItem:[Item] = []
+
+    @IBOutlet weak var triangle: UILabel!
+    @IBOutlet weak var circle1: UIImageView!
+    @IBOutlet weak var circle2: UIImageView!
+    @IBOutlet weak var circle3: UIImageView!
+    @IBOutlet weak var circle4: UIImageView!
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -31,9 +43,8 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         todayLeftCount.clipsToBounds = false
         todayLeftCount.layer.shadowOpacity = 1
         todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
-        todayLeftCount.layer.shadowColor = UIColor(red: CGFloat(238)/255, green: CGFloat(65)/255, blue: CGFloat(86)/255, alpha: 0.5).cgColor
-        line.backgroundColor = white
-        
+        todayLeftCount.layer.shadowColor = Theme.shadow.cgColor
+        line.backgroundColor = Theme.white
         
         let current = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -85,12 +96,14 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func setUpperViewLayer() {
+        triangle.textColor = Theme.main0
+        
         let gradient = CAGradientLayer()
         gradient.frame = upperView.frame
         
-        let CGblushTwo:CGColor = blushTwo.cgColor
-        let CGpalePeach:CGColor = palePeach.cgColor
-        gradient.colors = [CGblushTwo, CGpalePeach]
+        let CGMain4:CGColor = Theme.main4.cgColor
+        let CGMain0:CGColor = Theme.main0.cgColor
+        gradient.colors = [CGMain4, CGMain0]
         
         upperView.layer.insertSublayer(gradient, at: 0)
     }
@@ -108,6 +121,11 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         self.setUpperViewLayer()
         self.setUpperText()
+        
+        circle1.backgroundColor = Theme.main1
+        circle2.backgroundColor = Theme.main2
+        circle3.backgroundColor = Theme.main3
+        circle4.backgroundColor = Theme.main4
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteCell))
         self.view.addGestureRecognizer(longPressRecognizer)
@@ -276,7 +294,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     func deleteItem(row: Int) {
         let alert = UIAlertController(title: "항목 변경", message: "원하는 항목 선택햐주세요", preferredStyle: .alert)
         
-        alert.view.tintColor = blushTwo
+        alert.view.tintColor = Theme.main4
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "공유", style: .default){UIAlertAction in self.share(row: row)})
@@ -286,7 +304,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.present(alert, animated: true, completion: nil)
         
         // Necessary to apply tint on iOS 9
-        alert.view.tintColor = blushTwo
+        alert.view.tintColor = Theme.main4
     }
     
     func share(row: Int) {
@@ -340,4 +358,28 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             
         }
     }
+    
+    @IBAction func selectTheme(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "테마 설정", message: "테마는 앱 재부팅시 적용됩니다", preferredStyle: .alert)
+        
+        alert.view.tintColor = Theme.main4
+        
+        alert.addAction(UIAlertAction(title: "Peach", style: .default){UIAlertAction in
+            Theme.defaults.set("Peach", forKey: "Theme")})
+        alert.addAction(UIAlertAction(title: "Mango", style: .default){UIAlertAction in
+            Theme.defaults.set("Mango", forKey: "Theme")})
+        alert.addAction(UIAlertAction(title: "Blueberry", style: .default){UIAlertAction in
+            Theme.defaults.set("Blueberry", forKey: "Theme")})
+        alert.addAction(UIAlertAction(title: "Grape", style: .default){UIAlertAction in
+            Theme.defaults.set("Grape", forKey: "Theme")})
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        // Necessary to apply tint on iOS 9
+        alert.view.tintColor = Theme.main4
+        
+    }
+    
 }

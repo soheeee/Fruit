@@ -14,7 +14,7 @@ extension UIToolbar {
         
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
-        toolBar.tintColor = blushTwo
+        toolBar.tintColor = Theme.main4
         toolBar.sizeToFit()
         
         let doneButton = UIBarButtonItem(title: "Done ", style: UIBarButtonItemStyle.done, target: self, action: mySelect)
@@ -50,9 +50,9 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
     
     func setBackgroundColor(){
         let gradient = CAGradientLayer()
-        let CGblushTwo:CGColor = blushTwo.cgColor
-        let CGpalePeach:CGColor = palePeach.cgColor
-        gradient.colors = [CGblushTwo, CGpalePeach]
+        let CGMain4:CGColor = Theme.main4.cgColor
+        let CGMain0:CGColor = Theme.main0.cgColor
+        gradient.colors = [CGMain4, CGMain0]
         gradient.frame = view.bounds
         
         self.view.layer.insertSublayer(gradient, at: 0)
@@ -64,7 +64,7 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         alert.addTextField { (textField) in textField.placeholder = "전체 과목명" }
         alert.addTextField { (textField) in textField.placeholder = "최대 3글자 이내" }
         
-        alert.view.tintColor = blushTwo
+        alert.view.tintColor = Theme.main4
         
         alert.addAction(UIAlertAction(title: "취소", style: .default))
         alert.addAction(UIAlertAction(title: "추가", style: .default, handler: { [weak alert] (_) in
@@ -93,10 +93,10 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
         
-        categoryPicker?.setTextColor(brownishGrey)
+        categoryPicker?.setTextColor(Theme.letter_dark)
         categoryPicker?.pickerBackgroundColor = UIColor.white
         categoryPicker?.toolbarBackgroundColor = UIColor.white
-        categoryPicker?.toolbarButtonsColor = blushTwo
+        categoryPicker?.toolbarButtonsColor = Theme.main4
         categoryPicker?.show()
     }
     
@@ -120,10 +120,10 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
                 
                 return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
         
-        datePicker?.setTextColor(brownishGrey)
+        datePicker?.setTextColor(Theme.letter_dark)
         datePicker?.pickerBackgroundColor = UIColor.white
         datePicker?.toolbarBackgroundColor = UIColor.white
-        datePicker?.toolbarButtonsColor = blushTwo
+        datePicker?.toolbarButtonsColor = Theme.main4
         datePicker?.show()
     }
     
@@ -148,10 +148,10 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
                 
                 return}, cancel: {ActionMultipleStringCancelBlock in return}, origin: sender)
         
-        timePicker?.setTextColor(brownishGrey)
+        timePicker?.setTextColor(Theme.letter_dark)
         timePicker?.pickerBackgroundColor = UIColor.white
         timePicker?.toolbarBackgroundColor = UIColor.white
-        timePicker?.toolbarButtonsColor = blushTwo
+        timePicker?.toolbarButtonsColor = Theme.main4
         timePicker?.show()
     }
     
@@ -218,19 +218,19 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         let cellColor = indexPath.item % 4
         switch(cellColor){
         case 0:
-            cell.circle.backgroundColor = lightPeach
+            cell.circle.backgroundColor = Theme.main1
             break
         case 1:
-            cell.circle.backgroundColor = paleSalmon
+            cell.circle.backgroundColor = Theme.main2
             break
         case 2:
-            cell.circle.backgroundColor = blush
+            cell.circle.backgroundColor = Theme.main3
             break
         case 3:
-            cell.circle.backgroundColor = blushTwo
+            cell.circle.backgroundColor = Theme.main4
             break
         default:
-            cell.circle.backgroundColor = warmGrey
+            cell.circle.backgroundColor = Theme.letter_light
             break
         }
         
