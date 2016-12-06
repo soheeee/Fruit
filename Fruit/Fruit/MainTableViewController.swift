@@ -310,12 +310,15 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             "\n마감: " + timeString)
         
         let image = KakaoTalkLinkObject.createImage("https://developers.kakao.com/assets/img/link_sample.jpg", width: 138, height: 80)
+        
         let webLink = KakaoTalkLinkObject.createWebLink("과제 * 일정 관리 Fruit", url: "https://projectintheclass.github.io/Fruit/")
+
         
         let androidAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.android, devicetype: KakaoTalkLinkActionDeviceType.phone, execparam: ["test1" : "test1", "test2" : "test2"])
         let iphoneAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.IOS, devicetype: KakaoTalkLinkActionDeviceType.phone, execparam: ["test1" : "test1", "test2" : "test2"])
-        let ipadAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.IOS, devicetype: KakaoTalkLinkActionDeviceType.pad, execparam: ["test1" : "test1", "test2" : "test2"])
+        let ipadAppAction = KakaoTalkLinkAction.createAppAction(KakaoTalkLinkActionOSPlatform.IOS, devicetype: KakaoTalkLinkActionDeviceType.pad, execparam: ["id" : "1", "name" : "test2", "subject":"", "date" :"" , "memo" : ""])
         let appLink = KakaoTalkLinkObject.createAppButton("Fruit 보러가기", actions: [androidAppAction!, iphoneAppAction!, ipadAppAction!])
+        
         
         return [image!, label!, webLink!, appLink!]
     }

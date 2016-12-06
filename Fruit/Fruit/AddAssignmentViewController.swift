@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 
 class AddAssignmentViewController: ItemViewController {
@@ -47,6 +48,7 @@ class AddAssignmentViewController: ItemViewController {
         height = topView.frame.size.height
         xPosition = topView.frame.origin.x
     }
+
     
 
     func keyboardWillShow(notification:Notification) {
@@ -124,6 +126,31 @@ class AddAssignmentViewController: ItemViewController {
                 itemList.changeItem(from: assignmentToEdit!, to: assignment)
             } else {
                 itemList.insertItem(item: assignment)
+                var item : Item = Item(id: 0, title: assignment.name, time: assignment.time, subject: assignment.subject)
+//                item.title = assignment.name
+//                item.subject = assignment.subject
+//                item.time = assignment.time
+                print(assignment.name + "\n" + assignment.time.description + "\n" + assignment.subject.name)
+                scheduleNotification(assignMent: item)
+                
+                //add this event to local notification
+//                let app = UIApplication.shared
+//                
+//                let notifyAlarm = UILocalNotification()
+////                notifyAlarm.timeZone = NSTimeZone(name: "KST") as TimeZone?
+//                notifyAlarm.timeZone = NSTimeZone.system
+//                print("timezone: " + NSTimeZone.system.description)
+//                notifyAlarm.alertBody = "알람 테스트 나와라 얍얍얍"
+//                
+//                var tempDate:Date = dateVar
+//                tempDate.addTimeInterval(60*60*9)
+//                notifyAlarm.fireDate = tempDate
+//                print("fire date: " + tempDate.description)
+//                notifyAlarm.userInfo = ["test1": 12]
+//                
+//                app.scheduleLocalNotification(notifyAlarm)
+                
+                
             }
             
             self.dismiss(animated: true, completion: nil)
@@ -165,4 +192,22 @@ class AddAssignmentViewController: ItemViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    
+    func scheduleNotification(assignMent: Item) {
+        // Create reminder by setting a local notification
+        let localNotification = UILocalNotification()
+        localNotification.alertTitle = assignMent.subject.name
+        localNotification.alertBody =  assignMent.title
+        localNotification.alertAction = "ShowDetails"
+        localNotification.fireDate = assignMent.time as Date
+        localNotification.timeZone = TimeZone.current
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.applicationIconBadgeNumber = 1
+        localNotification.category = "reminderCategory"
+        UIApplication.shared.scheduleLocalNotification(localNotification)
+        
+        print("add successed")
+    }
+
 }

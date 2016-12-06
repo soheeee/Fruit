@@ -57,7 +57,7 @@ class ItemList {
 	
     func deleteItem(item: Item) {
         items = items.filter({$0 != item})
-		
+        
 		saveItems()
 	}
     
