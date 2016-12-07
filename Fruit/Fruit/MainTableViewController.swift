@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UIPopoverPresentationControllerDelegate{
     
     var loadTheme: Bool = {
         var theme = Theme.defaults.string(forKey: "Theme")
@@ -401,35 +401,63 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         }
     }
     
-    @IBAction func selectTheme(_ sender: Any) {
+    @IBAction func settings(_ sender: UIButton) {
+        let settings = UIAlertController(title: "설정", message: "", preferredStyle: .alert)
         
-        let alert = UIAlertController(title: "테마 설정", message: "", preferredStyle: .alert)
+        settings.view.tintColor = Theme.main4
         
+        settings.addAction(UIAlertAction(title: "알람 설정", style: .default){UIAlertAction in self.setAlarm()})
+        settings.addAction(UIAlertAction(title: "테마 설정", style: .default){UIAlertAction in
+            self.selectTheme()})
+        settings.addAction(UIAlertAction(title: "취소", style: .cancel){UIAlertAction in})
+        
+        self.present(settings, animated: true, completion: nil)
+        
+        // Necessary to apply tint on iOS 9
+        settings.view.tintColor = Theme.main4
+        
+    }
+    
+    func setAlarm(){
+        let alert = UIAlertController(title: "알람 설정", message: "", preferredStyle: .alert)
+
         alert.view.tintColor = Theme.main4
+        alert.addAction(UIAlertAction(title: "1시간 전", style: .default){UIAlertAction in})
+        alert.addAction(UIAlertAction(title: "3시간 전", style: .default){UIAlertAction in})
+        alert.addAction(UIAlertAction(title: "5시간 전", style: .default){UIAlertAction in})
+        alert.addAction(UIAlertAction(title: "없음", style: .default){UIAlertAction in})
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel){UIAlertAction in})
         
-        alert.addAction(UIAlertAction(title: "Peach", style: .default){UIAlertAction in
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func selectTheme(){
+        let theme = UIAlertController(title: "테마 설정", message: "", preferredStyle: .alert)
+        
+        theme.view.tintColor = Theme.main4
+        theme.addAction(UIAlertAction(title: "Peach", style: .default){UIAlertAction in
             Theme.defaults.set("Peach", forKey: "Theme")
             Theme.loadTheme(name: "Peach")
             self.viewDidLoad()})
-        alert.addAction(UIAlertAction(title: "Mango", style: .default){UIAlertAction in
+        theme.addAction(UIAlertAction(title: "Mango", style: .default){UIAlertAction in
             Theme.defaults.set("Mango", forKey: "Theme")
             Theme.loadTheme(name: "Mango")
             self.viewDidLoad()})
-        alert.addAction(UIAlertAction(title: "Blueberry", style: .default){UIAlertAction in
+        theme.addAction(UIAlertAction(title: "Bluberry", style: .default){UIAlertAction in
             Theme.defaults.set("Blueberry", forKey: "Theme")
             Theme.loadTheme(name: "Blueberry")
             self.viewDidLoad()})
-        alert.addAction(UIAlertAction(title: "Grape", style: .default){UIAlertAction in
+        theme.addAction(UIAlertAction(title: "Grape", style: .default){UIAlertAction in
             Theme.defaults.set("Grape", forKey: "Theme")
             Theme.loadTheme(name: "Grape")
             self.viewDidLoad()})
-        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        theme.addAction(UIAlertAction(title: "취소", style: .cancel){UIAlertAction in})
         
-        self.present(alert, animated: true, completion: nil)
-        
-        // Necessary to apply tint on iOS 9
-        alert.view.tintColor = Theme.main4
-        
+        self.present(theme, animated: true, completion: nil)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
     }
     
 }
