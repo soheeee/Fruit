@@ -60,12 +60,12 @@
                                 <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88I-HA-uF5">
-                                <rect key="frame" x="16" y="29" width="22" height="28"/>
+                                <rect key="frame" x="16" y="34" width="21" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" image="harvest"/>
+                                <state key="normal" image="settings"/>
                                 <connections>
-                                    <action selector="selectTheme:" destination="837-Tq-isK" eventType="touchUpInside" id="8SI-RM-c5u"/>
+                                    <action selector="settings:" destination="837-Tq-isK" eventType="touchUpInside" id="KUd-hj-sCu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="▼" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmo-Mp-CUD">
@@ -957,6 +957,6 @@
         <image name="arrow_down" width="64" height="64"/>
         <image name="cancel" width="64" height="64"/>
         <image name="checked" width="64" height="64"/>
-        <image name="harvest" width="64" height="64"/>
+        <image name="settings" width="64" height="64"/>
     </resources>
 </document>
