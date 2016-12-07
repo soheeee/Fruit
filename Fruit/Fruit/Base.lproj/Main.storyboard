@@ -41,7 +41,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘의 과제" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cn-AC-CXh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘의 할 일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cn-AC-CXh">
                                         <rect key="frame" x="0.0" y="63" width="375" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
@@ -641,7 +641,7 @@
             <objects>
                 <navigationController useStoryboardIdentifierAsRestorationIdentifier="YES" id="4n2-86-byB" customClass="MainNaviController" customModule="Fruit" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="JRZ-M7-VxS"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WdH-Tn-Gac">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WdH-Tn-Gac">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
