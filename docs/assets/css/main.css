@@ -1623,11 +1623,11 @@
 	}
 
 	body {
-		background-color: #935d8c;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+		background-color: #fedebb;
+		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #EE7B7B 15%, #fedebb 85%);
+		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #EE7B7B 15%, #F9B9A3 85%);
+		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #f59393 15%, #F9B9A3 85%);
+		background-image: url("images/overlay.png"), linear-gradient(45deg, #f59393 15%, #F9B9A3 85%);
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -1644,8 +1644,8 @@
 /* Type */
 
 	body {
-		background-color: #935d8c;
-		color: rgba(255, 255, 255, 0.65);
+		background-color: #fedebb;
+		color: rgba(255, 255, 255, 0.75);
 	}
 
 	body, input, select, textarea {
@@ -1730,7 +1730,7 @@
 		}
 
 	h1 {
-		font-size: 2.5em;
+		font-size: 3.5em;
 		line-height: 1.2;
 	}
 
@@ -3102,7 +3102,7 @@
 		}
 
 		#header p {
-			font-size: 1.25em;
+			font-size: 1.5em;
 			letter-spacing: -0.025em;
 		}
 
