@@ -19,6 +19,8 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     var startLocation:CGPoint!
     var lastLocation:CGPoint!
     var arrayItem:[Item] = []
+    var fab:KCFloatingActionButton!
+    var sublayerInit = true
 
     @IBOutlet weak var triangle: UILabel!
     @IBOutlet weak var circle1: UIImageView!
@@ -37,13 +39,13 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         refreshTable()
     }
-    
     func setUpperText(){
         todayLeftCount.layer.cornerRadius = todayLeftCount.frame.size.height/2
         todayLeftCount.clipsToBounds = false
         todayLeftCount.layer.shadowOpacity = 1
-        todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
         todayLeftCount.layer.shadowColor = Theme.shadow.cgColor
+        todayLeftCount.layer.shadowOffset = CGSize(width: 2, height: 2)
+
         line.backgroundColor = Theme.white
         
         let current = Date()
@@ -105,7 +107,15 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let CGMain0:CGColor = Theme.main0.cgColor
         gradient.colors = [CGMain4, CGMain0]
         
-        upperView.layer.insertSublayer(gradient, at: 0)
+        if(sublayerInit == true){
+            upperView.layer.insertSublayer(gradient, at: 0)
+            fab = CreateFloatingButton()
+            sublayerInit = false
+        }else{
+            fab.removeFromSuperview()
+            fab = CreateFloatingButton()
+            upperView.layer.replaceSublayer((upperView.layer.sublayers?[0])!, with: gradient)
+        }
     }
     
     func deleteCell(sender: UILongPressGestureRecognizer) {
@@ -119,8 +129,10 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     override func viewDidLoad() {
+        
         self.setUpperViewLayer()
         self.setUpperText()
+        
         
         circle1.backgroundColor = Theme.main1
         circle2.backgroundColor = Theme.main2
@@ -133,7 +145,36 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.tableView.isScrollEnabled = false
         let pan = UIPanGestureRecognizer(target: self, action: #selector(self.panedView))
         self.view.addGestureRecognizer(pan)
+    }
+    
+    func CreateFloatingButton() -> KCFloatingActionButton{
         
+        let fab = KCFloatingActionButton(image: UIImage(named: "main_add")!)
+        
+        fab.addItem("과제추가", icon:UIImage(named:"book")!, color: Theme.main2, handler: {item in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "AddAssignment") as! AddAssignmentViewController
+            vc.isEditmode = false
+            self.present(vc, animated: true, completion: nil)
+            fab.close()
+        })
+        
+        fab.addItem("시험추가", icon:UIImage(named:"exam")!, color: Theme.main4, handler: {item in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "AddExam") as! AddExamViewController
+            // vc.isEditmode = false
+            self.present(vc, animated: true, completion: nil)
+            fab.close()
+        })
+        
+        self.view.addSubview(fab)
+        
+        return fab
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -292,14 +333,15 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func deleteItem(row: Int) {
-        let alert = UIAlertController(title: "항목 변경", message: "원하는 항목 선택햐주세요", preferredStyle: .alert)
+        let alert = UIAlertController(title: "항목 변경", message: "원하는 항목을 선택햐주세요", preferredStyle: .alert)
         
         alert.view.tintColor = Theme.main4
         
-        alert.addAction(UIAlertAction(title: "취소", style: .default))
+        alert.addAction(UIAlertAction(title: "완료", style: .default){UIAlertAction in self.share(row: row)})
         alert.addAction(UIAlertAction(title: "공유", style: .default){UIAlertAction in self.share(row: row)})
         alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(item: self.arrayItem[row])
             self.refreshTable()})
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         
         self.present(alert, animated: true, completion: nil)
         
@@ -361,19 +403,27 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBAction func selectTheme(_ sender: Any) {
         
-        let alert = UIAlertController(title: "테마 설정", message: "테마는 앱 재부팅시 적용됩니다", preferredStyle: .alert)
+        let alert = UIAlertController(title: "테마 설정", message: "", preferredStyle: .alert)
         
         alert.view.tintColor = Theme.main4
         
         alert.addAction(UIAlertAction(title: "Peach", style: .default){UIAlertAction in
-            Theme.defaults.set("Peach", forKey: "Theme")})
+            Theme.defaults.set("Peach", forKey: "Theme")
+            Theme.loadTheme(name: "Peach")
+            self.viewDidLoad()})
         alert.addAction(UIAlertAction(title: "Mango", style: .default){UIAlertAction in
-            Theme.defaults.set("Mango", forKey: "Theme")})
+            Theme.defaults.set("Mango", forKey: "Theme")
+            Theme.loadTheme(name: "Mango")
+            self.viewDidLoad()})
         alert.addAction(UIAlertAction(title: "Blueberry", style: .default){UIAlertAction in
-            Theme.defaults.set("Blueberry", forKey: "Theme")})
+            Theme.defaults.set("Blueberry", forKey: "Theme")
+            Theme.loadTheme(name: "Blueberry")
+            self.viewDidLoad()})
         alert.addAction(UIAlertAction(title: "Grape", style: .default){UIAlertAction in
-            Theme.defaults.set("Grape", forKey: "Theme")})
-        alert.addAction(UIAlertAction(title: "확인", style: .default))
+            Theme.defaults.set("Grape", forKey: "Theme")
+            Theme.loadTheme(name: "Grape")
+            self.viewDidLoad()})
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         
         self.present(alert, animated: true, completion: nil)
         

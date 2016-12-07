@@ -388,7 +388,7 @@ open class KCFloatingActionButton: UIView {
     }
 
     /**
-     Add item with title and handler.
+        Add item with title and handler.
      */
     @discardableResult
     open func addItem(title: String, handler: @escaping ((KCFloatingActionButtonItem) -> Void)) -> KCFloatingActionButtonItem {
@@ -415,7 +415,7 @@ open class KCFloatingActionButton: UIView {
     }
     
     /**
-     Add item with title, icon, handler,and color.
+     Add item with title, icon, handler, and color.
      */
     @discardableResult
     open func addItem(_ title: String, icon: UIImage?, color: UIColor, handler: @escaping ((KCFloatingActionButtonItem) -> Void)) -> KCFloatingActionButtonItem {
@@ -427,6 +427,11 @@ open class KCFloatingActionButton: UIView {
         item.buttonColor = color
         addItem(item: item)
         return item
+    }
+    //edit button
+    @discardableResult
+    open func editItem(item: KCFloatingActionButtonItem, color: UIColor){
+        
     }
 
     /**
