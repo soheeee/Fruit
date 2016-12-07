@@ -125,32 +125,12 @@ class AddAssignmentViewController: ItemViewController {
             if isEditmode {
                 itemList.changeItem(from: assignmentToEdit!, to: assignment)
             } else {
-                itemList.insertItem(item: assignment)
-                var item : Item = Item(id: 0, title: assignment.name, time: assignment.time, subject: assignment.subject)
-//                item.title = assignment.name
-//                item.subject = assignment.subject
-//                item.time = assignment.time
-                print(assignment.name + "\n" + assignment.time.description + "\n" + assignment.subject.name)
-                scheduleNotification(assignMent: item)
-                
-                //add this event to local notification
-//                let app = UIApplication.shared
-//                
-//                let notifyAlarm = UILocalNotification()
-////                notifyAlarm.timeZone = NSTimeZone(name: "KST") as TimeZone?
-//                notifyAlarm.timeZone = NSTimeZone.system
-//                print("timezone: " + NSTimeZone.system.description)
-//                notifyAlarm.alertBody = "알람 테스트 나와라 얍얍얍"
-//                
-//                var tempDate:Date = dateVar
-//                tempDate.addTimeInterval(60*60*9)
-//                notifyAlarm.fireDate = tempDate
-//                print("fire date: " + tempDate.description)
-//                notifyAlarm.userInfo = ["test1": 12]
-//                
-//                app.scheduleLocalNotification(notifyAlarm)
-                
-                
+                if(PushAlert.alertDefault.bool(forKey: "PushEnabled")){
+                    itemList.insertItem(item: assignment)
+                    let item : Item = Item(id: 0, title: assignment.name, time: assignment.time, subject: assignment.subject)
+                    print(assignment.name + "\n" + assignment.time.description + "\n" + assignment.subject.name)
+                    scheduleNotification(assignMent: item)
+                }
             }
             
             self.dismiss(animated: true, completion: nil)

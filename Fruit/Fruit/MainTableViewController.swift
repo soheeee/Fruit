@@ -8,14 +8,30 @@
 
 import UIKit
 
+<<<<<<< HEAD
 class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UIPopoverPresentationControllerDelegate{
     
+=======
+class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+>>>>>>> origin/master
     var loadTheme: Bool = {
         var theme = Theme.defaults.string(forKey: "Theme")
         if (theme == nil) {theme = "Peach"}
         Theme.loadTheme(name: theme!)
         return true
     }()
+    var settingPushAlert: Bool = {
+        var timeSetting = PushAlert.alertDefault.string(forKey: "PushTime")
+        if(timeSetting == nil) {
+            PushAlert.alertDefault.set(2, forKey: "PushTime")
+        }
+        var pushSetting = PushAlert.alertDefault.string(forKey: "PushEnabled")
+        if(pushSetting == nil){
+            PushAlert.alertDefault.set(true, forKey: "PushEnabled")
+        }
+        return true
+    }()
+    
     var startLocation:CGPoint!
     var lastLocation:CGPoint!
     var arrayItem:[Item] = []
@@ -460,4 +476,9 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         return .none
     }
     
+}
+
+
+struct PushAlert {
+    static var alertDefault = UserDefaults.standard
 }
