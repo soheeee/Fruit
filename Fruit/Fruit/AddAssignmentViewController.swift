@@ -139,9 +139,7 @@ class AddAssignmentViewController: ItemViewController {
              let alert = UIAlertController(title: "입력 오류", message: "빈칸을 모두 입력해주세요", preferredStyle: .alert)
              
              alert.view.tintColor = Theme.main4
-             
              alert.addAction(UIAlertAction(title: "확인", style: .default))
-             
              self.present(alert, animated: true, completion: nil)
  
         }
