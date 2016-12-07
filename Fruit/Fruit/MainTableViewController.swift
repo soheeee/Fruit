@@ -8,12 +8,9 @@
 
 import UIKit
 
-<<<<<<< HEAD
-class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UIPopoverPresentationControllerDelegate{
-    
-=======
+
 class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
->>>>>>> origin/master
+
     var loadTheme: Bool = {
         var theme = Theme.defaults.string(forKey: "Theme")
         if (theme == nil) {theme = "Peach"}
