@@ -54,6 +54,12 @@ class ItemList {
 		
 		saveItems()
 	}
+    
+    func finishItem(item: Item) {
+        items[items.index(of:item)!].id += 10;
+        
+        saveItems()
+    }
 	
     func deleteItem(item: Item) {
         items = items.filter({$0 != item})
@@ -77,6 +83,6 @@ class ItemList {
     func getItemsFromNow() -> [Item] {
         let today = Date()
         
-        return items.filter({$0.time as Date > today})
+        return items.filter({$0.time as Date > today && $0.id < 2})
     }
 }
