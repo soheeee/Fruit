@@ -389,7 +389,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             "\n과목명: " + (self.arrayItem[row].subject.name) +
             "\n마감: " + timeString)
         
-        let image = KakaoTalkLinkObject.createImage("https://developers.kakao.com/assets/img/link_sample.jpg", width: 138, height: 80)
+        let image = KakaoTalkLinkObject.createImage("https://projectintheclass.github.io/Fruit/images/app_logo.png", width: 138, height: 80)
         
         let webLink = KakaoTalkLinkObject.createWebLink("과제 * 일정 관리 Fruit", url: "https://projectintheclass.github.io/Fruit/")
 

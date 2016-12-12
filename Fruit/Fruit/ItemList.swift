@@ -41,9 +41,10 @@ class ItemList {
 	
 	func tutorialData() -> [Item] {
         // TODO: Change date to special day
-        let dummyAssignment = Assignment(id: 0, time: NSDate(timeIntervalSinceNow: 999999), name: "TestAssignment", subject: subjectList.newSubject(name: "TutorialSubject", short: "TS"), memo: "TestMemo", type:Assignment.type.assignment)
-        let dummyExam = Exam(id: 1, time: NSDate(timeIntervalSinceNow: 999999), subject: subjectList.newSubject(name: "TutorialSubject", short: "TS"),  memo: "dummyMemo", location: "dummyLocation", type: Exam.type.quiz)
-		return [dummyAssignment, dummyExam]
+        let dummyAssignment = Assignment(id: 0, time: NSDate(timeIntervalSinceNow: 999999), name: "길게 눌러 삭제", subject: subjectList.newSubject(name: "TutorialSubject", short: "튜토리얼"), memo: "TestMemo", type:Assignment.type.assignment)
+//        let dummyExam = Exam(id: 1, time: NSDate(timeIntervalSinceNow: 999999), subject: subjectList.newSubject(name: "TutorialSubject", short: "TS"),  memo: "dummyMemo", location: "dummyLocation", type: Exam.type.quiz)
+		return [dummyAssignment]
+//        , dummyExam]
 	}
 	
 	func createDummy() {
