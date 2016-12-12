@@ -125,10 +125,15 @@ class AddExamViewController: ItemViewController {
                     let addingTime = interval! * -3600
                     let time = exam.time.addingTimeInterval(TimeInterval(addingTime))
                     print("real input time is: " + time.description)
-                    let item : Item = Item(id: 0, title: exam.type.rawValue.description, time: time, subject: exam.subject)
-                    print("real title is: " + exam.title)
+//                    let item : Item = Item(id: 0, title: self.choice, time: time, subject: exam.subject)
+                    let item : Item = Item(id: 0, title: tmp, time: time, subject: exam.subject)
+                    
+                    
+//                    let item : Item = Item(id: 0, title: assignment.name, time: time, subject: assignment.subject)
+
+                    print("pleaseeee " + tmp)
                     scheduleNotification(exam: item)
-                    print("add exam")
+//                    print("add exam")
                 }
             }
             

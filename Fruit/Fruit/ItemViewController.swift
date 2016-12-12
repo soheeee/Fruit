@@ -8,6 +8,8 @@
 
 import Foundation
 
+var tmp:String = ""
+
 extension UIToolbar {
     func ToolbarPiker(mySelect: Selector) -> UIToolbar {
         let toolBar = UIToolbar()
@@ -79,7 +81,8 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
         self.present(alert, animated: true, completion: nil)
     }
     
-    func chooseCategoryForItem(title: String, sender: Any, category: UITextField) {
+    func chooseCategoryForItem(title: String, sender: Any, category: UITextField){
+        
         let categoryPicker = ActionSheetMultipleStringPicker(title: title, rows: [
             categories
             ], initialSelection: [0], doneBlock: {
@@ -89,6 +92,8 @@ class ItemViewController : UIViewController, UICollectionViewDataSource, UIColle
                 let index = Int(String((str?[(str?.index((str?.startIndex)!, offsetBy: 1))!])!))
                 
                 category.text = self.categories[index!]
+                tmp = self.categories[index!]
+                print("hihihihhi " + tmp)
                 
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
