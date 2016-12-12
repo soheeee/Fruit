@@ -20,12 +20,14 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     var settingPushAlert: Bool = {
         var timeSetting = PushAlert.alertDefault.string(forKey: "PushTime")
         if(timeSetting == nil) {
-            PushAlert.alertDefault.set(2, forKey: "PushTime")
+            PushAlert.alertDefault.set(1, forKey: "PushTime")
         }
         var pushSetting = PushAlert.alertDefault.string(forKey: "PushEnabled")
         if(pushSetting == nil){
-            PushAlert.alertDefault.set(true, forKey: "PushEnabled")
+            PushAlert.alertDefault.set("true", forKey: "PushEnabled")
         }
+        
+        print(timeSetting, pushSetting)
         return true
     }()
     
@@ -435,10 +437,18 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let alert = UIAlertController(title: "알람 설정", message: "", preferredStyle: .alert)
 
         alert.view.tintColor = Theme.main4
-        alert.addAction(UIAlertAction(title: "1시간 전", style: .default){UIAlertAction in})
-        alert.addAction(UIAlertAction(title: "3시간 전", style: .default){UIAlertAction in})
-        alert.addAction(UIAlertAction(title: "5시간 전", style: .default){UIAlertAction in})
-        alert.addAction(UIAlertAction(title: "없음", style: .default){UIAlertAction in})
+        alert.addAction(UIAlertAction(title: "1시간 전", style: .default){UIAlertAction in
+            PushAlert.alertDefault.set(1, forKey: "PushTime")
+        })
+        alert.addAction(UIAlertAction(title: "3시간 전", style: .default){UIAlertAction in
+            PushAlert.alertDefault.set(3, forKey: "PushTime")
+        })
+        alert.addAction(UIAlertAction(title: "5시간 전", style: .default){UIAlertAction in
+            PushAlert.alertDefault.set(5, forKey: "PushTime")
+        })
+        alert.addAction(UIAlertAction(title: "알람 없음", style: .default){UIAlertAction in
+            PushAlert.alertDefault.set("false", forKey: "PushEnabled")
+        })
         alert.addAction(UIAlertAction(title: "취소", style: .cancel){UIAlertAction in})
         
         self.present(alert, animated: true, completion: nil)

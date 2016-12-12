@@ -120,6 +120,16 @@ class AddExamViewController: ItemViewController {
                 itemList.changeItem(from: examToEdit!, to: exam)
             } else {
                 itemList.insertItem(item: exam)
+                if(PushAlert.alertDefault.string(forKey: "PushEnabled")=="true"){
+                    let interval = Int(PushAlert.alertDefault.string(forKey: "PushTime")!)
+                    let addingTime = interval! * -3600
+                    let time = exam.time.addingTimeInterval(TimeInterval(addingTime))
+                    print("real input time is: " + time.description)
+                    let item : Item = Item(id: 0, title: exam.type.rawValue.description, time: time, subject: exam.subject)
+                    print("real title is: " + exam.title)
+                    scheduleNotification(exam: item)
+                    print("add exam")
+                }
             }
             
             self.dismiss(animated: false, completion: nil)
@@ -161,5 +171,22 @@ class AddExamViewController: ItemViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func scheduleNotification(exam: Item) {
+        // Create reminder by setting a local notification
+        let localNotification = UILocalNotification()
+        localNotification.alertTitle = exam.subject.name
+        localNotification.alertBody =  exam.title
+        localNotification.alertAction = "ShowDetails"
+        localNotification.fireDate = exam.time as Date
+        localNotification.timeZone = TimeZone.current
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.applicationIconBadgeNumber = 1
+        localNotification.category = "reminderCategory"
+        UIApplication.shared.scheduleLocalNotification(localNotification)
+        
+        print("add successed")
+    }
+
     
 }

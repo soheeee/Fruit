@@ -125,11 +125,15 @@ class AddAssignmentViewController: ItemViewController {
             if isEditmode {
                 itemList.changeItem(from: assignmentToEdit!, to: assignment)
             } else {
-                if(PushAlert.alertDefault.bool(forKey: "PushEnabled")){
-                    itemList.insertItem(item: assignment)
-                    let item : Item = Item(id: 0, title: assignment.name, time: assignment.time, subject: assignment.subject)
-                    print(assignment.name + "\n" + assignment.time.description + "\n" + assignment.subject.name)
+                itemList.insertItem(item: assignment)
+                if(PushAlert.alertDefault.string(forKey: "PushEnabled")=="true"){
+                    let interval = Int(PushAlert.alertDefault.string(forKey: "PushTime")!)
+                    let addingTime = interval! * -3600
+                    let time = assignment.time.addingTimeInterval(TimeInterval(addingTime))
+                    print("real input time is: " + time.description)
+                    let item : Item = Item(id: 0, title: assignment.name, time: time, subject: assignment.subject)
                     scheduleNotification(assignMent: item)
+                    print("add assignment")
                 }
             }
             
