@@ -352,7 +352,7 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         alert.view.tintColor = Theme.main4
         
-        alert.addAction(UIAlertAction(title: "완료", style: .default){UIAlertAction in self.share(row: row)})
+        alert.addAction(UIAlertAction(title: "완료", style: .default){UIAlertAction in self.finishItem(row: row)})
         alert.addAction(UIAlertAction(title: "공유", style: .default){UIAlertAction in self.share(row: row)})
         alert.addAction(UIAlertAction(title: "삭제", style: .default){UIAlertAction in itemList.deleteItem(item: self.arrayItem[row])
             self.refreshTable()})
@@ -362,6 +362,11 @@ class MainTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         // Necessary to apply tint on iOS 9
         alert.view.tintColor = Theme.main4
+    }
+    
+    func finishItem(row: Int) {
+        itemList.finishItem(item: self.arrayItem[row])
+        self.refreshTable()
     }
     
     func share(row: Int) {
